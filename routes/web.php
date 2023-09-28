@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/', [LandingController::class, 'index'])->name('index');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
