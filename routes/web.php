@@ -22,3 +22,17 @@ Auth::routes();
 
 Route::get('/', [LandingController::class, 'index'])->name('index');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin', function(){
+    return view('admin.index');
+})->name('admin');
+
+Route::get('/examiners', function(){
+    return view('welcome');
+})->name('examiners');
+
+Route::get('/examinee', function(){
+    return view('welcome');
+})->name('examinee');
+
+

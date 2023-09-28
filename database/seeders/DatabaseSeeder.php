@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Don John Daryl Curativo',
             'email' => 'don@example.com',
             'password' => Hash::make('111'),
+            'role' => '1'
         ]);
     }
 }

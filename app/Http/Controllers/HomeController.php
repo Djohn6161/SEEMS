@@ -23,6 +23,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $role_id = auth()->user()->role;
+
+        $redirects = [
+            1 => '/admin',
+            2 => '/examiners',
+            3 => '/examinee',
+        ];
+
+        if (isset($redirects[$role_id])) {
+            return redirect($redirects[$role_id]);
+        } else {
+            return redirect('/home');
+        }
+    }
+
+    public function adminIndex(){
+        return view('admin.index');
     }
 }

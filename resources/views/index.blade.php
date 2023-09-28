@@ -1,4 +1,6 @@
-    <x-layouts>
+@extends('layouts.landing')
+
+@section('content')
     <!--? slider Area Start-->
     <section class="slider-area ">
         <div class="slider-active">
@@ -507,6 +509,5 @@
         </div>
     </section>
     
-        
-</x-layouts>
+@endsection
     <!-- About Area End -->
