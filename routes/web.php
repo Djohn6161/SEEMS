@@ -28,11 +28,11 @@ Route::get('/admin', function(){
 })->name('admin');
 
 Route::get('/examiners', function(){
-    return view('welcome');
+    return view('admin.index');
 })->name('examiners');
 
 Route::get('/examinee', function(){
-    return view('welcome');
+    return view('admin.index');
 })->name('examinee');
 
 
