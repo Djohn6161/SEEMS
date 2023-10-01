@@ -121,7 +121,7 @@
                     <div class="col-lg-8">
                         <h1 class="front-text"><b>Registration</b></h1>
                         <p><span style="color: red;">* required fields</span></p>
-                        <form action="{{ route('registration') }}" method="POST">
+                        <form action="{{ route('register') }}" method="POST">
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="col-md-12">
