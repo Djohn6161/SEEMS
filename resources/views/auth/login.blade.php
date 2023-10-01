@@ -6,7 +6,7 @@
         <div class="login-form">
             <!-- logo-login -->
             <div class="logo-login">
-                <a href="index.html"><img src="{{ asset('assets/img/logo/loder.png') }}" alt=""></a>
+                <a href="{{route('index')}}"><img src="{{ asset('assets/img/logo/loder.png') }}" alt=""></a>
             </div>
             <h2>Login Here</h2>
             <div class="form-input">
@@ -34,9 +34,9 @@
             </div>
 
             <!-- Forget Password -->
-            <a href="#" class="forget">Forget Password</a>
+            <a href="#" class="forget text-center">Forget Password</a>
             <!-- Forget Password -->
-            <a href="{{ route('register') }}" class="registration">Registration</a>
+            <a href="{{ route('register') }}" class="registration text-center">Registration</a>
         </div>
     </form>
 @endsection

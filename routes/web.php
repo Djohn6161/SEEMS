@@ -23,16 +23,18 @@ Auth::routes();
 Route::get('/', [LandingController::class, 'index'])->name('index');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/admin', function(){
-    return view('admin.index');
-})->name('admin');
-
-Route::get('/examiners', function(){
-    return view('admin.index');
-})->name('examiners');
-
-Route::get('/examinee', function(){
-    return view('admin.index');
-})->name('examinee');
-
-
+Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
+    Route::get('/admin', function () {
+        return view('admin.index');
+    })->name('admin');
+});
+Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
+    Route::get('/examiners', function () {
+        return view('admin.index');
+    })->name('examiners');
+});
+Route::group(['middleware' => ['auth', 'checkrole:3']], function () {
+    Route::get('/examinee', function () {
+        return view('admin.index');
+    })->name('examinee');
+});
