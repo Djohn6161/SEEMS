@@ -10,9 +10,8 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-7 col-md-12">
                             <div class="hero__caption">
-                                <h1 data-animation="fadeInLeft" data-delay="0.2s">Online Examination<br> platform</h1>
-                                <p data-animation="fadeInLeft" data-delay="0.4s">Lorem ipsum dolor, sit amet consectetur
-                                    adipisicing elit. Minus iste harum voluptate eum officia voluptatum.</p>
+                                <h1 data-animation="fadeInLeft" data-delay="0.2s">Bcc Online Entrance Examination<br></h1>
+                                <p data-animation="fadeInLeft" data-delay="0.4s" >Welcome to the BCC Online Entrance Examination</p>
                                 <a href="{{ route('register') }}" class="btn hero-btn" data-animation="fadeInLeft"
                                     data-delay="0.7s">Register Now!</a>
                             </div>
