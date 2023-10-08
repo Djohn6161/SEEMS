@@ -12,7 +12,7 @@
                             <div class="hero__caption">
                                 <h1 data-animation="fadeInLeft" data-delay="0.2s">Bcc Online Entrance Examination<br></h1>
                                 <p data-animation="fadeInLeft" data-delay="0.4s" >Welcome to the BCC Online Entrance Examination</p>
-                                <a href="{{ route('register') }}" class="btn hero-btn" data-animation="fadeInLeft"
+                                <a href="{{url('http://127.0.0.1:8000/#register')}}" class="btn hero-btn" data-animation="fadeInLeft"
                                     data-delay="0.7s">Register Now!</a>
                             </div>
                         </div>
@@ -118,14 +118,9 @@
             <div class="container-flex px- px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8">
-                        <h1 class="front-text"><b>Registration</b></h1>
-<<<<<<< Updated upstream
-                        <p><span style="color: red;">* required fields</span></p>
-                        <form action="{{ route('register') }}" method="POST">
-=======
+                        <h1 class="front-text" id="register"><b>Registration</b></h1>
                         {{-- <p><span style="color: red;">* required fields</span></p> --}}
                         <form action="{{ route('registration') }}" method="POST">
->>>>>>> Stashed changes
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="col-md-12">
@@ -214,10 +209,10 @@
                                         <input type="number" class="form-control" name="mobile_number" value="{{old('mobile_number')}}"
                                             id="mobile_number" placeholder="Mobile Number" required>
                                             @error('mobile_number')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                     </div>
                                 </div>
                             </div>

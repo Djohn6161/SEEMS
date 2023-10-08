@@ -30,7 +30,6 @@ class RegistrationController extends Controller
         $user->name = $validatedData['first_name'] . " " . $validatedData['last_name'];
         $user->email = $validatedData['email'];
         $user->role = 2;
-        $user->role = $validatedData['password'];
         $user->password = Hash::make($validatedData['password']);
         $user->save();
         $validatedData['users_id'] = $user->id;

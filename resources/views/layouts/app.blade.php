@@ -35,7 +35,7 @@
                     <ul class="navbar-nav me-auto">
 
 
-                        <x-flash-message></x-flash-message>adfsd
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
