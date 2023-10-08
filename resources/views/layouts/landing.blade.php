@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    
 </head>
 
 <body>
@@ -71,7 +70,7 @@
                                                 </li>
                                                 <li><a href="contact.html">Contact</a></li> --}}
                                                 <!-- Button -->
-                                                <li class="button-header margin-left "><a href="{{url('http://127.0.0.1:8000/#register')}}" class="btn">Register</a></li>
+                                                <li class="button-header margin-left "><a href="{{route('register')}}" class="btn">Register</a></li>
                                                 <li class="button-header"><a href="{{route('login')}}" class="btn btn3">Log in</a></li>
                                             </ul>
                                         </nav>
