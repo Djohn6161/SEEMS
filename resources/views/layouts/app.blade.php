@@ -14,7 +14,10 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/js/app.js'])
+        @vite(['resources/sass/app.scss'])
+        @vite(['resources/css/app.css'])
+    <!-- Custom styles for this template-->
 </head>
 <body>
     <div id="app">
@@ -31,6 +34,8 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
+
+                        <x-flash-message></x-flash-message>adfsd
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -71,7 +76,6 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>

@@ -87,9 +87,11 @@
                 </div>
             </div>
         </div>
+        
         <!-- Header End -->
     </header>
     <main>
+        <x-flash-message></x-flash-message>
         @yield('content')
     </main>
     @include('partials._userFooter')

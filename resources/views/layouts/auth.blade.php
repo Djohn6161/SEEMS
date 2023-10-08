@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    @vite(['resources/js/app.js'])
+        @vite(['resources/sass/app.scss'])
+        @vite(['resources/css/app.css'])
+    <!-- Custom styles for this template-->
 </head>
 
 <body>

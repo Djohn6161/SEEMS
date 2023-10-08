@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\RegistrationController;
+use App\Models\Registration;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +24,7 @@ Auth::routes();
 
 Route::get('/', [LandingController::class, 'index'])->name('index');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/student/registration', [RegistrationController::class, 'store'])->name('registration');
 
 Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/admin', function () {

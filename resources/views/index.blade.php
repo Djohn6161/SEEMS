@@ -119,27 +119,18 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8">
                         <h1 class="front-text"><b>Registration</b></h1>
+<<<<<<< Updated upstream
                         <p><span style="color: red;">* required fields</span></p>
                         <form action="{{ route('register') }}" method="POST">
+=======
+                        {{-- <p><span style="color: red;">* required fields</span></p> --}}
+                        <form action="{{ route('registration') }}" method="POST">
+>>>>>>> Stashed changes
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="mb-3 form-group">
-                                        <label for="lrn" class="form-label">* LRN</label>
-                                        <input type="text" class="form-control" name="lrn" id="lrn"
-                                            placeholder="LRN" value="{{ old('lrn') }}" required>
-                                        @error('lrn')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="email" class="form-label">* Email Address</label>
+                                        <label for="email" class="form-label">Email Address</label>
                                         <input id="email" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
                                             value="{{ old('email') }}" required autocomplete="email"
@@ -156,9 +147,9 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="mb-3 form-group">
-                                        <label for="first_name" class="form-label">* First Name</label>
+                                        <label for="first_name" class="form-label">First Name</label>
                                         <input type="text" class="form-control" name="first_name" id="first_name"
-                                            placeholder="First Name" value="{{old('first_name')}}" required>
+                                            placeholder="First Name" value="{{ old('first_name') }}" required>
                                         @error('first_name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -168,68 +159,78 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3 form-group">
-                                        <label for="middle_name" class="form-label">* Middle Name</label>
-                                        <input type="text" class="form-control" name="middle_name" id="middle_name"
+                                        <label for="middle_name" class="form-label">Middle Name</label>
+                                        <input type="text" class="form-control" name="middle_name" id="middle_name" value="{{ old('middle_name') }}"
                                             placeholder="Middle Name" required>
+                                    </div>
+                                        @error('middle_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3 form-group">
+                                        <label for="last_name" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" name="last_name" id="last_name"
+                                            placeholder="Last Name" value="{{ old('last_name') }}" required>
+                                        @error('last_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mb-3 form-group">
+                                        <label for="extension" class="form-label">Extension Name <b>(Optional)</b></label>
+                                        <input type="text" class="form-control" name="extension" id="extension"
+                                            placeholder="Extension Name" value="{{ old('extension') }}">
+                                        @error('extension')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3 form-group">
-                                        <label for="last_name" class="form-label">* Last Name</label>
-                                        <input type="text" class="form-control" name="last_name" id="last_name"
-                                            placeholder="Last Name" value="{{old('last_name')}}" required>
-                                            @error('last_name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3 form-group">
-                                        <label for="extension" class="form-label">Extension Name</label>
-                                        <input type="text" class="form-control" name="extension" id="extension"
-                                            placeholder="Extension Name" value="{{old('extension')}}" >
-                                            @error('last_name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3 form-group">
-                                        <label for="birthday" class="form-label">* Birthday</label>
-                                        <input type="date" class="form-control" name="birthday" id="birthday"
+                                        <label for="birthday" class="form-label">Birthday</label>
+                                        <input type="date" class="form-control" name="date_of_birth" id="birthday" value="{{old('birthday')}}"
                                             required>
+                                        @error('birthday')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
-                            </div>
-                            {{--
-                            <div class="row">
-                                <div class="col-md-15">
-                                    <div class="mb-3">
-                                        <label for="otp" class="form-label">OTP</label>
-                                        <input type="text" class="form-control" name="otp" id="otp" placeholder="Enter OTP" required>
-                                    </div>
-                                </div>
-                                <button type="button" id="send-otp-button">Send OTP</button>
-                            </div>
-                            --}}
 
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="mobile_number" class="form-label">Mobile Number</label>
+                                        <input type="number" class="form-control" name="mobile_number" value="{{old('mobile_number')}}"
+                                            id="mobile_number" placeholder="Mobile Number" required>
+                                            @error('mobile_number')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row-md-6 form-group">
                                 <div
                                     class="card-title text-md text-dark font-weight-bold pt-4 text-uppercase mb-3 custom-control custom-control-lg custom-checkbox">
                                     <input class="custom-control-input" style="width: 50px; height: 50px;"
                                         type="checkbox" name="confirmationCheck" id="confirmationCheck" required>
                                     <label class="custom-control-label" for="confirmationCheck">I confirm that the
-                                        documents
-                                        are correctly submitted.</label>
+                                        documents are correctly submitted.</label>
                                 </div>
                             </div>
-                            <button class="btn btn-primary float-right">Submit</button>
+                            <button type="submit" class="btn btn-primary float-right">Submit</button>
                         </form>
                         @if (session('success'))
                             <div class="alert alert-success mt-3">

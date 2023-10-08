@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id')->constrained('users')->onUpdate('cascade');
-            $table->string('lrn', 50)->nullable(false);
             $table->string('email')->unique();
             $table->string('first_name', 50)->nullable(false);
             $table->string('middle_name', 50)->nullable(true);
             $table->string('last_name', 50)->nullable(false);
             $table->string('extension', 5)->nullable(true);
             $table->date('date_of_birth')->nullable(false);
+            $table->string('mobile_number', 11)->nullable(false);
+            $table->string('password', 8)->nullable(false);
             $table->timestamps();
         });
     }
