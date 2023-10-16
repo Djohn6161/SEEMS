@@ -10,7 +10,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.ico')}}">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/sb-admin-2.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/slicknav.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/flaticon.css')}}">
@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
 <body>
@@ -71,7 +73,13 @@
                                                 <li><a href="contact.html">Contact</a></li> --}}
                                                 <!-- Button -->
                                                 <li class="button-header margin-left "><a href="{{route('register')}}" class="btn">Register</a></li>
+                                                @auth
+                                                <li class="button-header"><a href="{{route('admin')}}" class="btn btn3">Admin</a></li>
+                                                @else
+                                                
                                                 <li class="button-header"><a href="{{route('login')}}" class="btn btn3">Log in</a></li>
+                                                @endauth
+                                                
                                             </ul>
                                         </nav>
                                     </div>

@@ -127,7 +127,7 @@
                                     <div class="form-group">
                                         <label for="email" class="form-label">Email Address</label>
                                         <input id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror" name="email"
+                                            class="form-control @error('email')  is-invalid @enderror" style="font-size: 2.5rem" name="email"
                                             value="{{ old('email') }}" required autocomplete="email"
                                             placeholder="Email Address">
                                         @error('email')
@@ -143,7 +143,7 @@
                                 <div class="col-md-4">
                                     <div class="mb-3 form-group">
                                         <label for="first_name" class="form-label">First Name</label>
-                                        <input type="text" class="form-control" name="first_name" id="first_name"
+                                        <input type="text" class="form-control" name="first_name" id="first_name"  style="font-size: 2.5rem"
                                             placeholder="First Name" value="{{ old('first_name') }}" required>
                                         @error('first_name')
                                             <span class="invalid-feedback" role="alert">
@@ -155,7 +155,7 @@
                                 <div class="col-md-4">
                                     <div class="mb-3 form-group">
                                         <label for="middle_name" class="form-label">Middle Name</label>
-                                        <input type="text" class="form-control" name="middle_name" id="middle_name" value="{{ old('middle_name') }}"
+                                        <input type="text" class="form-control" name="middle_name" id="middle_name" value="{{ old('middle_name') }}" style="font-size: 2.5rem"
                                             placeholder="Middle Name" required>
                                     </div>
                                         @error('middle_name')
@@ -167,7 +167,7 @@
                                 <div class="col-md-4">
                                     <div class="mb-3 form-group">
                                         <label for="last_name" class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" name="last_name" id="last_name"
+                                        <input type="text" class="form-control" name="last_name" id="last_name" style="font-size: 2.5rem"
                                             placeholder="Last Name" value="{{ old('last_name') }}" required>
                                         @error('last_name')
                                             <span class="invalid-feedback" role="alert">
@@ -181,7 +181,7 @@
                                 <div class="col-md-4">
                                     <div class="mb-3 form-group">
                                         <label for="extension" class="form-label">Extension Name <b>(Optional)</b></label>
-                                        <input type="text" class="form-control" name="extension" id="extension"
+                                        <input type="text" class="form-control" name="extension" id="extension" style="font-size: 2.5rem"
                                             placeholder="Extension Name" value="{{ old('extension') }}">
                                         @error('extension')
                                             <span class="invalid-feedback" role="alert">
@@ -193,7 +193,7 @@
                                 <div class="col-md-4">
                                     <div class="mb-3 form-group">
                                         <label for="birthday" class="form-label">Birthday</label>
-                                        <input type="date" class="form-control" name="date_of_birth" id="birthday" value="{{old('birthday')}}"
+                                        <input type="date" class="form-control" name="date_of_birth" id="birthday" value="{{old('birthday')}}" style="font-size: 2.5rem"
                                             required>
                                         @error('birthday')
                                             <span class="invalid-feedback" role="alert">
@@ -206,7 +206,7 @@
                                 <div class="col-md-4">
                                     <div class="mb-3">
                                         <label for="mobile_number" class="form-label">Mobile Number</label>
-                                        <input type="number" class="form-control" name="mobile_number" value="{{old('mobile_number')}}"
+                                        <input type="text" class="form-control" name="mobile_number" value="{{old('mobile_number')}}" style="font-size: 2.5rem"
                                             id="mobile_number" placeholder="Mobile Number" required>
                                             @error('mobile_number')
                                                 <span class="invalid-feedback" role="alert">
@@ -216,16 +216,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row-md-6 form-group">
-                                <div
-                                    class="card-title text-md text-dark font-weight-bold pt-4 text-uppercase mb-3 custom-control custom-control-lg custom-checkbox">
-                                    <input class="custom-control-input" style="width: 50px; height: 50px;"
-                                        type="checkbox" name="confirmationCheck" id="confirmationCheck" required>
-                                    <label class="custom-control-label" for="confirmationCheck">I confirm that the
-                                        documents are correctly submitted.</label>
+                            <div class="row-md-6 form-group mt-4">
+                                <div class="card-title text-md text-dark font-weight-bold text-uppercase form-check">
+                                    
+                                    <label class="form-check-label " for="confirmationCheck" style="font-size: 2.5rem; ">
+                                        <input class="form-check-input mt-3 " type="checkbox" name="confirmationCheck" id="confirmationCheck" style="height:20px; width:20px" required> <b class="ml-4">I confirm that the documents are correctly submitted.</b></label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary float-right">Submit</button>
+                            <button type="submit" class="btn btn-primary float-right" style="font-size: 2.5rem; ">Submit</button>
                         </form>
                         @if (session('success'))
                             <div class="alert alert-success mt-3">
