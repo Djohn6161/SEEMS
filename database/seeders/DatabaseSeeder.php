@@ -20,11 +20,16 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call([
+            ExamSeeder::class
+        ]);
         User::create([
             'name' => 'Don John Daryl Curativo',
             'email' => 'don@example.com',
             'password' => Hash::make('111'),
             'role' => '1'
         ]);
+
+
     }
 }

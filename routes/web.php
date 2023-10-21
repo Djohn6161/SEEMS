@@ -1,9 +1,14 @@
 <?php
 
-use App\Http\Controllers\LandingController;
-use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ResultController;
+use App\Models\Examination;
 use App\Models\Registration;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\ExaminationController;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +32,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/student/registration', [RegistrationController::class, 'store'])->name('registration');
 
 Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
-    Route::get('/admin', function () {
-        return view('admin.index');
-    })->name('admin');
+    Route::get('/admin', [HomeController::class, 'adminindex'])->name('admin'); 
+
+    Route::get('/admin/examination/index', [ExaminationController::class, 'index'])->name('admin.exams.index'); 
+    Route::get('/admin/examination/{examination}', [ExaminationController::class, 'show'])->name('admin.exam.show'); 
+
+    Route::get('/admin/scores', [ResultController::class, 'index'])->name('admin.scores.index'); 
+
+    Route::get('/admin/accounts', [AccountController::class, 'index'])->name('admin.accounts.index'); 
+
+    Route::get('/admin/registration', [RegistrationController::class, 'index'])->name('admin.registration.index'); 
+    
 });
 Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::get('/examiners', function () {

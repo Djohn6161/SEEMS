@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Examination;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -37,5 +38,11 @@ class RegistrationController extends Controller
 
         return redirect()->back()->with('message', 'You have been registered for the examination');
 
+    }
+    public function index(){
+        $exams = Examination::all();
+        return view('admin.registration.index',[
+            'exams' => $exams
+        ]);
     }
 }

@@ -16,8 +16,16 @@ class ChoicesFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
+        static $letters = ['A', 'B', 'C', 'D'];
+        static $index = 0;
+
+        $choice = [
+            'letter' => $letters[$index],
+            'description' => $this->faker->sentence(),
         ];
+    
+        $index = ($index + 1) % 4;
+    
+        return $choice;
     }
 }

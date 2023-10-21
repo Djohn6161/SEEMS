@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Examination;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -39,6 +40,9 @@ class HomeController extends Controller
     }
 
     public function adminIndex(){
-        return view('admin.index');
+        $exams = Examination::all();
+        return view('admin.index',[
+            'exams' => $exams
+        ]);
     }
 }

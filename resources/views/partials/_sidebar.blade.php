@@ -29,7 +29,11 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link " href="#" data-toggle="collapse" data-target="#collapseTwo"
+        <a class="nav-link " href="{{route('admin.exams.index')}}"  >
+            <i class="fas fa-fw fa-scroll"></i>
+            <span>Examination</span>
+        </a>
+        {{-- <a class="nav-link " href="{{route('admin.exam.index')}}" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo" >
             <i class="fas fa-fw fa-cog"></i>
             <span>Examination</span>
@@ -37,23 +41,24 @@
         <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">List:</h6>
-                <a class="collapse-item" href="buttons.html">Exam1</a>
-                <a class="collapse-item" href="cards.html">Exam2</a>
+                @foreach ($exams as $exam)
+                    <a class="collapse-item" href="{{route('admin.exam.show',['examination' => $exam->id])}}">{{$exam->name}}</a>
+                @endforeach
             </div>
-        </div>
+        </div> --}}
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('admin.scores.index')}}">
             <i class="fas fa-tachometer-alt"></i>
             <span>Scores</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('admin.accounts.index')}}">
             <i class="fas fa-user"></i>
             <span>Accounts</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('admin.registration.index')}}">
             <i class="fas fa-copy"></i>
             <span>Registration</span></a>
     </li>
