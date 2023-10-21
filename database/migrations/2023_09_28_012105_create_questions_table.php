@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('type_id')->constrained('question_types')->onDelete('cascade');
             $table->foreignId('examinations_id')->constrained('examinations')->onUpdate('cascade')->onDelete('cascade');
             $table->string('Question');
             // $table->enum('type', ['essay', 'multiple_choices', 'true or false', 'identification', ''])

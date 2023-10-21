@@ -14,4 +14,11 @@ class Examination extends Model
     public function Result(){
         return $this->hasMany(Result::class, 'examinations_id');
     }
+    public function countQuestionBytype($type){
+
+        
+        $questions = self::Question()->where('type_id', $type)->get();
+        // dd(count($questions));
+        return count($questions);
+    }
 }

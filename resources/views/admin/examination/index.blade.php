@@ -8,8 +8,9 @@
 
 <div class="container-fluid">
     <div class="row">
+        {{-- {{dd($Qtype)}} --}}
         @foreach ($exams as $exam)
-            <x-exam.card :exam=$exam></x-exam.card>
+            <x-exam.card :exam=$exam :type=$Qtype></x-exam.card>
         @endforeach
     </div>
     

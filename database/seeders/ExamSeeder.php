@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Choices;
 use App\Models\Question;
 use App\Models\Examination;
+use App\Models\QuestionType;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -23,12 +24,23 @@ class ExamSeeder extends Seeder
 
         // Format the timestamp as a date and time
         $nextWeekDateTime = date('Y-m-d H:i:s', $nextWeekTimestamp);
+
+        $type = QuestionType::factory()->create([
+            'name' => 'Multiple Choices',
+        ]);
+        QuestionType::factory()->create([
+            'name' => 'True Or False',
+        ]);
+        QuestionType::factory()->create([
+            'name' => 'Essay',
+        ]);
         $exam = Examination::factory()->create([
             'name' => 'examination 1',
             'start_dateTime' => date('Y-m-d H:i:s'),
             'end_dateTime' => $nextWeekDateTime,
         ]);
         $question = Question::factory()->create([
+            'type_id' => $type->id,
             'examinations_id' => $exam->id,
         ]);
         Choices::factory()->create([
@@ -44,6 +56,7 @@ class ExamSeeder extends Seeder
             'questions_id' => $question->id,
         ]);
         $question = Question::factory()->create([
+            'type_id' => $type->id,
             'examinations_id' => $exam->id,
         ]);
         Choices::factory()->create([
@@ -59,6 +72,7 @@ class ExamSeeder extends Seeder
             'questions_id' => $question->id,
         ]);
         $question = Question::factory()->create([
+            'type_id' => $type->id,
             'examinations_id' => $exam->id,
         ]);
         Choices::factory()->create([
@@ -74,6 +88,7 @@ class ExamSeeder extends Seeder
             'questions_id' => $question->id,
         ]);
         $question = Question::factory()->create([
+            'type_id' => $type->id,
             'examinations_id' => $exam->id,
         ]);
         Choices::factory()->create([
@@ -89,6 +104,7 @@ class ExamSeeder extends Seeder
             'questions_id' => $question->id,
         ]);
         $question = Question::factory()->create([
+            'type_id' => $type->id,
             'examinations_id' => $exam->id,
         ]);
         Choices::factory()->create([
@@ -104,6 +120,7 @@ class ExamSeeder extends Seeder
             'questions_id' => $question->id,
         ]);
         $question = Question::factory()->create([
+            'type_id' => $type->id,
             'examinations_id' => $exam->id,
         ]);
         Choices::factory()->create([
@@ -119,6 +136,7 @@ class ExamSeeder extends Seeder
             'questions_id' => $question->id,
         ]);
         $question = Question::factory()->create([
+            'type_id' => $type->id,
             'examinations_id' => $exam->id,
         ]);
         Choices::factory()->create([
@@ -134,6 +152,7 @@ class ExamSeeder extends Seeder
             'questions_id' => $question->id,
         ]);
         $question = Question::factory()->create([
+            'type_id' => $type->id,
             'examinations_id' => $exam->id,
         ]);
         Choices::factory()->create([
@@ -149,6 +168,7 @@ class ExamSeeder extends Seeder
             'questions_id' => $question->id,
         ]);
         $question = Question::factory()->create([
+            'type_id' => $type->id,
             'examinations_id' => $exam->id,
         ]);
         Choices::factory()->create([
@@ -164,6 +184,7 @@ class ExamSeeder extends Seeder
             'questions_id' => $question->id,
         ]);
         $question = Question::factory()->create([
+            'type_id' => $type->id,
             'examinations_id' => $exam->id,
         ]);
         Choices::factory()->create([

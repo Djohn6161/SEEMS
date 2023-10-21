@@ -13,13 +13,16 @@
                 </div>
             </div>
             
-            
+            {{-- {{dd($type)}} --}}
         </div>
         <div class="card-body">
             <h4 class="card-title text-center">Informations</h4>
             <div class="row">
-                <div class="col-md-6"><p class="card-text">Number Of Questions: </p></div>
-                <div class="col-md-6">{{count($exam->Question)}}</div>
+                
+                @foreach ($type as $item)
+                <div class="col-md-6"><p class="card-text">Number Of {{$item->name}}: </p></div>
+                <div class="col-md-6">{{$exam->countQuestionBytype($item->id)}}</div>
+                @endforeach
             </div>
             
         </div>
