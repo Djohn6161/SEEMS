@@ -42,7 +42,8 @@ class RegistrationController extends Controller
     public function index(){
         $exams = Examination::all();
         return view('admin.registration.index',[
-            'exams' => $exams
+            'exams' => $exams,
+            'active' => 'registration'
         ]);
     }
 }

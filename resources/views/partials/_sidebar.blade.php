@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin')}}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -13,8 +13,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+    <li class="nav-item {{$active == 'dashboard' ? 'active' : ' '}}">
+        <a class="nav-link" href="{{route('admin')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Dashboard</span></a>
     </li>
@@ -28,7 +28,7 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    <li class="nav-item {{$active == 'exam' ? 'active' : ' '}}">
         <a class="nav-link " href="{{route('admin.exams.index')}}"  >
             <i class="fas fa-fw fa-scroll"></i>
             <span>Examination</span>
@@ -47,17 +47,17 @@
             </div>
         </div> --}}
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{$active == 'scores' ? 'active' : ' '}}">
         <a class="nav-link" href="{{route('admin.scores.index')}}">
             <i class="fas fa-tachometer-alt"></i>
             <span>Scores</span></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{$active == 'accounts' ? 'active' : ' '}}">
         <a class="nav-link" href="{{route('admin.accounts.index')}}">
             <i class="fas fa-user"></i>
             <span>Accounts</span></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{$active == 'registration' ? 'active' : ' '}}">
         <a class="nav-link" href="{{route('admin.registration.index')}}">
             <i class="fas fa-copy"></i>
             <span>Registration</span></a>
@@ -72,7 +72,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('index')}}">
             <i class="fas fa-reply"></i>
-            <span>Visti Site</span></a>
+            <span>Visit Site</span></a>
     </li>
     <hr class="sidebar-divider d-none d-md-block">
 

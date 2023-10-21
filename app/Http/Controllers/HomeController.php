@@ -42,7 +42,8 @@ class HomeController extends Controller
     public function adminIndex(){
         $exams = Examination::all();
         return view('admin.index',[
-            'exams' => $exams
+            'exams' => $exams,
+            'active' => 'dashboard'
         ]);
     }
 }

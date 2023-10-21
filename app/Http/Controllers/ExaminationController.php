@@ -13,6 +13,7 @@ class ExaminationController extends Controller
         $exams = Examination::all();
         return view('admin.examination.index',[
             'exams' => $exams,
+            'active' => 'exam'
         ]);
     }
     public function show(Examination $examination){
@@ -29,6 +30,7 @@ class ExaminationController extends Controller
             'examination_now' => $examination,
             'questions' => $questions,
             'choices' => $choices,
+            'active' => 'exam'
         ]);
     }
 }
