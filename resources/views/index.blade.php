@@ -220,7 +220,7 @@
                                 <div class="card-title text-md text-dark font-weight-bold text-uppercase form-check">
                                     
                                     <label class="form-check-label " for="confirmationCheck" style="font-size: 2.5rem; ">
-                                        <input class="form-check-input mt-3 " type="checkbox" name="confirmationCheck" id="confirmationCheck" style="height:20px; width:20px" required> <b class="ml-4">I confirm that the documents are correctly submitted.</b></label>
+                                        <input class="form-check-input mt-3 " type="checkbox" name="confirmationCheck" id="confirmationCheck" style="height:20px; width:20px" required> <b class="ml-4">I confirm that the Informations are correct.</b></label>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary float-right" style="font-size: 2.5rem; ">Submit</button>

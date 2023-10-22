@@ -36,7 +36,12 @@ class LoginController extends Controller
 
         $role = auth()->user()->role;
 
-        return $redirectPaths[$role] ?? '/home';
+        $state = auth()->user()->active;
+
+        // dd($state);
+            return $redirectPaths[$role] ?? '/home';
+
+        
     }
 
     /**

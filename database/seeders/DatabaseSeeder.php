@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             ExamSeeder::class
         ]);
         User::create([
+            'active' => true,
             'name' => 'Don John Daryl Curativo',
             'email' => 'don@example.com',
             'password' => Hash::make('111'),

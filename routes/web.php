@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
 
     Route::get('/admin/accounts', [AccountController::class, 'index'])->name('admin.accounts.index'); 
 
-    Route::get('/admin/registration', [RegistrationController::class, 'index'])->name('admin.registration.index'); 
+    Route::get('/admin/registration/index', [RegistrationController::class, 'index'])->name('admin.registration.index'); 
     
 });
 Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
