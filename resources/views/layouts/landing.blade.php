@@ -72,7 +72,7 @@
                                                 </li>
                                                 <li><a href="contact.html">Contact</a></li> --}}
                                                 <!-- Button -->
-                                                <li class="button-header margin-left "><a href="{{route('register')}}" class="btn">Register</a></li>
+                                                <li class="button-header margin-left "><a href="{{url('/#register')}}" class="btn">Register</a></li>
                                                 @auth
                                                 <li class="button-header"><a href="{{route('admin')}}" class="btn btn3">Admin</a></li>
                                                 @else

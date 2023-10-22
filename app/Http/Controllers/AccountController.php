@@ -15,9 +15,11 @@ class AccountController extends Controller
     {
         //
         $exams = Examination::all();
+        $accounts = User::all();
         return view('admin.accounts.index',[
             'exams' => $exams,
-            'active' => 'accounts'
+            'active' => 'accounts',
+            'accounts' => $accounts,
         ]);
     }
 

@@ -146,6 +146,89 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+            const collegeCheckboxes = document.querySelectorAll('input[name="thesis[]"]');
+
+            collegeCheckboxes.forEach(function(collegeCheckbox) {
+                collegeCheckbox.addEventListener("click", function() {
+                    const collegeId = this.value;
+                    const programCheckboxes = document.querySelectorAll(
+                        'input[name="thesis[]"][data-college="' + collegeId + '"]');
+
+                    programCheckboxes.forEach(function(programCheckbox) {
+                        programCheckbox.checked = collegeCheckbox.checked;
+                    });
+                });
+            });
+            $('#dataTable tbody').on('click', 'tr', function() {
+                var checkbox = $(this).find('input[type="checkbox"]');
+                checkbox.prop('checked', !checkbox.prop('checked'));
+                updateRowDataList()
+
+            });
+            $('#checkAll').on('click', function() {
+                var checkAllState = $(this).prop('checked');
+                $('#dataTable tbody').find('input[type="checkbox"]').prop('checked', checkAllState);
+                $(this).next('label').text(checkAllState ? 'Uncheck All' : 'Check All');
+                updateRowDataList();
+            });
+
+            function updateRowDataList() {
+                if ($('#dataTable tbody').find('input[type="checkbox"]:checked').length > 0) {
+                    $('#deleteButton').show();
+                    $('#featuredButton').show();
+                } else {
+                    $('#deleteButton').hide();
+                    $('#featuredButton').hide();
+                }
+
+                var rowDataList = $('#rowDataList');
+                var featuredDataList = $('#featuredDataList');
+                $('#dataTable tbody').find('input[type="checkbox"]:checked').each(function() {
+                    var id = $(this).val();
+                    var row = $(this).closest('tr');
+                    var rowname = row.find('td:eq(2)').text();
+                    var rowValue = parseInt(row.find('td:eq(4)').text());
+                    var rowacro = row.find('td:eq(3)').text();
+                    if (!rowDataList.find('input[value="' + id + '"]').length) {
+                        rowDataList.append('<input type="hidden" id="' + id + '" name="ids[]" value="' +
+                            id + '">');
+                        rowDataList.append("<li class='text-danger font-size-20' id='span" + id + "'>" +
+                            rowname + "</li>");
+                    }
+                    if (!featuredDataList.find('input[value="' + id + '"]').length) {
+                        featuredDataList.append('<input type="hidden" id="' + id +
+                            '" name="ids[]" value="' +
+                            id + '">');
+                        featuredDataList.append("<li class='text-primary font-size-20' id='span" + id +
+                            "'>" +
+                            rowname + "</li>");
+                    }
+                });
+                rowDataList = $('#rowDataList');
+                rowDataList.find('input[type="hidden"]').each(function() {
+                    var id = $(this).val();
+                    if ($('#dataTable tbody').find('input[value="' + id + '"]').length && !$(
+                            '#dataTable tbody').find('input[value="' + id + '"]:checked').length) {
+                        $('#' + id).remove();
+
+                        $('#span' + id).remove();
+                    }
+                });
+                featuredDataList = $('#featuredDataList');
+                featuredDataList.find('input[type="hidden"]').each(function() {
+                    var id = $(this).val();
+                    if ($('#dataTable tbody').find('input[value="' + id + '"]').length && !$(
+                            '#dataTable tbody').find('input[value="' + id + '"]:checked').length) {
+                        $('#' + id).remove();
+
+                        $('#span' + id).remove();
+                    }
+                });
+            }
+        });
+</script>
 
 
 <!-- Content Row -->
