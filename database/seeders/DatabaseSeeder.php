@@ -29,6 +29,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('111'),
             'role' => '1'
         ]);
+        User::create([
+            'name' => 'Mariel Guevara',
+            'email' => 'mariel@example.com',
+            'password' => Hash::make('111'),
+            'role' => '1'
+        ]);
 
 
     }
