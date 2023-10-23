@@ -47,7 +47,7 @@
                             <th class="text-center">Extension</th>
                             <th class="text-center">Date Of Birth</th>
                             <th class="text-center">Mobile Number</th>
-                            <th class="text-center">Action</th>
+                            <th class="text-center">Password</th>
                             {{-- <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="">
                                     Showing {{ $theses->firstItem() ?? '0' }}

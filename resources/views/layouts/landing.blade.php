@@ -25,7 +25,10 @@
     <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <script src="//unpkg.com/alpinejs" defer></script>
+    {{-- <script src="//unpkg.com/alpinejs" defer></script> --}}
+    @vite(['resources/js/app.js'])
+        @vite(['resources/sass/app.scss'])
+        @vite(['resources/css/app.css'])
 </head>
 
 <body>
