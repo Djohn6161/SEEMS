@@ -193,9 +193,9 @@
                                 <div class="col-md-4">
                                     <div class="mb-3 form-group">
                                         <label for="birthday" class="form-label">Birthday</label>
-                                        <input type="date" class="form-control" name="date_of_birth" id="birthday" value="{{old('birthday')}}" style="font-size: 2.5rem"
+                                        <input type="date" class="form-control" name="date_of_birth" id="birthday" value="{{old('date_of_birth')}}" style="font-size: 2.5rem"
                                             required>
-                                        @error('birthday')
+                                        @error('date_of_birth')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

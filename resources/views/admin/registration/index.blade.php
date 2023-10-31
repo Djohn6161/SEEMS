@@ -2,9 +2,11 @@
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Registration</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal"
+    data-target="#createModal"><i
             class="fas fa-plus fa-sm text-white-50"></i> Add Registration</a>
 </div>
+<x-registration.create></x-registration.create>
 
 
 <div class="container-fluid">
@@ -48,6 +50,8 @@
                             <th class="text-center">Date Of Birth</th>
                             <th class="text-center">Mobile Number</th>
                             <th class="text-center">Password</th>
+                            <th class="text-center">Date Registered</th>
+                            <th class="text-center">Action</th>
                             {{-- <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="">
                                     Showing {{ $theses->firstItem() ?? '0' }}
@@ -84,6 +88,23 @@
                                 <td>{{ $registration->date_of_birth }}</td>
                                 <td>{{ $registration->mobile_number }}</td>
                                 <td>{{ $registration->password }}</td>
+                                <td>{{ $registration->created_at }}</td>
+                                <td width="15%" class='py-1'>
+                                    <div class="d-flex justify-content-lg-center">
+                                        <button type="button" class="btn btn-warning mx-2" data-toggle="modal"
+                                            data-target="#editModal{{ $registration->id }}">
+                                            <i class="fas fa-pen"></i>
+                                            Edit
+                                        </button>
+                                        <button type="button" class="btn btn-danger mx-2" data-toggle="modal"
+                                            data-target="#deleteModal{{ $registration->id }}">
+                                            <i class="fas fa-trash"></i>
+                                            Delete
+                                        </button>
+
+                                    </div>
+
+                                </td>
                                 {{-- <td style="max-width: 15%"><span class="limit-line">{{ $thesis->authors }}</span>
                                 </td>
                                 @if ($thesis->file !== null)

@@ -27,14 +27,14 @@ class RegistrationController extends Controller
         
         // dd($validatedData['email']);
 
-        $user = new User();
-        $user->name = $validatedData['first_name'] . " " . $validatedData['last_name'];
-        $user->email = $validatedData['email'];
-        $user->role = 2;
-        $user->password = Hash::make($validatedData['password']);
-        $user->save();
-        $validatedData['users_id'] = $user->id;
-        $user = Registration::create($validatedData);
+        // $user = new User();
+        // $user->name = $validatedData['first_name'] . " " . $validatedData['last_name'];
+        // $user->email = $validatedData['email'];
+        // $user->role = 2;
+        // $user->password = Hash::make($validatedData['password']);
+        // $user->save();
+        // $validatedData['users_id'] = $user->id;
+        // $user = Registration::create($validatedData);
 
         return redirect()->back()->with('message', 'You have been registered for the examination');
 

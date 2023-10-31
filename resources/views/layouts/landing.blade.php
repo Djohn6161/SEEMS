@@ -77,7 +77,7 @@
                                                 <!-- Button -->
                                                 <li class="button-header margin-left "><a href="{{url('/#register')}}" class="btn">Register</a></li>
                                                 @auth
-                                                <li class="button-header"><a href="{{route('admin')}}" class="btn btn3">Admin</a></li>
+                                                <li class="button-header"><a href="{{route('admin.index')}}" class="btn btn3">Admin</a></li>
                                                 @else
                                                 
                                                 <li class="button-header"><a href="{{route('login')}}" class="btn btn3">Log in</a></li>

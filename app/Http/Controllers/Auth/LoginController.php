@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -42,6 +44,13 @@ class LoginController extends Controller
             return $redirectPaths[$role] ?? '/home';
 
         
+    }
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->active === 0) {
+            Auth::logout();
+            return redirect('/login')->with('message', 'Your account is currently inactive'); // Redirect to an "inactive" page or wherever you want.
+        }
     }
 
     /**
