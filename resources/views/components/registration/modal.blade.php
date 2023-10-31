@@ -89,3 +89,31 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="deleteModal{{ $registration->id }}" aria-labelledby="deleteProduct" tabindex="-1"
+    role="dialog" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure you want to delete this Registration:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span class='text-danger font-size-20'>{{ $registration->email }}</span>
+            </div>
+            <div class="modal-footer">
+                <form action="{{ route('admin.registration.destroy', ['registration' => $registration->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" name="id" id="id[{{$registration->id}}]" value="{{ $registration->id }}">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary mr-3" data-dismiss="modal">Close</button>
+                        <button type="submit" class=" btn btn-danger">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

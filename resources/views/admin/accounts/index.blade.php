@@ -74,7 +74,7 @@
                                     </td>
                                     <td> {{ $account->name }} </td>
                                     <td> {{ $account->email }}</td>
-                                    <td>{{ $account->role == 1 ? 'Admin' : 'Normal' }}</td>
+                                    <td>{{ $account->role == 1 ? 'Admin' : 'Examinee' }}</td>
                                     <td>{{ $account->active == 1 ? 'Active' : 'Inactive' }}</td>
                                     {{-- <td style="max-width: 15%"><span class="limit-line">{{ $thesis->authors }}</span>
                                 </td>

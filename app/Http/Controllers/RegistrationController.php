@@ -27,14 +27,14 @@ class RegistrationController extends Controller
         
         // dd($validatedData['email']);
 
-        // $user = new User();
-        // $user->name = $validatedData['first_name'] . " " . $validatedData['last_name'];
-        // $user->email = $validatedData['email'];
-        // $user->role = 2;
-        // $user->password = Hash::make($validatedData['password']);
-        // $user->save();
-        // $validatedData['users_id'] = $user->id;
-        // $user = Registration::create($validatedData);
+        $user = new User();
+        $user->name = $validatedData['first_name'] . " " . $validatedData['last_name'];
+        $user->email = $validatedData['email'];
+        $user->role = 2;
+        $user->password = Hash::make($validatedData['password']);
+        $user->save();
+        $validatedData['users_id'] = $user->id;
+        $user = Registration::create($validatedData);
 
         return redirect()->back()->with('message', 'Registered Successfully');
 
@@ -65,6 +65,13 @@ class RegistrationController extends Controller
         return back()->with('message', $registration->email . ' Updated Successfully!');
     }
     public function destroy(Registration $registration){
-        dd($registration);
+        // dd($registration);
+            $user = User::find($registration->users_id);
+            // dd($user);
+            $registration->delete();
+
+            $user->delete();
+            
+            return back()->with('message', 'Registration Deleted Successfully!');
     }
 }
