@@ -26,7 +26,7 @@
                             <span class="text-danger alert " role="alert">{{ $errors->create->first('first_name') }}</span>
                         @endif
                         <input type="text" name="first_name" class="form-control" style="font-size: 14px"
-                            placeholder="" value="{{ old('first_name') }}"
+                            placeholder="Enter your first name" value="{{ old('first_name') }}"
                             required>
                     </div>
                     <div class="form-group mb-4">
@@ -35,7 +35,7 @@
                             <span class="text-danger alert " role="alert">{{ $errors->create->first('middle_name') }}</span>
                         @endif
                         <input type="text" name="middle_name" class="form-control" style="font-size: 14px"
-                            placeholder="" value="{{ old('middle_name') }}"
+                            placeholder="Enter your middle name" value="{{ old('middle_name') }}"
                             required>
                     </div>
                     <div class="form-group mb-4">
@@ -44,7 +44,7 @@
                             <span class="text-danger alert " role="alert">{{ $errors->create->first('last_name') }}</span>
                         @endif
                         <input type="text" name="last_name" class="form-control" style="font-size: 14px"
-                            placeholder="" value="{{ old('last_name') }}"
+                            placeholder="Enter your last name" value="{{ old('last_name') }}"
                             required>
                     </div>
                     <div class="form-group mb-4">
@@ -53,7 +53,7 @@
                             <span class="text-danger alert " role="alert">{{ $errors->create->first('extension') }}</span>
                         @endif
                         <input type="text" name="extension" class="form-control" style="font-size: 14px"
-                            placeholder="" value="{{ old('extension') }}"
+                            placeholder="Ex: Jr. Sr. (leave it blank if none)" value="{{ old('extension') }}"
                             >
                     </div>
                     <div class="form-group mb-4">
@@ -71,7 +71,7 @@
                             <span class="text-danger alert " role="alert">{{ $errors->create->first('mobile_number') }}</span>
                         @endif
                         <input type="text" name="mobile_number" class="form-control" style="font-size: 14px"
-                            placeholder="" value="{{ old('mobile_number') }}"
+                            placeholder="11 digit mobile number: 09123456789" value="{{ old('mobile_number') }}"
                             required>
                     </div>
 

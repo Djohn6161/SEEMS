@@ -105,6 +105,7 @@
                                     </div>
 
                                 </td>
+                                <x-registration.modal :registration=$registration  />
                                 {{-- <td style="max-width: 15%"><span class="limit-line">{{ $thesis->authors }}</span>
                                 </td>
                                 @if ($thesis->file !== null)

@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
 
     Route::get('/registration/index', [RegistrationController::class, 'index'])->name('registration.index'); 
     Route::post('/registration/store', [RegistrationController::class, 'store'])->name('registration.store'); 
+    Route::put('/registration/update/{registration}', [RegistrationController::class, 'update'])->name('registration.update'); 
     
     });
 });

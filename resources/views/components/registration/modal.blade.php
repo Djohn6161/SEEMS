@@ -9,52 +9,78 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="updateProgram{{ $program->id }}" method="POST"
-                    action="{{ route('admin.programs.update', ['program' => $program->id]) }}">
+                <form id="updateRegistration{{ $registration->id }}" method="POST"
+                    action="{{ route('admin.registration.update', ['registration' => $registration->id]) }}">
                     @csrf
                     @method('PUT')
                     <div class="form-group mb-4">
-                        <label for="name" class="text-dark">Program Name</label>
-                        @error('name')
+                        <label for="email[{{ $registration->id }}]" class="text-dark">Email</label>
+                        @error('email')
                             <span class="text-danger alert " role="alert">{{ $message }}</span>
                         @enderror
                         <input type="text" class="form-control text-dark" style="font-size: 14px"
-                            id="name[{{ $program->id }}]" name="name" placeholder="Bachelor of Science..."
-                            value="{{ $program->name }}" required>
+                            id="email[{{ $registration->id }}]" name="email" placeholder=""
+                            value="{{ $registration->email }}" required>
                     </div>
                     <div class="form-group mb-4">
-                        <label for="acrocode" class="text-dark">Acronym</label>
-                        @error('acrocode')
+                        <label for="first_name[{{ $registration->id }}]" class="text-dark">First Name</label>
+                        @error('first_name')
                             <span class="text-danger alert " role="alert">{{ $message }}</span>
                         @enderror
-                        <input type="text" id="acrocode[{{ $program->id }}]" name="acrocode"
-                            class="form-control" style="font-size: 14px" placeholder="Examples: BSCS, BSIT, BLIS"
-                            value="{{ $program->acrocode }}" required>
+                        <input type="text" class="form-control text-dark" style="font-size: 14px"
+                            id="first_name[{{ $registration->id }}]" name="first_name" placeholder=""
+                            value="{{ $registration->first_name }}" required>
                     </div>
-                    <div class="row">
-                        <label for="college" class="text-dark col-sm-3">College: </label>
-
-                        <div class="col-sm-9">
-                            <select class="selectpicker form-control" name="colleges_id"
-                                id="college[{{ $program->id }}]" data-live-search="true" required>
-                                <option value="" class="font-weight-bold text-dark">Select a College</option>
-                                @foreach ($colleges as $college)
-                                    <option value="{{ $college->id }}"
-                                        @if ($program->colleges_id == $college->id) class="text-light font-weight-bold bg-primary" selected @endif>
-                                        {{ $college->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('colleges_id')
-                                <span class="text-danger alert p-0 " role="alert">{{ $message }}</span>
-                            @enderror
-                        </div>
+                    <div class="form-group mb-4">
+                        <label for="middle_name[{{ $registration->id }}]" class="text-dark">Middle name</label>
+                        @error('middle_name')
+                            <span class="text-danger alert " role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="text" class="form-control text-dark" style="font-size: 14px"
+                            id="middle_name[{{ $registration->id }}]" name="middle_name" placeholder=""
+                            value="{{ $registration->middle_name }}" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="last_name[{{ $registration->id }}]" class="text-dark">Last name</label>
+                        @error('last_name')
+                            <span class="text-danger alert " role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="text" class="form-control text-dark" style="font-size: 14px"
+                            id="last_name[{{ $registration->id }}]" name="last_name" placeholder=""
+                            value="{{ $registration->last_name }}" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="extension[{{ $registration->id }}]" class="text-dark">Extension</label>
+                        @error('extension')
+                            <span class="text-danger alert " role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="text" class="form-control text-dark" style="font-size: 14px"
+                            id="extension[{{ $registration->id }}]" name="extension" placeholder=""
+                            value="{{ $registration->extension }}" >
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="date_of_birth[{{ $registration->id }}]" class="text-dark">Birthday</label>
+                        @error('date_of_birth')
+                            <span class="text-danger alert " role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="date" class="form-control text-dark" style="font-size: 14px"
+                            id="date_of_birth[{{ $registration->id }}]" name="date_of_birth" placeholder=""
+                            value="{{ $registration->date_of_birth }}" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="mobile_number[{{ $registration->id }}]" class="text-dark">Mobile number</label>
+                        @error('mobile_number')
+                            <span class="text-danger alert " role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="text" class="form-control text-dark" style="font-size: 14px"
+                            id="mobile_number[{{ $registration->id }}]" name="mobile_number" placeholder=""
+                            value="{{ $registration->mobile_number }}" required>
                     </div>
 
                 </form>
             </div>
             <div class="modal-footer">
-                <button form="updateProgram{{ $program->id }}" type="submit"
+                <button form="updateRegistration{{ $registration->id }}" type="submit"
                     class="btn btn-primary btn-user btn-block" style="font-size: 14px">
                     Submit
                 </button>

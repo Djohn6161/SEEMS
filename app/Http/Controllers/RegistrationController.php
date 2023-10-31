@@ -36,7 +36,7 @@ class RegistrationController extends Controller
         // $validatedData['users_id'] = $user->id;
         // $user = Registration::create($validatedData);
 
-        return redirect()->back()->with('message', 'You have been registered for the examination');
+        return redirect()->back()->with('message', 'Registered Successfully');
 
     }
     public function index(){
@@ -47,5 +47,24 @@ class RegistrationController extends Controller
             'active' => 'registration',
             'registrations' => $registrations,
         ]);
+    }
+    public function update(Request $request, Registration $registration){
+        // dd($registration->users_id);
+        $formFields = $request->validate([
+            'email' => "required|unique:users,email,{$registration->users_id}",
+            'first_name' => 'required|max:50',
+            'middle_name' => 'nullable|max:50',
+            'last_name' => 'required|max:50',
+            'extension' => 'nullable|max:5',
+            'date_of_birth' => 'required|date',
+            'mobile_number' => 'required|digits:11',
+        ]);
+        $registration->update($formFields);
+        // dd($program);
+        // $status = $registration->email . ' Updated Successfully!';
+        return back()->with('message', $registration->email . ' Updated Successfully!');
+    }
+    public function destroy(Registration $registration){
+        dd($registration);
     }
 }
