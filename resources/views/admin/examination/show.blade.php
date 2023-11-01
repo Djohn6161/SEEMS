@@ -1,41 +1,45 @@
 @extends('layouts.admin')
 @section('content')
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800 text-uppercase">{{$examination_now->name}}</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-plus fa-sm text-white-50"></i> Add Question</a>
-</div>
-<div class="container-fluid">
-    @foreach ($type as $question_type)
-    <h4 class="text-dark text-uppercase">{{$question_type->name}}</h4>
-        @foreach ($questions->where('type_id', $question_type->id) as $question)
-        
-        <div class="card mb-3">
-            <div class="card-header">{{$question->Question}}</div>
-            <div class="card-body">
-                <div class="row">
-                    @foreach ($choices->where('questions_id', $question->id) as $item)
-                        <div class="col-md-6 d-flex align-items-center ">
-                            <input class="mr-2" type="radio" name="choice[{{$question->id}}]" value="{{$item->id}}">
-                            <label class="mb-0" for="choice1"> {{$item->letter}}) {{$item->description}}</label>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800 text-uppercase">{{ $examination_now->name }}</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-plus fa-sm text-white-50"></i> Add Question</a>
+    </div>
+    <div class="container-fluid">
+        @foreach ($type as $question_type)
+            <h4 class="text-dark text-uppercase">{{ $question_type->name }}</h4>
+            @unless (count($questions->where('type_id', $question_type->id)) == 0)
+                @foreach ($questions->where('type_id', $question_type->id) as $question)
+                    <div class="card mb-3">
+                        <div class="card-header">{{ $question->Question }}</div>
+                        <div class="card-body">
+                            <div class="row">
+                                @foreach ($choices->where('questions_id', $question->id) as $item)
+                                    <div class="col-md-6 d-flex align-items-center ">
+                                        <input class="mr-2" type="radio" name="choice[{{ $question->id }}]"
+                                            value="{{ $item->id }}">
+                                        <label class="mb-0" for="choice1"> {{ $item->letter }})
+                                            {{ $item->description }}</label>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                    @endforeach
-                </div>
-            </div>
-            <div class="card-footer">
-                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-plus fa-sm text-white-50"></i> Add Choices</a>
-            </div>
-        </div>
+                        <div class="card-footer">
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                    class="fas fa-plus fa-sm text-white-50"></i> Add Choices</a>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <div class=" alert alert-secondary text-center font-size-20 pt-3 text-uppercase">No Record of questions for this type</div>
+            @endunless
         @endforeach
-    @endforeach
-    
-</div>
+
+    </div>
 
 
 
 
 
-<!-- Content Row -->
-
+    <!-- Content Row -->
 @endsection

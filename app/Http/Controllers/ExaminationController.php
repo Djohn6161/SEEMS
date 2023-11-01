@@ -49,4 +49,22 @@ class ExaminationController extends Controller
         Examination::create($validatedData);
         return redirect()->back()->with('message', 'Examination Created Successfully');
     }
+    public function update(Request $request, Examination $examination){
+        // dd($request);
+        $validatedData = $request->validate([
+            'name' => "required|unique:examinations,name, {$examination->id}",
+            'start_dateTime' => 'required',
+            'end_dateTime' => 'nullable',
+        ]);
+        $examination->update($validatedData);
+        // dd($program);
+        // $status = $registration->email . ' Updated Successfully!';
+        return back()->with('message', $examination->name . ' Updated Successfully!');
+    }
+    public function destroy(Examination $examination){
+        // dd($examination);
+        $examination->delete();
+            
+        return back()->with('message', 'Examination Deleted Successfully!');
+    }
 }
