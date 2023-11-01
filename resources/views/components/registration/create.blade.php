@@ -59,7 +59,7 @@
                     <div class="form-group mb-4">
                         <label for="date_of_birth" class="text-dark">Birthday</label>
                         @if(!empty($errors->create->first('date_of_birth')))
-                            <span class="text-danger alert " role="alert">{{ $errors->create->first('birthday') }}</span>
+                            <span class="text-danger alert " role="alert">{{ $errors->create->first('date_of_birth') }}</span>
                         @endif
                         <input type="date" name="date_of_birth" class="form-control" style="font-size: 14px"
                             placeholder="" value="{{ old('date_of_birth') }}"

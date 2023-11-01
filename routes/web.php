@@ -36,16 +36,24 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/', [HomeController::class, 'adminindex'])->name('index'); 
 
     Route::get('/examination/index', [ExaminationController::class, 'index'])->name('exams.index'); 
+    Route::post('/examination/store', [ExaminationController::class, 'store'])->name('exam.store');
+    Route::put('/examination/update/{examination}', [ExaminationController::class, 'update'])->name('exam.update');
+    Route::delete('/examination/destroy/{examination}', [ExaminationController::class,'destroy'])->name('exam.destroy');
     Route::get('/examination/{examination}', [ExaminationController::class, 'show'])->name('exam.show'); 
+
 
     Route::get('/scores', [ResultController::class, 'index'])->name('scores.index'); 
 
     Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index'); 
+    Route::post('/accounts/store', [AccountController::class, 'store'])->name('account.store');
+    Route::put('/accounts/update/{account}', [AccountController::class, 'update'])->name('account.update');
+    Route::delete('/accounts/destroy/{account}', [AccountController::class, 'destroy'])->name('accounts.destroy');
 
     Route::get('/registration/index', [RegistrationController::class, 'index'])->name('registration.index'); 
     Route::post('/registration/store', [RegistrationController::class, 'store'])->name('registration.store'); 
     Route::put('/registration/update/{registration}', [RegistrationController::class, 'update'])->name('registration.update');
     Route::delete('/registration/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('registration.destroy');
+    
     
     });
 });

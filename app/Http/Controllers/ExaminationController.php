@@ -38,4 +38,15 @@ class ExaminationController extends Controller
             'type' => $type,
         ]);
     }
+    public function store(Request $request){
+        
+        $validatedData = $request->validate([
+            'name' => 'required|unique:examinations,name',
+            'start_dateTime' => 'required',
+            'end_dateTime' => 'nullable',
+        ]);
+        // dd($validatedData);
+        Examination::create($validatedData);
+        return redirect()->back()->with('message', 'Examination Created Successfully');
+    }
 }
