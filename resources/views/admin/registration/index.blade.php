@@ -45,12 +45,12 @@
                             <th class="text-center">Email</th>
                             <th class="text-center">First Name</th>
                             <th class="text-center">Middle Name</th>
-                            <th class="text-center">Last Names</th>
+                            <th class="text-center">Last Name</th>
                             <th class="text-center">Extension</th>
                             <th class="text-center">Date Of Birth</th>
                             <th class="text-center">Mobile Number</th>
                             <th class="text-center">Password</th>
-                            <th class="text-center">Date Registered</th>
+                            
                             <th class="text-center">Action</th>
                             {{-- <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="">
@@ -88,7 +88,6 @@
                                 <td>{{ $registration->date_of_birth }}</td>
                                 <td>{{ $registration->mobile_number }}</td>
                                 <td>{{ $registration->password }}</td>
-                                <td>{{ $registration->created_at }}</td>
                                 <td width="15%" class='py-1'>
                                     <div class="d-flex justify-content-lg-center">
                                         <button type="button" class="btn btn-warning mx-2" data-toggle="modal"

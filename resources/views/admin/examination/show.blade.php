@@ -2,8 +2,10 @@
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800 text-uppercase">{{ $examination_now->name }}</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-plus fa-sm text-white-50"></i> Add Question</a>
+        <button data-toggle="modal" data-target="#createQuestionModal" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-plus fa-sm text-white-50"></i> Add Question</button>
+                {{-- {{dd($type)}} --}}
+        <x-exam.question.create :type=$type :examination="$examination_now" ></x-exam.question.create>
     </div>
     <div class="container-fluid">
         @foreach ($type as $question_type)

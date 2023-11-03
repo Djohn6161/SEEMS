@@ -61,6 +61,7 @@ class RegistrationController extends Controller
         ]);
         $user = User::find($registration->users_id);
         $user->email = $formFields['email'];
+        $user->name = $formFields['first_name'] . " " . $formFields['last_name'];
         $user->save();
         $registration->update($formFields);
         // dd($program);
