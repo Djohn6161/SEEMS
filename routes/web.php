@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ChoicesController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ExaminationController;
@@ -38,7 +39,10 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
 
     Route::get('/examination/index', [ExaminationController::class, 'index'])->name('exams.index');
     
+    Route::post('/examination/question/create/{examination}', [QuestionController::class, 'create'])->name('exams.question.create'); 
     Route::post('/examination/question/store/{examination}', [QuestionController::class, 'store'])->name('exams.question.store'); 
+
+    Route::post('/examination/choice/store/{question}', [ChoicesController::class, 'store'])->name('exams.choice.store');
     
     Route::post('/examination/store', [ExaminationController::class, 'store'])->name('exam.store');
     Route::put('/examination/update/{examination}', [ExaminationController::class, 'update'])->name('exam.update');

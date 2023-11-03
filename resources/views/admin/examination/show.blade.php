@@ -3,9 +3,9 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800 text-uppercase">{{ $examination_now->name }}</h1>
         <button data-toggle="modal" data-target="#createQuestionModal" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-plus fa-sm text-white-50"></i> Add Question</button>
+                class="fas fa-plus fa-sm text-white-50"></i> Add Questions</button>
                 {{-- {{dd($type)}} --}}
-        <x-exam.question.create :type=$type :examination="$examination_now" ></x-exam.question.create>
+        <x-exam.question.details :type=$type :examination="$examination_now" ></x-exam.question.details>
     </div>
     <div class="container-fluid">
         @foreach ($type as $question_type)

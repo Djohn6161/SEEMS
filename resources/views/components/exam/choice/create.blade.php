@@ -1,15 +1,15 @@
-<div class="modal fade" id="createQuestionModal" tabindex="-1" aria-labelledby="createQuestion" aria-hidden="true">
+<div class="modal fade" id="createChoiceModal" tabindex="-1" aria-labelledby="createChoice" aria-hidden="true">
     <div class="modal-dialog modal-lg ">
         <div class="modal-content p-3">
             <div class="modal-header mb-3">
-                <h1 class="h3 mb-2 text-gray-900 font-weight-bold modal-title">New Question in {{$examination->name}}</h1>
+                <h1 class="h3 mb-2 text-gray-900 font-weight-bold modal-title">New Choice in {{$question->Question}}</h1>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             {{-- {{dd($type)}} --}}
             <div class="modal-body">
-                <form id="createQuestion" method="POST" action="{{ route('admin.exams.question.store', ['examination' => $examination->id]) }}">
+                <form id="createChoice" method="POST" action="{{ route('admin.exams.choice.store', ['question' => $question->id]) }}">
                     @csrf
                     <div class="row">
                         <label for="type_id" class="text-dark col-sm-3">Question Type: </label>
@@ -46,7 +46,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button form="createQuestion" type="submit" class="btn btn-primary btn-user btn-block"
+                <button form="createChoice" type="submit" class="btn btn-primary btn-user btn-block"
                     style="font-size: 14px">
                     Submit
                 </button>
