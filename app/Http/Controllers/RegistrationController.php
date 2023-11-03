@@ -59,6 +59,9 @@ class RegistrationController extends Controller
             'date_of_birth' => 'required|date',
             'mobile_number' => 'required|digits:11',
         ]);
+        $user = User::find($registration->users_id);
+        $user->email = $formFields['email'];
+        $user->save();
         $registration->update($formFields);
         // dd($program);
         // $status = $registration->email . ' Updated Successfully!';

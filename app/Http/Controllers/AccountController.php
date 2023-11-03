@@ -70,4 +70,10 @@ class AccountController extends Controller
     {
         //
     }
+    public function activate(User $user){
+        // dd($user);
+        $user->active = !$user->active;
+        $user->save();
+        return back()->with('message', $user->name . ' Updated Successfully!');
+    }
 }

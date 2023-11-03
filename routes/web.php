@@ -45,9 +45,10 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/scores', [ResultController::class, 'index'])->name('scores.index'); 
 
     Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index'); 
+    Route::get('/accounts/activate/{user}', [AccountController::class, 'activate'])->name('accounts.active');
     Route::post('/accounts/store', [AccountController::class, 'store'])->name('account.store');
-    Route::put('/accounts/update/{account}', [AccountController::class, 'update'])->name('account.update');
-    Route::delete('/accounts/destroy/{account}', [AccountController::class, 'destroy'])->name('accounts.destroy');
+    Route::put('/accounts/update/{user}', [AccountController::class, 'update'])->name('account.update');
+    Route::delete('/accounts/destroy/{user}', [AccountController::class, 'destroy'])->name('accounts.destroy');
 
     Route::get('/registration/index', [RegistrationController::class, 'index'])->name('registration.index'); 
     Route::post('/registration/store', [RegistrationController::class, 'store'])->name('registration.store'); 
