@@ -45,7 +45,7 @@
                             <span class="text-danger alert " role="alert">{{ $errors->create->first('numberOfQuestion') }}</span>
                         @endif
                         <input type="number" class="form-control text-dark" style="font-size: 14px"
-                            name="numberOfQuestion"
+                            name="numberOfQuestion" min="0" 
                             placeholder="How Many?" value="{{ old('numberOfQuestion') }}" required>
                     </div>
                     <div class="form-group mb-3">
@@ -54,7 +54,7 @@
                             <span class="text-danger alert " role="alert">{{ $errors->create->first('numberOfChoices') }}</span>
                         @endif
                         <input type="number" class="form-control text-dark" style="font-size: 14px"
-                            name="numberOfChoices"
+                            name="numberOfChoices" min="0" max="21"
                             placeholder="How Many?" value="{{ old('numberOfChoices') }}" >
                     </div>
                     
