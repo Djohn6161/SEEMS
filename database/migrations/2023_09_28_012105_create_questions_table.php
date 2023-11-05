@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('type_id')->constrained('question_types')->onDelete('cascade');
             $table->foreignId('examinations_id')->constrained('examinations')->onUpdate('cascade')->onDelete('cascade');
             $table->string('Question');
+            $table->char('answer')->nullable();
             // $table->enum('type', ['essay', 'multiple_choices', 'true or false', 'identification', ''])
             $table->timestamps();
         });

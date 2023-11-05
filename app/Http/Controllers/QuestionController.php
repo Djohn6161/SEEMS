@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Answer;
 use App\Models\Choices;
 use App\Models\Question;
 use App\Models\Examination;
@@ -25,7 +24,7 @@ class QuestionController extends Controller
             'description.*' => 'nullable',
             'type_id' => 'required',
         ]);
-        
+        // dd($validatedData);
         $i = 0;
         foreach ($validatedData['Question'] as $question_text) {
             if ($question_text !== null) {
@@ -33,6 +32,9 @@ class QuestionController extends Controller
                 $question->Question = $question_text;
                 $question->examinations_id = $examination->id;
                 $question->type_id = $validatedData['type_id'];
+                if ($validatedData['type_id'] != 3){
+                $question->answer = $validatedData['answer'][$i];
+                }
                 $question->save();
         
                 if ($validatedData['type_id'] != 3) {
@@ -50,23 +52,24 @@ class QuestionController extends Controller
                         }
                     }
         
-                    $answerIndex = 0;
-                    foreach ($validatedData['answer'] as $answer) {
-                        // dd($answer);
-                        if ($answer !== null) {
-                            $choice = Choices::where('questions_id', $question->id)->where('letter', $answer)->first();
-        
-                            // Make sure the choice exists before saving the answer.
-                            if ($choice) {
-                                $answerModel = new Answer([
-                                    'questions_id' => $question->id,
-                                    'choices_id' => $choice->id,
-                                ]);
-                                $answerModel->save();
-                            }
-                        }
-                        $answerIndex++;
-                    }
+                    // $answerIndex = 0;
+                    // dd($validatedData['answer'] );
+                    // foreach ($validatedData['answer'] as $answer) {
+                    //     // dd($answer);
+                    //     if ($answer !== null) {
+                    //         $choice = Choices::where('questions_id', $question->id)->where('letter', $answer)->first();
+                    //         dd($choice);
+                    //         // Make sure the choice exists before saving the answer.
+                    //         if ($choice) {
+                    //             $answerModel = new Answer([
+                    //                 'questions_id' => $question->id,
+                    //                 'choices_id' => $choice->id,
+                    //             ]);
+                    //             $answerModel->save();
+                    //         }
+                    //     }
+                    //     $answerIndex++;
+                    // }
                 }
         
                 $i++;

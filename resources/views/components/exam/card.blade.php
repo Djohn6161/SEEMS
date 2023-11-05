@@ -35,10 +35,10 @@
         </div>
         <div class="card-footer d-flex justify-content-end align-items-center">
             <button data-toggle="modal" data-target="#updateModal{{$exam->id}}" class="btn btn-warning mx-1">
-                Edit
+                <i class="fas fa-pen fa-sm "></i> Edit
             </button>
             <button data-toggle="modal" data-target="#deleteModal{{$exam->id}}" class="btn btn-danger mx-1">
-                Delete
+                <i class="fas fa-trash fa-sm "></i> Delete
             </button>
             <x-exam.modal :data=$exam></x-exam.modal>
         </div>

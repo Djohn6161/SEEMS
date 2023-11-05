@@ -19,6 +19,7 @@ class QuestionFactory extends Factory
         return [
             //
             'Question' => fake()->sentence() . '?',
+            'answer' => 'A',
         ];
     }
 }
