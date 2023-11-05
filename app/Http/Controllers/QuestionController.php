@@ -90,4 +90,10 @@ class QuestionController extends Controller
         ]);
         
     }
+    public function update(Request $request, Question $question){
+        dd($request);
+    }
+    public function destroy(Question $question){
+        dd($question);
+    }
 }

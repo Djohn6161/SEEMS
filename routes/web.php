@@ -41,7 +41,8 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     
     Route::post('/examination/question/create/{examination}', [QuestionController::class, 'create'])->name('exams.question.create'); 
     Route::post('/examination/question/store/{examination}', [QuestionController::class, 'store'])->name('exams.question.store'); 
-
+    Route::put('/question/update/{question}', [QuestionController::class, 'update'])->name('question.update');
+    Route::delete('/question/destroy/{question}', [QuestionController::class, 'destroy'])->name('question.destroy');
     Route::post('/examination/choice/store/{question}', [ChoicesController::class, 'store'])->name('exams.choice.store');
     
     Route::post('/examination/store', [ExaminationController::class, 'store'])->name('exam.store');
