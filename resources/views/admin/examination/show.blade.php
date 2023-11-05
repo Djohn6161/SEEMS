@@ -30,13 +30,13 @@
                             
                         
                         </div>
-                        <div class="card-body">
+                        <div class="card-body p-5">
                             <div class="row">
                                 @foreach ($choices->where('questions_id', $question->id) as $item)
-                                    <div class="col-md-6 d-flex align-items-center ">
-                                        <input class="mr-2" type="radio" name="choice[{{ $question->id }}]"
-                                            value="{{ $item->id }}">
-                                        <label class="mb-0" for="choice1"> {{ $item->letter }})
+                                    <div class="col-md-6 d-flex align-items-center custom-control custom-radio">
+                                        <input class="mr-2 custom-control-input" type="radio" name="choice[{{ $question->id }}]" id="choice[{{ $item->id }}]"
+                                            value="{{ $item->id }}"  {{$question->answer == $item->letter ? 'checked' : ''}}>
+                                        <label class="mb-0 custom-control-label" for="choice[{{ $item->id }}]"> {{ $item->letter }})
                                             {{ $item->description }} 
                                             {{-- {{dd()}} --}}
                                             @if ($question->answer == $item->letter)
@@ -48,10 +48,10 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="card-footer">
+                        {{-- <div class="card-footer">
                             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                     class="fas fa-plus fa-sm text-white-50"></i> Add Choices</a>
-                        </div>
+                        </div> --}}
                     </div>
                 @endforeach
             @else
