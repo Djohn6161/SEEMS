@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800 text-uppercase font-weight-bold">{{ $examination_now->name }}</h1>
+        <h1 class="h3 mb-0 text-gray-800 text-capitalize">{{ $examination_now->name }}</h1>
         <button data-toggle="modal" data-target="#createQuestionModal" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Add Questions</button>
                 {{-- {{dd($type)}} --}}
@@ -24,7 +24,7 @@
                                         <button data-toggle="modal" data-target="#deleteQuestionModal{{$question->id}}" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm mx-3" ><i
                                             class="fas fa-trash fa-sm "></i> Delete</button>
                                 </div>
-                                <x-exam.question.modal :data=$question></x-exam.question.modal>
+                                <x-exam.question.modal :data=$question :subData=$choices ></x-exam.question.modal>
                             </div>
                             
                             
