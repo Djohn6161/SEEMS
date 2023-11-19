@@ -94,6 +94,9 @@ class QuestionController extends Controller
         dd($request);
     }
     public function destroy(Question $question){
-        dd($question);
+        // dd($question);
+        $question->delete();
+            
+        return back()->with('message', 'Question Deleted Successfully!');
     }
 }

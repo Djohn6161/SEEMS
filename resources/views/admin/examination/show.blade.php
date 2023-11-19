@@ -19,12 +19,12 @@
                                     <span class="h6">{{ $question->Question }}</span>
                                 </div>
                                 <div class="col-md-3 d-flex justify-content-center">
-                                    <button data-toggle="modal" data-target="#createQuestionModal" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm mx-3"><i
+                                    <button data-toggle="modal" data-target="#updateQuestionModal{{$question->id}}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm mx-3"><i
                                         class="fas fa-pen fa-sm "></i> Edit</button>
-                                        <button data-toggle="modal" data-target="#createQuestionModal" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm mx-3" ><i
+                                        <button data-toggle="modal" data-target="#deleteQuestionModal{{$question->id}}" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm mx-3" ><i
                                             class="fas fa-trash fa-sm "></i> Delete</button>
                                 </div>
-                                
+                                <x-exam.question.modal :data=$question></x-exam.question.modal>
                             </div>
                             
                             
