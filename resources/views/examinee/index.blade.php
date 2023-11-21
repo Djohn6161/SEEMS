@@ -16,9 +16,10 @@
                         <thead>
                             <tr>
                                 <th class="text-center">Name</th>
+                                <th class="text-center">Number of Attempts</th>
                                 <th class="text-center">Start of Examination</th>
                                 <th class="text-center">End of Examination</th>
-                                <th class="text-center">Total Items</th>
+                                <th class="text-center">Total number of question</th>
                                 <th class="text-center">Action</th>
                                 {{-- <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="">
@@ -34,13 +35,15 @@
                         <tfoot>
                         </tfoot>
                         <tbody>
+                            @foreach ($exams as $item)
                             <tr>
-                                <td>This is the Name</td>
-                                <td>This is the start</td>
-                                <td>This is the end</td>
-                                <td>This is the total</td>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->numberOfAttempts}}</td>
+                                <td>{{$item->start_dateTime}}</td>
+                                <td>{{$item->end_dateTime}}</td>
+                                <td>{{count($item->Question)}}</td>
                                 <td class="text-center">
-                                    <a href="{{route('examinee.examination.attempt', ['examination' => 1])}}" class="btn btn-success">Active</a>
+                                    <a href="{{route('examinee.examination.attempt', ['examination' => 1])}}" class="btn btn-primary">Take</a>
                                     {{-- @if ($account->active == 1)
                                     <a href="{{route('admin.accounts.active', ['user' => $account->id])}}" class="btn btn-success">Active</a>
                                     @else
@@ -48,6 +51,7 @@
                                     @endif --}}
                                 </td>
                             </tr>
+                            @endforeach
 
                         </tbody>
                     </table>

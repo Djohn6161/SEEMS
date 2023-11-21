@@ -49,8 +49,10 @@ class HomeController extends Controller
     }
     public function examineeIndex(){
         // dd("Examinee");
+        $exams = Examination::all();
         return view('examinee.index',[
-            'active' => 'exams'
+            'active' => 'exams',
+            'exams' => $exams,
         ]);
     }
 }

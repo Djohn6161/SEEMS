@@ -69,7 +69,7 @@
                                                 id="thesis[{{ $account->id }}]" name="thesis[]"
                                                 value="{{ $account->id }}">
                                             <label class="custom-control-label" for="thesis[{{ $account->id }}]">
-                                                {{ $account->id }}</label>
+                                            {{ $account->id }}</label>
                                         </div>
 
                                     </td>
