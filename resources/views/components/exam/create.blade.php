@@ -21,6 +21,15 @@
                             placeholder="Examination1" value="{{ old('name') }}" required>
                     </div>
                     <div class="form-group mb-4">
+                        <label for="numberOfAttempts" class="text-dark">Number Of Attempts</label>
+                        @if(!empty($errors->create->first('numberOfAttempts')))
+                            <span class="text-danger alert " role="alert">{{ $errors->create->first('numberOfAttempts') }}</span>
+                        @endif
+                        <input type="number" class="form-control text-dark" style="font-size: 14px"
+                            name="numberOfAttempts" min="1"
+                            placeholder="Examination1" value="{{ old('numberOfAttempts') }}" required>
+                    </div>
+                    <div class="form-group mb-4">
                         <label for="start_dateTime" class="text-dark">Start Date and Time</label>
                         @if(!empty($errors->create->first('start_dateTime')))
                             <span class="text-danger alert " role="alert">{{ $errors->create->first('start_dateTime') }}</span>

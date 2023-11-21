@@ -11,7 +11,7 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
+    @if (auth()->user()->role == 1)
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{$active == 'dashboard' ? 'active' : ' '}}">
         <a class="nav-link" href="{{route('admin.index')}}">
@@ -55,7 +55,7 @@
     <li class="nav-item {{$active == 'accounts' ? 'active' : ' '}}">
         <a class="nav-link" href="{{route('admin.accounts.index')}}">
             <i class="fas fa-user"></i>
-            <span>Accounts</span></a>
+            <span>Users</span></a>
     </li>
     <li class="nav-item {{$active == 'registration' ? 'active' : ' '}}">
         <a class="nav-link" href="{{route('admin.registration.index')}}">
@@ -74,6 +74,7 @@
             <i class="fas fa-reply"></i>
             <span>Visit Site</span></a>
     </li>
+    @endif
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->

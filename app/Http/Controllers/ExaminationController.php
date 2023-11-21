@@ -44,6 +44,7 @@ class ExaminationController extends Controller
             'name' => 'required|unique:examinations,name',
             'start_dateTime' => 'required',
             'end_dateTime' => 'nullable',
+            'numberOfAttempts' => 'required|min:1'
         ]);
         // dd($validatedData);
         Examination::create($validatedData);
@@ -55,6 +56,7 @@ class ExaminationController extends Controller
             'name' => "required|unique:examinations,name, {$examination->id}",
             'start_dateTime' => 'required',
             'end_dateTime' => 'nullable',
+            'numberOfAttempts' => 'required|min:1'
         ]);
         $examination->update($validatedData);
         // dd($program);
@@ -66,5 +68,8 @@ class ExaminationController extends Controller
         $examination->delete();
             
         return back()->with('message', 'Examination Deleted Successfully!');
+    }
+    public function attempt(Examination $examination){
+        dd($examination);
     }
 }

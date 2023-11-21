@@ -40,10 +40,17 @@ class HomeController extends Controller
     }
 
     public function adminIndex(){
+        
         $exams = Examination::all();
         return view('admin.index',[
             'exams' => $exams,
             'active' => 'dashboard'
+        ]);
+    }
+    public function examineeIndex(){
+        // dd("Examinee");
+        return view('examinee.index',[
+            'active' => 'exams'
         ]);
     }
 }

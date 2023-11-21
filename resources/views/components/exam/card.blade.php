@@ -2,8 +2,8 @@
     <div class="card p-1">
         <div class="card-header">
             <div class="row">
-                <div class="col-md-6 d-flex align-items-center justify-content-center">
-                    <h4 class="card-title mb-0 text-center text-uppercase">{{$exam->name}}</h4>
+                <div class="col-md-6 d-flex align-items-center">
+                    <h4 class="card-title mb-0 text-uppercase">{{$exam->name}}</h4>
                 </div>
                 
                 <div class="col-md-6 d-flex align-items-center justify-content-end">
@@ -18,9 +18,10 @@
         <div class="card-body">
             <h4 class="card-title text-center">Informations</h4>
             <div class="row  p-3">
-                
+                <div class="col-md-6"><p class="card-text">Number of Attempts only: </p></div>
+                <div class="col-md-6">{{$exam->numberOfAttempts}}</div>
                 @foreach ($type as $item)
-                <div class="col-md-6"><p class="card-text">Number Of {{$item->name}}: </p></div>
+                <div class="col-md-6"><p class="card-text">Number of {{$item->name}}: </p></div>
                 <div class="col-md-6">{{$exam->countQuestionBytype($item->id)}}</div>
                 @endforeach
 

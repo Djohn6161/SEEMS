@@ -23,6 +23,15 @@
                             value="{{ $data->name }}" required>
                     </div>
                     <div class="form-group mb-4">
+                        <label for="numberOfAttempts[{{ $data->id }}]" class="text-dark">Number Of Attempts</label>
+                        @error('numberOfAttempts')
+                            <span class="text-danger alert " role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="number" class="form-control text-dark" style="font-size: 14px"
+                            name="numberOfAttempts" min="1" id="numberOfAttempts[{{ $data->id }}]""
+                            placeholder="Examination1" value="{{ $data->numberOfAttempts }}" required>
+                    </div>
+                    <div class="form-group mb-4">
                         <label for="start_dateTime[{{ $data->id }}]" class="text-dark">Start Date and Time</label>
                         @error('start_dateTime')
                             <span class="text-danger alert " role="alert">{{ $message }}</span>

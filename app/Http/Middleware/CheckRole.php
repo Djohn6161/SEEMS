@@ -24,13 +24,10 @@ class CheckRole
             // Redirect or return a response as needed
             switch ($user->role) {
                 case 1:
-                    return redirect()->route('admin');
+                    return redirect()->route('admin.index');
                 // break;
                 case 2:
-                    return redirect()->route('examiners');
-                // break;
-                case 3:
-                    return redirect()->route('examinee');
+                    return redirect()->route('examinee.index');
                 // break;
                 default:
                     return redirect()->route('landing');

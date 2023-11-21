@@ -38,6 +38,7 @@ class ExamSeeder extends Seeder
             'name' => 'examination 1',
             'start_dateTime' => date('Y-m-d H:i:s'),
             'end_dateTime' => $nextWeekDateTime,
+            'numberOfAttempts' => '1'
         ]);
         $question = Question::factory()->create([
             'type_id' => $type->id,
