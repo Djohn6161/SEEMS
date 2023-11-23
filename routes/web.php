@@ -77,7 +77,7 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function () {
 Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::prefix('examinee')->name('examinee.')->group(function () {
         Route::get('/', [HomeController::class, 'examineeIndex'])->name('index'); 
-        Route::get('/examination/attempt', [ExaminationController::class, 'attempt'])->name('examination.attempt'); 
+        Route::get('/examination/attempt/{examination}', [ExaminationController::class, 'attempt'])->name('examination.attempt'); 
     });
     // Route::get('/examinee', function () {
     //     return view('admin.index');
