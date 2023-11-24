@@ -35,7 +35,7 @@ Route::get('/', [LandingController::class, 'index'])->name('index');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/student/registration', [RegistrationController::class, 'store'])->name('registration');
 
-Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
+Route::group(['middleware' => ['auth', 'checkrole:1', 'prevent-back']], function () {
     Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [HomeController::class, 'adminindex'])->name('index'); 
 
@@ -76,7 +76,7 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function () {
     
     
 });
-Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
+Route::group(['middleware' => ['auth', 'checkrole:2', 'prevent-back']], function () {
     Route::prefix('examinee')->name('examinee.')->group(function () {
         Route::get('/', [HomeController::class, 'examineeIndex'])->name('index'); 
         Route::get('/examination/attempt/{examination}/{attempt}', [AttemptController::class, 'attempt'])->name('examination.attempt'); 

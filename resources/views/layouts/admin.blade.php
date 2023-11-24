@@ -99,7 +99,16 @@
     <!-- Page level custom scripts -->
     <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
-
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(e) {
+                // disable the submit button 
+                $('button[type="submit"]').attr('disabled', true);
+                // submit the form
+                return true;
+            });
+        });
+    </script>
 </body>
 
 </html>

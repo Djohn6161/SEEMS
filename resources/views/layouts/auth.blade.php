@@ -96,7 +96,16 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src="{{ asset('./assets/js/plugins.js') }}"></script>
     <script src="{{ asset('./assets/js/main.js') }}"></script>
-
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(e) {
+                // disable the submit button 
+                $('button[type="submit"]').attr('disabled', true);
+                // submit the form
+                return true;
+            });
+        });
+    </script>
 </body>
 
 </html>
