@@ -34,7 +34,14 @@
                                 </div>
                                 <div class="card-body p-5">
                                     <div class="row">
-                                        @foreach ($choices->where('questions_id', $question->id) as $item)
+                                        
+                                        @if ($question->type_id == 3)
+                                            <div class="col-md-12 form-group">
+                                                <label for="answer">Example textarea</label>
+                                                 <textarea class="form-control" id="answer" name="choice[{{ $question->id }}]" rows="3"></textarea>
+                                            </div>
+                                            @else
+                                            @foreach ($choices->where('questions_id', $question->id) as $item)
                                             <div class="col-md-6 d-flex align-items-center custom-control custom-radio">
                                                 <input class="mr-2 custom-control-input" type="radio"
                                                     name="choice[{{ $question->id }}]" id="choice[{{ $item->id }}]"
@@ -50,6 +57,7 @@
                                                 </label>
                                             </div>
                                         @endforeach
+                                        @endif
                                     </div>
                                 </div>
                                 {{-- <div class="card-footer">

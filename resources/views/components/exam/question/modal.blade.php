@@ -50,7 +50,7 @@
                             </div>
                         @else
                             <div class="form-group mb-4 col-md-12">
-                                <label for="Question[]" class="text-dark">Question {{ $i + 1 }} <b
+                                <label for="Question[]" class="text-dark">Question<b
                                         class="text-dark">(Optional)</b></label>
                                 @error('Question')
                                     <span class="text-danger alert " role="alert">{{ $message }}</span>

@@ -94,7 +94,7 @@ class QuestionController extends Controller
         
         $validatedQuestionData = $request->validate([
             'Question' => 'required',
-            'answer' => 'required',
+            'answer' => 'nullable',
         ]);
         $question->update($validatedQuestionData);
         $validateChoicesData = $request->validate([
@@ -103,13 +103,15 @@ class QuestionController extends Controller
             'description' => 'nullable|array',
             'description.*' => 'nullable',
         ]);
-        
-        foreach ($validateChoicesData['letter'][$question->id] as $letter) {
-            // dd($letter);
-            $choice = Choices::where('questions_id', $question->id)->where('letter', $letter)->first();
-            $choice->description = $validateChoicesData['description'][$question->id][$choice->id];
-            $choice->save();
+        if($question->type_id != 3){
+            foreach ($validateChoicesData['letter'][$question->id] as $letter) {
+                // dd($letter);
+                $choice = Choices::where('questions_id', $question->id)->where('letter', $letter)->first();
+                $choice->description = $validateChoicesData['description'][$question->id][$choice->id];
+                $choice->save();
+            }
         }
+        
         return redirect()->back()->with('message', 'Question Updated Successfully!');
         
     }
