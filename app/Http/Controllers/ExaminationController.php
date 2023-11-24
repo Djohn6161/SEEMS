@@ -42,6 +42,7 @@ class ExaminationController extends Controller
         
         $validatedData = $request->validate([
             'name' => 'required|unique:examinations,name',
+            'duration' => 'required',
             'start_dateTime' => 'required',
             'end_dateTime' => 'nullable',
             'numberOfAttempts' => 'required|min:1'
@@ -54,6 +55,7 @@ class ExaminationController extends Controller
         // dd($request);
         $validatedData = $request->validate([
             'name' => "required|unique:examinations,name, {$examination->id}",
+            'duration' => 'required',
             'start_dateTime' => 'required',
             'end_dateTime' => 'nullable',
             'numberOfAttempts' => 'required|min:1'
@@ -69,24 +71,5 @@ class ExaminationController extends Controller
             
         return back()->with('message', 'Examination Deleted Successfully!');
     }
-    public function attempt(Examination $examination){
-        // dd($examination);
-        $exams = Examination::all();
-        // get all the questions in this examination
-        $questions = $examination->Question;
-        // get all the choices available in this questions
-        $questionIds = $questions->pluck('id');
-        $choices = Choices::whereIn('questions_id', $questionIds)->get();
-        $type = QuestionType::all();
-        // dd($choices);
-        // dd($examination);
-        return view('examinee.takeExamination',[
-            'exams' => $exams,
-            'examination_now' => $examination,
-            'questions' => $questions,
-            'choices' => $choices,
-            'active' => 'exam',
-            'type' => $type,
-        ]);
-    }
+    
 }

@@ -12,6 +12,6 @@ class Score extends Model
         return $this->belongsTo(User::class, 'users_id');
     }
     public function examination(){
-        return $this->belongTo(Examination::class, 'examinations_id');
+        return $this->belongsTo(Examination::class, 'examinations_id');
     }
 }

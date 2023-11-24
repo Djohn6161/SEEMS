@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AttemptController;
+use App\Http\Controllers\ScoreController;
 use App\Models\Examination;
 use App\Models\Registration;
 use Illuminate\Support\Facades\Route;
@@ -51,7 +53,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/examination/{examination}', [ExaminationController::class, 'show'])->name('exam.show'); 
 
 
-    Route::get('/scores', [ResultController::class, 'index'])->name('scores.index'); 
+    Route::get('/scores', [ScoreController::class, 'index'])->name('scores.index'); 
 
     Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index'); 
     Route::get('/accounts/activate/{user}', [AccountController::class, 'activate'])->name('accounts.active');
@@ -77,7 +79,8 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function () {
 Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::prefix('examinee')->name('examinee.')->group(function () {
         Route::get('/', [HomeController::class, 'examineeIndex'])->name('index'); 
-        Route::get('/examination/attempt/{examination}', [ExaminationController::class, 'attempt'])->name('examination.attempt'); 
+        Route::get('/examination/attempt/{examination}/{attempt}', [AttemptController::class, 'attempt'])->name('examination.attempt'); 
+        Route::post('/examination/submit/{examination}/{attempt}', [AttemptController::class, 'submit'])->name('examination.submit'); 
     });
     // Route::get('/examinee', function () {
     //     return view('admin.index');

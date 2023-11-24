@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Console\View\Components\Choice;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Result extends Model
 {
@@ -18,7 +19,7 @@ class Result extends Model
     public function Question(){
         return $this->belongsTo(Question::class, 'questions_id');
     }
-    public function Choice(){
-        return $this->belongsTo(Choice::class, 'choices_id');
-    }
+    // public function Choice(){
+    //     return $this->belongsTo(Choice::class, 'choices_id');
+    // }
 }

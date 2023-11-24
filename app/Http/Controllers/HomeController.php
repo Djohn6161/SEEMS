@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attempt;
 use App\Models\Examination;
+use App\Models\Score;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -50,9 +52,11 @@ class HomeController extends Controller
     public function examineeIndex(){
         // dd("Examinee");
         $exams = Examination::all();
+        $attempts = Score::all();
         return view('examinee.index',[
             'active' => 'exams',
             'exams' => $exams,
+            'attempts' => $attempts,
         ]);
     }
 }

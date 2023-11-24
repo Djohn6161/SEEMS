@@ -18,8 +18,10 @@
         <div class="card-body">
             <h4 class="card-title text-center">Informations</h4>
             <div class="row  p-3">
-                <div class="col-md-6"><p class="card-text">Number of Attempts only: </p></div>
+                <div class="col-md-6"><p class="card-text">Number of Attempts: </p></div>
                 <div class="col-md-6">{{$exam->numberOfAttempts}}</div>
+                <div class="col-md-6"><p class="card-text">Time Duration: </p></div>
+                <div class="col-md-6">{{$exam->duration}}</div>
                 @foreach ($type as $item)
                 <div class="col-md-6"><p class="card-text">Number of {{$item->name}}: </p></div>
                 <div class="col-md-6">{{$exam->countQuestionBytype($item->id)}}</div>

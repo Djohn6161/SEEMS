@@ -16,7 +16,8 @@
                         <thead>
                             <tr>
                                 <th class="text-center">Name</th>
-                                <th class="text-center">Number of Attempts</th>
+                                <th class="text-center">Time Duration</th>
+                                <th class="text-center">Remaining attempt</th>
                                 <th class="text-center">Start of Examination</th>
                                 <th class="text-center">End of Examination</th>
                                 <th class="text-center">Total number of question</th>
@@ -36,14 +37,23 @@
                         </tfoot>
                         <tbody>
                             @foreach ($exams as $item)
+                            {{-- {{dd(count($attempts->where('examinations_id', $item->id)->where('users_id', auth()->user()->id)))}} --}}
                             <tr>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->numberOfAttempts}}</td>
+                                <td class="text-capitalize">{{$item->name}}</td>
+                                <td class="text-center">{{$item->duration}}</td>
+                                <td class="text-center">{{ $attempt = $item->numberOfAttempts - count($attempts->where('examinations_id', $item->id)->where('users_id', auth()->user()->id))}}</td>
                                 <td>{{$item->start_dateTime}}</td>
                                 <td>{{$item->end_dateTime}}</td>
-                                <td>{{count($item->Question)}}</td>
+                                <td class="text-center">{{count($item->Question)}}</td>
                                 <td class="text-center">
-                                    <a href="{{route('examinee.examination.attempt', ['examination' => 1])}}" class="btn btn-primary">Take</a>
+                                    @if ($item->numberOfAttempts - count($attempts->where('examinations_id', $item->id)->where('users_id', auth()->user()->id)) > 0)
+                                    <a href="{{route('examinee.examination.attempt', ['examination' => $item->id, 'attempt' => $attempt])}}" class="btn btn-primary">
+                                        {{count($attempts->where('examinations_id', $item->id)->where('users_id', auth()->user()->id)) == 0 ? 'Take' : 'Retake'}}
+                                    </a>
+                                    @else
+                                    <button class="btn btn-secondary">Re attempt</button>
+                                    @endif
+                                    
                                     {{-- @if ($account->active == 1)
                                     <a href="{{route('admin.accounts.active', ['user' => $account->id])}}" class="btn btn-success">Active</a>
                                     @else
@@ -54,7 +64,7 @@
                             @endforeach
 
                         </tbody>
-                    </table>
+                    </table> 
                     <div class="d-flex justify-content-center my-3">
                         {{-- {{ $theses->links() }} --}}
                     </div>

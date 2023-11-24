@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->dateTime('start_dateTime');
             $table->dateTime('end_dateTime');
+            $table->time('duration')->default('01:00:00');
             $table->integer('numberOfAttempts');
             $table->timestamps();
         });
