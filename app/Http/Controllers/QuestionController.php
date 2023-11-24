@@ -104,7 +104,8 @@ class QuestionController extends Controller
             'description.*' => 'nullable',
         ]);
         
-        foreach ($validateChoicesData['letter'] as $letter) {
+        foreach ($validateChoicesData['letter'][$question->id] as $letter) {
+            // dd($letter);
             $choice = Choices::where('questions_id', $question->id)->where('letter', $letter)->first();
             $choice->description = $validateChoicesData['description'][$question->id][$choice->id];
             $choice->save();
