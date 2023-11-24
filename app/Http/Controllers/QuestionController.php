@@ -91,7 +91,26 @@ class QuestionController extends Controller
         
     }
     public function update(Request $request, Question $question){
-        dd($request);
+        
+        $validatedQuestionData = $request->validate([
+            'Question' => 'required',
+            'answer' => 'required',
+        ]);
+        $question->update($validatedQuestionData);
+        $validateChoicesData = $request->validate([
+            'letter' => 'nullable|array',
+            'letter.*' => 'nullable',
+            'description' => 'nullable|array',
+            'description.*' => 'nullable',
+        ]);
+        
+        foreach ($validateChoicesData['letter'] as $letter) {
+            $choice = Choices::where('questions_id', $question->id)->where('letter', $letter)->first();
+            $choice->description = $validateChoicesData['description'][$question->id][$choice->id];
+            $choice->save();
+        }
+        return redirect()->back()->with('message', 'Question Updated Successfully!');
+        
     }
     public function destroy(Question $question){
         // dd($question);

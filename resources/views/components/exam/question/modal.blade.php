@@ -21,25 +21,23 @@
                             <div class="form-group mb-4 col-md-9">
                                 <label for="Question[]" class="text-dark">Question <b
                                         class="text-dark">(Optional)</b></label>
-                                @if (!empty($errors->create->first('Question')))
-                                    <span class="text-danger alert "
-                                        role="alert">{{ $errors->create->first('Question') }}</span>
-                                @endif
+                                {{-- @if (!empty($errors->create->first('Question'))) --}}
+                                @error('Question')
+                                    <span class="text-danger alert " role="alert">{{ $message }}</span>
+                                @enderror
                                 <input type="text" class="form-control text-dark" style="font-size: 14px"
-                                    name="Question[]" placeholder="Your Question??" value="{{ $data->Question }}">
+                                    id="Question[]" name="Question" placeholder="Your Question??"
+                                    value="{{ $data->Question }}">
                             </div>
                             <div class="form-group mb-4 col-md-3">
                                 <label for="answer[]" class="text-dark">Answer</label>
-                                @if (!empty($errors->create->first('answer')))
-                                    <span class="text-danger alert "
-                                        role="alert">{{ $errors->create->first('answer') }}</span>
-                                @endif
+
                                 {{-- {{dd($subData->where('questions_id', $data->id))}} --}}
-                                <select class="selectpicker form-control" name="answer[]" id="answer[]"
+                                <select class="selectpicker form-control" name="answer" id="answer[]"
                                     data-live-search="true" required>
                                     <option value="" class="text-dark font-weight-bold">Select Answer</option>
                                     @foreach ($subData->where('questions_id', $data->id) as $choices)
-                                        <option value="{{ $choices->id }}"
+                                        <option value="{{ $choices->letter }}"
                                             @if ($data->answer == $choices->letter) class="text-light font-weight-bold bg-primary" selected @endif>
                                             {{ $choices->letter }}
                                         </option>
@@ -54,12 +52,11 @@
                             <div class="form-group mb-4 col-md-12">
                                 <label for="Question[]" class="text-dark">Question {{ $i + 1 }} <b
                                         class="text-dark">(Optional)</b></label>
-                                @if (!empty($errors->create->first('Question')))
-                                    <span class="text-danger alert "
-                                        role="alert">{{ $errors->create->first('Question') }}</span>
-                                @endif
+                                @error('Question')
+                                    <span class="text-danger alert " role="alert">{{ $message }}</span>
+                                @enderror
                                 <input type="text" class="form-control text-dark" style="font-size: 14px"
-                                    name="Question[]" placeholder="Your Question??" value="{{ old('Question') }}">
+                                    name="Question" placeholder="Your Question??" value="{{ $data->Question }}">
                             </div>
                         @endif
 
@@ -67,9 +64,6 @@
                     @unless (count($subData->where('questions_id', $data->id)) == 0 || count($subData->where('questions_id', $data->id)) == null)
                         <div class="card-body">
                             <div class="row">
-
-
-
                                 @foreach ($subData->where('questions_id', $data->id) as $choices)
                                     <div class="col-md-6 mb-2">
                                         <div class="row">
