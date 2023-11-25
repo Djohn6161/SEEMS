@@ -22,7 +22,7 @@
         </div>
     </section>
     <!-- ? services-area -->
-    <div class="services-area">
+    {{-- <div class="services-area">
         <div class="container">
             <div class="row justify-content-sm-center">
                 <div class="col-lg-4 col-md-6 col-sm-8">
@@ -60,21 +60,21 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--? About Area-3 Start -->
-    <section class="about-area3 fix">
+    <section class="about-area3 fix " style="margin-top: 20px">
         <div class="support-wrapper align-items-center">
-            <div class="right-content3">
-                <!-- img -->
+            {{-- <div class="right-content3">
+                
                 <div class="right-img">
                     <img src="{{ asset('assets/img/gallery/about3.png') }}" alt="">
                 </div>
-            </div>
-            <div class="left-content3">
+            </div> --}}
+            <div class="left-content3 " >
                 <!-- section tittle -->
-                <div class="section-tittle section-tittle2 mb-20">
+                <div class="section-tittle section-tittle2 mb-20 text-center  ">
                     <div class="front-text">
-                        <h2 class="">Instructions:</h2>
+                        <h2 class="">INTRODUCTION</h2>
                     </div>
                 </div>
 

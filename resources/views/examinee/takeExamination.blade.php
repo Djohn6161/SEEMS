@@ -37,7 +37,7 @@
                                         
                                         @if ($question->type_id == 3)
                                             <div class="col-md-12 form-group">
-                                                <label for="answer">Example textarea</label>
+                                                <label for="answer">Your answer:</label>
                                                  <textarea class="form-control" id="answer" name="choice[{{ $question->id }}]" rows="3"></textarea>
                                             </div>
                                             @else

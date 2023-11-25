@@ -3042,7 +3042,7 @@ hr {
 }
 .about-area3 .support-wrapper {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     flex-wrap: wrap;
 }
 .about-area3 .support-wrapper .left-content3 {

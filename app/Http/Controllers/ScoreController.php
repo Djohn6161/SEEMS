@@ -13,7 +13,10 @@ class ScoreController extends Controller
         
         return view('admin.scores.index',[
             'scores' => $score,
-            'active' => 'score',
+            'active' => 'scores',
         ]);
+    }
+    public function review(Score $score){
+        dd($score);
     }
 }

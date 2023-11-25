@@ -81,7 +81,18 @@
                                                         href="{{ url('/#register') }}" class="btn">Register</a></li>
                                                 @auth
                                                     <li class="button-header"><a href="{{ route('admin.index') }}"
-                                                            class="btn btn3">Admin</a></li>
+                                                            class="btn btn3">
+                                                        @switch(auth()->user()->role)
+                                                            @case(1)
+                                                                Admin
+                                                                @break
+                                                            @case(2)
+                                                                Examinee
+                                                                @break
+                                                            @default
+                                                                
+                                                        @endswitch
+                                                        </a></li>
                                                 @else
                                                     <li class="button-header"><a href="{{ route('login') }}"
                                                             class="btn btn3">Log in</a></li>

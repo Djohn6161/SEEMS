@@ -14,4 +14,7 @@ class Score extends Model
     public function examination(){
         return $this->belongsTo(Examination::class, 'examinations_id');
     }
+    public function Results(){
+        return $this->hasMany(Result::class, 'scores_id');
+    }
 }

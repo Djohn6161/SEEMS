@@ -63,6 +63,8 @@
             <span>Registration</span></a>
     </li>
     <!-- Divider -->
+    
+    @endif
     <hr class="sidebar-divider">
 
             <!-- Heading -->
@@ -74,7 +76,6 @@
             <i class="fas fa-reply"></i>
             <span>Visit Site</span></a>
     </li>
-    @endif
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->

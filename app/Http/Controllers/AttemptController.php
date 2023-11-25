@@ -41,13 +41,19 @@ class AttemptController extends Controller
         // $quiz = request(['quiz_id'])['quiz_id'];
         $score= 0;
         $data = $request->all();
+        $scoring = new Score();
+        $scoring->users_id = auth()->user()->id;
+        $scoring->examinations_id = $examination->id;
+        $scoring->score = $score;
         
+        $scoring->save();
                 // dd($results);
         foreach ( $request->get('question_id') as $question) {
             // dd($data);
             if(isset($request->get('choice')[$question])){
                 Result::create([
                     'users_id' => auth()->id(),
+                    'scores_id' => $scoring->id,
                     'questions_id' => $question,
                     'examinations_id' => $examination->id,
                     'answer' => $request->get('choice')[$question],
@@ -70,9 +76,6 @@ class AttemptController extends Controller
         if ($result->ans == $result->corAns){
             $score++;
         }
-        $scoring = new Score();
-        $scoring->users_id = auth()->user()->id;
-        $scoring->examinations_id = $examination->id;
         $scoring->score = $score;
         
         $scoring->save();

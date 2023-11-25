@@ -19,6 +19,9 @@ class Result extends Model
     public function Question(){
         return $this->belongsTo(Question::class, 'questions_id');
     }
+    public function Score(){
+        return $this->belongsTo(Score::class, 'scores_id');
+    }
     // public function Choice(){
     //     return $this->belongsTo(Choice::class, 'choices_id');
     // }
