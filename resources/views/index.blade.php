@@ -12,8 +12,8 @@
                             <div class="hero__caption ">
                                 <h1 data-animation="fadeInLeft" data-delay="0.2s" class="text-uppercase">Bcc Online Entrance Examination<br></h1>
                                 <p data-animation="fadeInLeft" data-delay="0.4s" >Welcome to the BCC Online Entrance Examination</p>
-                                <a href="{{url('/#register')}}" class="btn hero-btn" data-animation="fadeInLeft"
-                                    data-delay="0.7s">Register Now!</a>
+                                {{-- <a href="{{url('/#register')}}" class="btn hero-btn" data-animation="fadeInLeft"
+                                    data-delay="0.7s">Register Now!</a> --}}
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                 <!-- section tittle -->
                 <div class="section-tittle section-tittle2 mb-20 text-center  ">
                     <div class="front-text">
-                        <h2 class="">INTRODUCTION</h2>
+                        <h2 class="">INSTRUCTIONS</h2>
                     </div>
                 </div>
 
@@ -83,7 +83,7 @@
                         <img src="{{ asset('assets/img/icon/right-icon.svg') }}" alt="">
                     </div>
                     <div class="features-caption">
-                        <p>Candidate must not be invloved in communication for any kind of sharing examination</p>
+                        <p>Examinee must not be involved in any kind of communication during the examination.</p>
                     </div>
                 </div>
                 <div class="single-features">
@@ -91,7 +91,7 @@
                         <img src="{{ asset('assets/img/icon/right-icon.svg') }}" alt="">
                     </div>
                     <div class="features-caption">
-                        <p>Candidates must not because during examination</p>
+                        <p>Examinee must not browse during the examination.</p>
                     </div>
                 </div>
                 <div class="single-features">
@@ -99,7 +99,7 @@
                         <img src="{{ asset('assets/img/icon/right-icon.svg') }}" alt="">
                     </div>
                     <div class="features-caption">
-                        <p>Candidates must not bring their phases into the examination hall</p>
+                        <p>Examinee must not bring their phones inside the examination room.</p>
                     </div>
                 </div>
                 <div class="single-features">
@@ -107,7 +107,8 @@
                         <img src="{{ asset('assets/img/icon/right-icon.svg') }}" alt="">
                     </div>
                     <div class="features-caption">
-                        <p>Only one tab on the browser should be open during examination.</p>
+                        <p>Only one tab on the browser should be open during the examination.
+                            Good Luck!</p>
                     </div>
                 </div>
             </div>
