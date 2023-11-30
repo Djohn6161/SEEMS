@@ -11,7 +11,7 @@
                         <div class="col-xl-6 col-lg-7 col-md-12">
                             <div class="hero__caption ">
                                 <h1 data-animation="fadeInLeft" data-delay="0.2s" class="text-uppercase">Bcc Online Entrance Examination<br></h1>
-                                <p data-animation="fadeInLeft" data-delay="0.4s" >Welcome to the BCC Online Entrance Examination</p>
+                                <p data-animation="fadeInLeft" data-delay="0.4s" class="font-weight-bold">Welcome to the BCC Online Entrance Examination</p>
                                 {{-- <a href="{{url('/#register')}}" class="btn hero-btn" data-animation="fadeInLeft"
                                     data-delay="0.7s">Register Now!</a> --}}
                             </div>
