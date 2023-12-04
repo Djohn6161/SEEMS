@@ -130,7 +130,7 @@
                                         <input id="email" type="email"
                                             class="form-control @error('email')  is-invalid @enderror" style="font-size: 2.5rem" name="email"
                                             value="{{ old('email') }}" required autocomplete="email"
-                                            placeholder="Email Address">
+                                            placeholder="Email@example.com">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -183,7 +183,7 @@
                                     <div class="mb-3 form-group">
                                         <label for="extension" class="form-label">Extension Name <b>(Optional)</b></label>
                                         <input type="text" class="form-control" name="extension" id="extension" style="font-size: 2.5rem"
-                                            placeholder="Extension Name" value="{{ old('extension') }}">
+                                            placeholder="Ex: Jr. Sr. III" value="{{ old('extension') }}">
                                         @error('extension')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -208,8 +208,48 @@
                                     <div class="mb-3">
                                         <label for="mobile_number" class="form-label">Mobile Number</label>
                                         <input type="text" class="form-control" name="mobile_number" value="{{old('mobile_number')}}" style="font-size: 2.5rem"
-                                            id="mobile_number" placeholder="Mobile Number" required>
+                                            id="mobile_number" placeholder="09123456789" required>
                                             @error('mobile_number')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <h6 style="font-size: 2.5rem" class="">Address</h6>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mb-3 form-group">
+                                        <label for="province" class="form-label">Province</label>
+                                        <input type="text" class="form-control" name="province" id="province" style="font-size: 2.5rem" required
+                                            placeholder="Province of.." value="{{ old('province') }}">
+                                        @error('province')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3 form-group">
+                                        <label for="municipality" class="form-label">Munipality</label>
+                                        <input type="text" class="form-control" name="municipality" id="municipality" value="{{old('municipality')}}" style="font-size: 2.5rem" placeholder="Munipality of.."
+                                            required>
+                                        @error('municipality')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="barangay" class="form-label">Barangay</label>
+                                        <input type="text" class="form-control" name="barangay" value="{{old('barangay')}}" style="font-size: 2.5rem"
+                                            id="barangay" placeholder="Barangay.." required>
+                                            @error('barangay')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

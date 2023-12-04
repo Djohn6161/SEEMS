@@ -45,7 +45,10 @@ class DatabaseSeeder extends Seeder
             "last_name" => "Examinee",
             "date_of_birth" => "2001-01-01",
             "mobile_number" => "09123456789",
-            "password" => "111"
+            "password" => "111",
+            "province" => "Camarines Sur",
+            "municipality" => "Baao",
+            "barangay" => "Bagumbayan",
         ]);
 
 

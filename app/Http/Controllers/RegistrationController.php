@@ -21,6 +21,9 @@ class RegistrationController extends Controller
             'extension' => 'nullable|max:5',
             'date_of_birth' => 'required|date',
             'mobile_number' => 'required|digits:11',
+            'province' => 'required|max:255',
+            'municipality' => 'required|max:255',
+            'barangay' => 'required|max:255',
         ]);
         $randomPassword = rand(100000, 999999);
         $validatedData['password'] = $randomPassword;
@@ -58,6 +61,9 @@ class RegistrationController extends Controller
             'extension' => 'nullable|max:5',
             'date_of_birth' => 'required|date',
             'mobile_number' => 'required|digits:11',
+            'province' => 'required|max:255',
+            'municipality' => 'required|max:255',
+            'barangay' => 'required|max:255',
         ]);
         $user = User::find($registration->users_id);
         $user->email = $formFields['email'];

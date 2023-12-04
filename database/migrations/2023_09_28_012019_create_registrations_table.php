@@ -22,6 +22,9 @@ return new class extends Migration
             $table->date('date_of_birth')->nullable(false);
             $table->string('mobile_number', 11)->nullable(false);
             $table->string('password', 8)->nullable(false);
+            $table->string('municipality')->nullable(false);
+            $table->string('province')->nullable(false);
+            $table->string('barangay')->nullable(false);
             $table->timestamps();
         });
     }

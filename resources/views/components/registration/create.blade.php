@@ -74,6 +74,33 @@
                             placeholder="11 digit mobile number: 09123456789" value="{{ old('mobile_number') }}"
                             required>
                     </div>
+                    <div class="form-group mb-4">
+                        <label for="province" class="text-dark">Province</label>
+                        @if(!empty($errors->create->first('province')))
+                            <span class="text-danger alert " role="alert">{{ $errors->create->first('province') }}</span>
+                        @endif
+                        <input type="text" name="province" class="form-control" style="font-size: 14px"
+                            placeholder="Province" value="{{ old('province') }}"
+                            required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="municipality" class="text-dark">Municipality</label>
+                        @if(!empty($errors->create->first('municipality')))
+                            <span class="text-danger alert " role="alert">{{ $errors->create->first('municipality') }}</span>
+                        @endif
+                        <input type="text" name="municipality" class="form-control" style="font-size: 14px"
+                            placeholder="Municipality" value="{{ old('municipality') }}"
+                            required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="barangay" class="text-dark">Barangay</label>
+                        @if(!empty($errors->create->first('barangay')))
+                            <span class="text-danger alert " role="alert">{{ $errors->create->first('barangay') }}</span>
+                        @endif
+                        <input type="text" name="barangay" class="form-control" style="font-size: 14px"
+                            placeholder="Barangay" value="{{ old('barangay') }}"
+                            required>
+                    </div>
 
                 </form>
             </div>

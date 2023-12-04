@@ -76,6 +76,33 @@
                             id="mobile_number[{{ $registration->id }}]" name="mobile_number" placeholder=""
                             value="{{ $registration->mobile_number }}" required>
                     </div>
+                    <div class="form-group mb-4">
+                        <label for="province[{{ $registration->id }}]" class="text-dark">Province</label>
+                        @error('province')
+                            <span class="text-danger alert " role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="text" class="form-control text-dark" style="font-size: 14px"
+                            id="province[{{ $registration->id }}]" name="province" placeholder=""
+                            value="{{ $registration->province }}" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="municipality[{{ $registration->id }}]" class="text-dark">Municipality</label>
+                        @error('municipality')
+                            <span class="text-danger alert " role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="text" class="form-control text-dark" style="font-size: 14px"
+                            id="municipality[{{ $registration->id }}]" name="municipality" placeholder=""
+                            value="{{ $registration->municipality }}" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="barangay[{{ $registration->id }}]" class="text-dark">Barangay</label>
+                        @error('barangay')
+                            <span class="text-danger alert " role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="text" class="form-control text-dark" style="font-size: 14px"
+                            id="barangay[{{ $registration->id }}]" name="barangay" placeholder=""
+                            value="{{ $registration->barangay }}" required>
+                    </div>
 
                 </form>
             </div>

@@ -49,6 +49,7 @@
                             <th class="text-center">Extension</th>
                             <th class="text-center">Date Of Birth</th>
                             <th class="text-center">Mobile Number</th>
+                            <th class="text-center">Address</th>
                             <th class="text-center">Password</th>
                             
                             <th class="text-center">Action</th>
@@ -87,6 +88,7 @@
                                 <td>{{ $registration->extension }}</td>
                                 <td>{{ $registration->date_of_birth }}</td>
                                 <td>{{ $registration->mobile_number }}</td>
+                                <td>{{ $registration->barangay . ", " . $registration->municipality . ", " . $registration->province }}</td>
                                 <td>{{ $registration->password }}</td>
                                 <td width="15%" class='py-1'>
                                     <div class="d-flex justify-content-lg-center">
