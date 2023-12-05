@@ -175,6 +175,12 @@
                     <span class="mr-2">
                         <i class="fas fa-circle text-info"></i> Bula
                     </span>
+                    <span class="mr-2">
+                        <i class="fas fa-circle text-danger"></i> Bato
+                    </span>
+                    <span class="mr-2">
+                        <i class="fas fa-circle text-secondary"></i> Buhi
+                    </span>
                 </div>
             </div>
         </div>
