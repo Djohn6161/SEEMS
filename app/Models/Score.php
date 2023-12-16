@@ -17,4 +17,8 @@ class Score extends Model
     public function Results(){
         return $this->hasMany(Result::class, 'scores_id');
     }
+    public function questions()
+    {
+        return $this->hasManyThrough(Question::class, Result::class, 'scores_id', 'id', 'id', 'questions_id');
+    }
 }

@@ -34,9 +34,9 @@
             </div>
 
             <!-- Forget Password -->
-            <a href="#" class="forget text-center">Forget Password</a>
+            {{-- <a href="#" class="forget text-center">Forget Password</a> --}}
             <!-- Forget Password -->
-            <a href="{{ route('register') }}" class="registration text-center">Registration</a>
+            <a href="{{ route('index') }}#register" class="registration text-center">Registration</a>
         </div>
     </form>
 @endsection

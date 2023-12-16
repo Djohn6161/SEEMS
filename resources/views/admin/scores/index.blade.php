@@ -77,9 +77,7 @@
                                 <td> {{ $score->user->name }}</td>
                                 <td class="text-center">{{ $score->Score }}</td>
                                 <td width="15%" class='py-1 text-center'>
-                                    
-                                        <a href="{{route('admin.scores.review', ['score', $score->id])}}" class="btn btn-primary mx-2">Review</a>
-
+                                        <a href="{{ route('admin.scores.review',['score'=>$score->id])}}" class="btn btn-primary mx-2">Review</a>
                                 </td>
                                 {{-- <td style="max-width: 15%"><span class="limit-line">{{ $thesis->authors }}</span>
                                 </td>
