@@ -35,7 +35,7 @@ class ExamSeeder extends Seeder
             'name' => 'Essay',
         ]);
         $exam = Examination::factory()->create([
-            'name' => 'examination 1',
+            'name' => 'CIT Department Examination',
             'start_dateTime' => date('Y-m-d H:i:s'),
             'end_dateTime' => $nextWeekDateTime,
             'numberOfAttempts' => '1'
