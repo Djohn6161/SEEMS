@@ -33,9 +33,9 @@
                         <div class="card-body p-5">
                             <div class="row">
                                 @foreach ($choices->where('questions_id', $question->id) as $item)
-                                    <div class="col-md-6 d-flex align-items-center custom-control custom-radio">
+                                    <div class="col-md-6 d-flex align-items-center custom-control custom-radio mb-2">
                                         <input class="mr-2 custom-control-input" type="radio" name="choice[{{ $question->id }}]" id="choice[{{ $item->id }}]"
-                                            value="{{ $item->id }}"  {{$question->answer == $item->letter ? 'checked' : ''}}>
+                                            value="{{ $item->id }}"  {{$question->answer == $item->letter ? 'checked' : ''}} disabled>
                                         <label class="mb-0 custom-control-label" for="choice[{{ $item->id }}]"> {{ $item->letter }})
                                             {{ $item->description }} 
                                             {{-- {{dd()}} --}}
