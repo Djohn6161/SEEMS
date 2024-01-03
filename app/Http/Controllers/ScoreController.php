@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Score;
 use App\Models\Choices;
+use App\Models\Question;
 use App\Models\QuestionType;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,10 @@ class ScoreController extends Controller
         ]);
     }
     public function review(Score $score){
-        $questions = $score->questions;
+        // 
+        // $questions = $score->questions;
+        $questions = Question::where('examinations_id', $score->examinations_id)->get();
+        // dd($score->examinations_id);
         $type = QuestionType::all();
         $questionIds = $questions->pluck('id');
         $choices = Choices::whereIn('questions_id', $questionIds)->get();

@@ -13,16 +13,25 @@
                     <div class="card mb-3">
                         <div class="card-header ">
                             <div class="row">
-                                <div class="col-md-9">
+                                <div class="col-md-9 d-flex align-items-center">
                                     <span class="h6">{{ $question->Question }}</span>
                                 </div>
+                                @if ($question_type->id == 3)
+                                <div class="col-md-3 form-group d-flex align-items-center justify-content-center">
+                                    <label for="score['{{$question->id}}']" class="mb-0 mr-2">Score: </label>
+                                    <div style="width:70px" class="">
+                                        <input type="number" class="form-control text-dark" name="score[{{ $question->id }}]" id="score[{{ $question->id }}]" max="10" min="0">
+                                    </div>
+                                </div>
+                                @endif
+                                
                                 {{-- <div class="col-md-3 d-flex justify-content-center">
                                     <button data-toggle="modal" data-target="#updateQuestionModal{{$question->id}}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm mx-3"><i
                                         class="fas fa-pen fa-sm "></i> Edit</button>
                                         <button data-toggle="modal" data-target="#deleteQuestionModal{{$question->id}}" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm mx-3" ><i
                                             class="fas fa-trash fa-sm "></i> Delete</button>
                                 </div> --}}
-                                <x-exam.question.modal :data=$question :subData=$choices ></x-exam.question.modal>
+                                {{-- <x-exam.question.modal :data=$question :subData=$choices ></x-exam.question.modal> --}}
                             </div>
                             
                             
@@ -31,11 +40,16 @@
                         <div class="card-body p-5">
                             <div class="row">
                                 @foreach ($choices->where('questions_id', $question->id) as $item)
+                                
                                     {{-- {{dd($score->Results->where('questions_id', $item->id)->first()->answer)}} --}}
                                     @php
-                                        $ans = $score->Results->where('questions_id', $item->id)->first()->answer ?? " "
+                                        $ans = $score->Results->where('questions_id', $question->id)->first()->answer ?? ""
                                     @endphp
                                     <div class="col-md-6 d-flex align-items-center custom-control custom-radio">
+                                        {{-- @if ($ans == $item->letter) --}}
+                                        
+                                        {{-- @endif --}}
+                                        
                                         <input class="mr-2 custom-control-input" type="radio" name="choice[{{ $question->id }}]" id="choice[{{ $item->id }}]"
                                             value="{{ $item->id }}"  {{$ans == $item->letter ? 'checked' : ''}} disabled>
                                         <label class="mb-0 custom-control-label" for="choice[{{ $item->id }}]"> {{ $item->letter }})
@@ -48,6 +62,15 @@
                                         </label>
                                     </div>
                                 @endforeach
+                                @if ($question_type->id == 3)
+                                @php
+                                        $ans = $score->Results->where('questions_id', $question->id)->first()->answer ?? ""
+                                    @endphp
+                                <div class="col-md-12 form-group">
+                                     <textarea class="form-control" id="answer" name="choice[{{ $question->id }}]" rows="3" disabled>{{$ans}}</textarea>
+                                </div>
+                                @endif
+
                             </div>
                         </div>
                         {{-- <div class="card-footer">
