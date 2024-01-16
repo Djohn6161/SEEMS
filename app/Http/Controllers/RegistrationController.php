@@ -12,7 +12,7 @@ class RegistrationController extends Controller
 {
     //
     public function store(Request $request){
-        
+        // dd($request);
         $validatedData = $request->validate([
             'email' => 'required|unique:users,email',
             'first_name' => 'required|max:50',
@@ -24,7 +24,10 @@ class RegistrationController extends Controller
             'province' => 'required|max:255',
             'municipality' => 'required|max:255',
             'barangay' => 'required|max:255',
+            'psa_file' => 'required|mimes:png,jpeg,jpg',
+            'course' => 'required',
         ]);
+        // dd($validatedData['psa_file']);
         $randomPassword = rand(100000, 999999);
         $validatedData['password'] = $randomPassword;
         

@@ -47,6 +47,11 @@
             </div>
         </div> --}}
     </li>
+    <li class="nav-item {{$active == 'course' ? 'active' : ' '}}">
+        <a class="nav-link" href="{{route('admin.course.index')}}">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Courses</span></a>
+    </li>
     <li class="nav-item {{$active == 'scores' ? 'active' : ' '}}">
         <a class="nav-link" href="{{route('admin.scores.index')}}">
             <i class="fas fa-tachometer-alt"></i>

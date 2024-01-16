@@ -121,7 +121,7 @@
                     <div class="col-lg-8">
                         <h1 class="front-text" id="register"><b>Registration</b></h1>
                         {{-- <p><span style="color: red;">* required fields</span></p> --}}
-                        <form action="{{ route('registration') }}" method="POST">
+                        <form action="{{ route('registration') }}" method="POST" enctype="multipart/form-data">
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="col-md-12">
@@ -157,7 +157,7 @@
                                     <div class="mb-3 form-group">
                                         <label for="middle_name" class="form-label">Middle Name</label>
                                         <input type="text" class="form-control" name="middle_name" id="middle_name" value="{{ old('middle_name') }}" style="font-size: 2.5rem"
-                                            placeholder="Middle Name" required>
+                                            placeholder="Middle Name">
                                     </div>
                                         @error('middle_name')
                                             <span class="invalid-feedback" role="alert">
@@ -217,7 +217,30 @@
                                     </div>
                                 </div>
                             </div>
-                            <h6 style="font-size: 2.5rem" class="">Address</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group " >
+                                        <label for="course"  class="form-label">Course Preferred</label>
+                                        <select class="form-control w-100" id="course" name="course" style="font-size: 2.5rem">
+                                          <option style="font-size: 2.5rem">Choose course</option>
+                                          <option style="font-size: 2.5rem" value="1">BSIT</option>
+                                          <option style="font-size: 2.5rem" value="2">BSCS</option>
+                                          <option style="font-size: 2.5rem" value="3">BSIS</option>
+                                          <option style="font-size: 2.5rem" value="4">EDUC</option>
+                                        </select>
+                                      </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-0">
+                                        <label class="form-label  mb-2">PSA File</label>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="psa_file" name="psa_file" style="font-size: 2.5rem" accept=".jpg, .jpeg, .png" required>
+                                        <label for="psa_file" class="custom-file-label" for="psa_file"  style="font-size: 2.2rem">Choose a image File</label>
+                                      </div>
+                                </div>
+                            </div>
+                            <h6 style="font-size: 2.5rem" class="mt-3">Address</h6>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="mb-3 form-group">
