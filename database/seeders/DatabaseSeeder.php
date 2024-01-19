@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Registration;
 use App\Models\User;
+use App\Models\Course;
+use App\Models\Registration;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -38,7 +39,14 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('111'),
             'role' => '2'
         ]);
+        
+
+        $bsit = Course::create([
+            'name' => 'Bachelors of Science in Information System',
+            'acrocode' => 'BSIS',
+        ]);
         Registration::create([
+            "courses_id" => $bsit->id,
             "users_id" => $examinee->id,
             "email" => $examinee->email,
             "first_name" => "Sample",
@@ -49,6 +57,18 @@ class DatabaseSeeder extends Seeder
             "province" => "Camarines Sur",
             "municipality" => "Baao",
             "barangay" => "Bagumbayan",
+        ]);
+        Course::create([
+            'name' => 'Bachelors of Science in Information Technology',
+            'acrocode' => 'BSIT',
+        ]);
+        Course::create([
+            'name' => 'Bachelors of Science in Computer Science',
+            'acrocode' => 'BSCS',
+        ]);
+        Course::create([
+            'name' => 'Bachelors of Library Science',
+            'acrocode' => 'BLIS',
         ]);
 
 

@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="updateRegistration{{ $registration->id }}" method="POST"
+                <form id="updateRegistration{{ $registration->id }}" method="POST" enctype="multipart/form-data"
                     action="{{ route('admin.registration.update', ['registration' => $registration->id]) }}">
                     @csrf
                     @method('PUT')
@@ -38,7 +38,7 @@
                         @enderror
                         <input type="text" class="form-control text-dark" style="font-size: 14px"
                             id="middle_name[{{ $registration->id }}]" name="middle_name" placeholder=""
-                            value="{{ $registration->middle_name }}" required>
+                            value="{{ $registration->middle_name }}" >
                     </div>
                     <div class="form-group mb-4">
                         <label for="last_name[{{ $registration->id }}]" class="text-dark">Last name</label>
@@ -75,6 +75,27 @@
                         <input type="text" class="form-control text-dark" style="font-size: 14px"
                             id="mobile_number[{{ $registration->id }}]" name="mobile_number" placeholder=""
                             value="{{ $registration->mobile_number }}" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="course"  class="form-label">Course Preferred</label>
+                            <select class="form-control w-100" id="course" name="courses_id" style="">
+                                <option style="">Choose course</option>
+                                @foreach ($courses as $course)
+                                <option @if ($registration->courses_id == $course->id) class="text-light font-weight-bold bg-primary" selected @endif value="{{$course->id}}">{{$course->name . " " . $course->acrocode}}</option>
+                                @endforeach
+                            </select>
+                    </div>
+                    <div class="form-group mb-4">
+                        <div class="form-group mb-0">
+                            <label class="form-label  mb-2">PSA File</label>
+                            @error('psa_file')
+                                <span class="text-danger alert " role="alert">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="file" class="form-control-file border" id="psa_file" name="psa_file" style="" accept=".jpg, .jpeg, .png" required>
+                            {{-- <label for="psa_file" class="custom-file-label" style="">Choose a image File</label> --}}
+                          </div>
                     </div>
                     <div class="form-group mb-4">
                         <label for="province[{{ $registration->id }}]" class="text-dark">Province</label>

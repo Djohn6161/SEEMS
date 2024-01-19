@@ -18,4 +18,5 @@ class Choices extends Model
     public function Answer(){
         return $this->hasMany(Answer::class, 'answers_id');
     }
+    
 }

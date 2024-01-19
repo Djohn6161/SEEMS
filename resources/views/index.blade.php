@@ -221,12 +221,11 @@
                                 <div class="col-md-6">
                                     <div class="form-group " >
                                         <label for="course"  class="form-label">Course Preferred</label>
-                                        <select class="form-control w-100" id="course" name="course" style="font-size: 2.5rem">
+                                        <select class="form-control w-100" id="course" name="courses_id" style="font-size: 2.5rem">
                                           <option style="font-size: 2.5rem">Choose course</option>
-                                          <option style="font-size: 2.5rem" value="1">BSIT</option>
-                                          <option style="font-size: 2.5rem" value="2">BSCS</option>
-                                          <option style="font-size: 2.5rem" value="3">BSIS</option>
-                                          <option style="font-size: 2.5rem" value="4">EDUC</option>
+                                          @foreach ($courses as $course)
+                                            <option @if (old('courses_id') == $course->id) class="text-light font-weight-bold bg-primary" selected @endif style="font-size: 2.5rem" value="{{$course->id}}">{{$course->name . " " . $course->acrocode}}</option>
+                                          @endforeach
                                         </select>
                                       </div>
                                 </div>
@@ -234,9 +233,9 @@
                                     <div class="form-group mb-0">
                                         <label class="form-label  mb-2">PSA File</label>
                                     </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="psa_file" name="psa_file" style="font-size: 2.5rem" accept=".jpg, .jpeg, .png" required>
-                                        <label for="psa_file" class="custom-file-label" for="psa_file"  style="font-size: 2.2rem">Choose a image File</label>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control-file border" id="psa_file" name="psa_file" style="font-size: 2.5rem" accept=".jpg, .jpeg, .png" required>
+                                        {{-- <label for="psa_file" class="custom-file-label" for="psa_file"  style="font-size: 2.2rem">Choose a image File</label> --}}
                                       </div>
                                 </div>
                             </div>

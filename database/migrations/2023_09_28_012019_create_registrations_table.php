@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id')->constrained('users')->onUpdate('cascade');
+            $table->foreignId('courses_id')->constrained('courses')->onUpdate('cascade');
             $table->string('email')->unique();
             $table->string('first_name', 50)->nullable(false);
             $table->string('middle_name', 50)->nullable(true);
@@ -25,6 +26,7 @@ return new class extends Migration
             $table->string('municipality')->nullable(false);
             $table->string('province')->nullable(false);
             $table->string('barangay')->nullable(false);
+            $table->string('psa_file')->nullable();
             $table->timestamps();
         });
     }

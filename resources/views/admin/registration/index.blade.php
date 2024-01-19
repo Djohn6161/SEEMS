@@ -6,7 +6,7 @@
     data-target="#createModal"><i
             class="fas fa-plus fa-sm text-white-50"></i> Add Registration</a>
 </div>
-<x-registration.create></x-registration.create>
+<x-registration.create :courses=$courses></x-registration.create>
 
 
 <div class="container-fluid">
@@ -50,6 +50,8 @@
                             <th class="text-center">Date Of Birth</th>
                             <th class="text-center">Mobile Number</th>
                             <th class="text-center">Address</th>
+                            <th class="text-center">PSA FILE</th>
+                            <th class="text-center">Preferred Course</th>
                             <th class="text-center">Password</th>
                             
                             <th class="text-center">Action</th>
@@ -89,6 +91,18 @@
                                 <td>{{ $registration->date_of_birth }}</td>
                                 <td>{{ $registration->mobile_number }}</td>
                                 <td>{{ $registration->barangay . ", " . $registration->municipality . ", " . $registration->province }}</td>
+                                <td class="text-center text-capitalize" style="width:6%">
+                                    @if ($registration->psa_file!==null)
+                                        <a target="_blank" href="{{asset('storage/' . $registration->psa_file)}}" class="rounded bg-success text-light p-1 d-sm-inline-block w-100">
+                                            <i class="fas fa-file"></i> View
+                                        </a>
+                                    @else
+                                    <div class="rounded bg-secondary text-light p-1 d-sm-inline-block w-100">
+                                        <i class="fas fa-times-circle"></i>
+                                    </div>
+                                    @endif
+                                </td>
+                                <td>{{ $registration->course->acrocode }}</td>
                                 <td>{{ $registration->password }}</td>
                                 <td width="15%" class='py-1'>
                                     <div class="d-flex justify-content-lg-center">
@@ -106,7 +120,7 @@
                                     </div>
 
                                 </td>
-                                <x-registration.modal :registration=$registration  />
+                                <x-registration.modal :registration=$registration :courses=$courses  />
                                 {{-- <td style="max-width: 15%"><span class="limit-line">{{ $thesis->authors }}</span>
                                 </td>
                                 @if ($thesis->file !== null)

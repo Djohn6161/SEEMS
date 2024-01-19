@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Course;
 use App\Models\Examination;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class RegistrationController extends Controller
 {
@@ -25,7 +27,7 @@ class RegistrationController extends Controller
             'municipality' => 'required|max:255',
             'barangay' => 'required|max:255',
             'psa_file' => 'required|mimes:png,jpeg,jpg',
-            'course' => 'required',
+            'courses_id' => 'required',
         ]);
         // dd($validatedData['psa_file']);
         $randomPassword = rand(100000, 999999);
@@ -40,6 +42,9 @@ class RegistrationController extends Controller
         $user->password = Hash::make($validatedData['password']);
         $user->save();
         $validatedData['users_id'] = $user->id;
+        if ($request->hasFile('psa_file')) {
+            $validatedData['psa_file'] = $request->file('psa_file')->store('PSA', 'public');
+        }
         $user = Registration::create($validatedData);
 
         return redirect()->back()->with('message', 'Registered Successfully');
@@ -52,6 +57,7 @@ class RegistrationController extends Controller
             'exams' => $exams,
             'active' => 'registration',
             'registrations' => $registrations,
+            'courses' => Course::all(),
         ]);
     }
     public function update(Request $request, Registration $registration){
@@ -67,11 +73,24 @@ class RegistrationController extends Controller
             'province' => 'required|max:255',
             'municipality' => 'required|max:255',
             'barangay' => 'required|max:255',
+            'psa_file' => 'required|mimes:png,jpeg,jpg',
+            'courses_id' => 'required',
         ]);
         $user = User::find($registration->users_id);
         $user->email = $formFields['email'];
         $user->name = $formFields['first_name'] . " " . $formFields['last_name'];
         $user->save();
+        if ($request->has('psa_file')) {
+            if ($registration->psa_file !== null) {
+                if (Storage::disk('public')->exists($registration->psa_file)) {
+                    // dd("Thesis is found: " . $registration->psa_file);
+                    Storage::disk('public')->delete($registration->psa_file);
+                }
+            }
+            if ($request->hasFile('psa_file')) {
+                $formFields['psa_file'] = $request->file('psa_file')->store('PSA', 'public');
+            }
+        }
         $registration->update($formFields);
         // dd($program);
         // $status = $registration->email . ' Updated Successfully!';
@@ -81,6 +100,12 @@ class RegistrationController extends Controller
         // dd($registration);
             $user = User::find($registration->users_id);
             // dd($user);
+            if ($registration->psa_file !== null) {
+                if (Storage::disk('public')->exists($registration->psa_file)) {
+                    // dd("Thesis is found: " . $thesis->file);
+                    Storage::disk('public')->delete($registration->psa_file);
+                }
+            }
             $registration->delete();
 
             $user->delete();

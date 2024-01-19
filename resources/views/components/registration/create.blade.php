@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="createRegistration" method="POST" action="{{ route('admin.registration.store') }}">
+                <form id="createRegistration" method="POST" action="{{ route('admin.registration.store') }}" enctype="multipart/form-data">
                     @csrf
                     
                     <div class="form-group mb-4">
@@ -36,7 +36,7 @@
                         @endif
                         <input type="text" name="middle_name" class="form-control" style="font-size: 14px"
                             placeholder="Enter your middle name" value="{{ old('middle_name') }}"
-                            required>
+                            >
                     </div>
                     <div class="form-group mb-4">
                         <label for="last_name" class="text-dark">Last Name</label>
@@ -73,6 +73,27 @@
                         <input type="text" name="mobile_number" class="form-control" style="font-size: 14px"
                             placeholder="11 digit mobile number: 09123456789" value="{{ old('mobile_number') }}"
                             required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="course"  class="form-label">Course Preferred</label>
+                            <select class="form-control w-100" id="course" name="courses_id" style="">
+                                <option style="">Choose course</option>
+                                @foreach ($courses as $course)
+                                <option @if (old('courses_id') == $course->id) class="text-light font-weight-bold bg-primary" selected @endif value="{{$course->id}}">{{$course->name . " " . $course->acrocode}}</option>
+                                @endforeach
+                            </select>
+                    </div>
+                    <div class="form-group mb-4">
+                        <div class="form-group mb-0">
+                            <label class="form-label  mb-2">PSA File</label>
+                            @if(!empty($errors->create->first('psa_file')))
+                            <span class="text-danger alert " role="alert">{{ $errors->create->first('psa_file') }}</span>
+                        @endif
+                        </div>
+                        <div class="form-group">
+                            <input type="file" class="form-control-file border" id="psa_file" name="psa_file" style="" accept=".jpg, .jpeg, .png" required>
+                            {{-- <label for="psa_file" class="custom-file-label" style="">Choose a image File</label> --}}
+                          </div>
                     </div>
                     <div class="form-group mb-4">
                         <label for="province" class="text-dark">Province</label>
