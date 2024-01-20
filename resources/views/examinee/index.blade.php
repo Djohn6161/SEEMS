@@ -48,10 +48,10 @@
                                 <td class="text-center">
                                     @if ($item->numberOfAttempts - count($attempts->where('examinations_id', $item->id)->where('users_id', auth()->user()->id)) > 0)
                                     <a href="{{route('examinee.examination.attempt', ['examination' => $item->id, 'attempt' => $attempt])}}" class="btn btn-primary">
-                                        {{count($attempts->where('examinations_id', $item->id)->where('users_id', auth()->user()->id)) == 0 ? 'Take' : 'Retake'}}
+                                        {{count($attempts->where('examinations_id', $item->id)->where('users_id', auth()->user()->id)) == 0 ? 'Take' : 'Re attempt'}}
                                     </a>
                                     @else
-                                    <button class="btn btn-secondary">Re attempt</button>
+                                    <button class="btn btn-secondary">Not Available</button>
                                     @endif
                                     
                                     {{-- @if ($account->active == 1)

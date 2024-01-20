@@ -2,10 +2,10 @@
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Courses</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-plus fa-sm text-white-50"></i>Add courses</a>
+        <a href="#" data-toggle="modal" data-target="#createModal" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-plus fa-sm text-white-50"></i> Add Courses</a>
     </div>
-    
+    <x-course.create ></x-course.create>
     <div class="container-fluid">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
@@ -92,6 +92,7 @@
     
                                         </div>
                                     </td>
+                                    <x-course.modal :course=$item></x-course.modal>
                                 </tr>
                             @endforeach
     

@@ -71,6 +71,9 @@ Route::group(['middleware' => ['auth', 'checkrole:1', 'prevent-back']], function
         Route::delete('/registration/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('registration.destroy');
         
         Route::get('/courses/index', [CourseController::class, 'index'])->name('course.index');
+        Route::post('/courses/store', [CourseController::class, 'store'])->name('course.store');
+        Route::put('/courses/update/{course}', [CourseController::class, 'update'])->name('course.update');
+        Route::delete('/courses/destroy/{course}', [CourseController::class, 'destroy'])->name('course.delete');
     });
 });
 Route::group(['middleware' => ['auth', 'checkrole:3']], function () {
