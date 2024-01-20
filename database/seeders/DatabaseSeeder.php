@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
         
 
         $bsit = Course::create([
-            'name' => 'Bachelors of Science in Information System',
+            'name' => 'Bachelor of Science in Information Systems',
             'acrocode' => 'BSIS',
         ]);
         Registration::create([
@@ -59,16 +59,40 @@ class DatabaseSeeder extends Seeder
             "barangay" => "Bagumbayan",
         ]);
         Course::create([
-            'name' => 'Bachelors of Science in Information Technology',
-            'acrocode' => 'BSIT',
+            'name' => 'Bachelor of Engineering Technology Major in Automotive',
+            'acrocode' => 'BET-A',
         ]);
         Course::create([
-            'name' => 'Bachelors of Science in Computer Science',
-            'acrocode' => 'BSCS',
+            'name' => 'Bachelor In Engineering Technology Major in Electronics',
+            'acrocode' => 'BET-ELX',
         ]);
         Course::create([
-            'name' => 'Bachelors of Library Science',
-            'acrocode' => 'BLIS',
+            'name' => 'Bachelor of Elementary Education',
+            'acrocode' => 'BEED',
+        ]);
+        Course::create([
+            'name' => 'Bachelor of Secondary Education Major in English',
+            'acrocode' => 'BSED-English',
+        ]);
+        Course::create([
+            'name' => 'Bachelor of Secondary Education Major in Mathematics',
+            'acrocode' => 'BSED-Math',
+        ]);
+        Course::create([
+            'name' => 'Bachelor of Secondary Education Major in Social Studies',
+            'acrocode' => 'BSED-Social Studies',
+        ]);
+        Course::create([
+            'name' => 'Bachelor of Secondary Education Major in Science',
+            'acrocode' => 'BSED-Science',
+        ]);
+        Course::create([
+            'name' => 'Bachelor of Secondary Education Major in Filipino',
+            'acrocode' => 'BSED-Filipino',
+        ]);
+        Course::create([
+            'name' => 'Bachelor of Secondary Education Major in Values Education',
+            'acrocode' => 'BSED-Values Education',
         ]);
 
 

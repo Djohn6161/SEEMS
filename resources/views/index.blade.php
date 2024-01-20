@@ -219,9 +219,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group " >
+                                    <div class="form-group " style="height:10px">
                                         <label for="course"  class="form-label">Course Preferred</label>
-                                        <select class="form-control w-100" id="course" name="courses_id" style="font-size: 2.5rem">
+                                        <select size="1" class="form-control w-100 " id="course" name="courses_id" style="font-size: 2.5rem;">
                                           <option style="font-size: 2.5rem">Choose course</option>
                                           @foreach ($courses as $course)
                                             <option @if (old('courses_id') == $course->id) class="text-light font-weight-bold bg-primary" selected @endif style="font-size: 2.5rem" value="{{$course->id}}">{{$course->name . " " . $course->acrocode}}</option>
