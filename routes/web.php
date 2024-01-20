@@ -59,6 +59,8 @@ Route::group(['middleware' => ['auth', 'checkrole:1', 'prevent-back']], function
 
         Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index'); 
         Route::get('/accounts/activate/{user}', [AccountController::class, 'activate'])->name('accounts.active');
+        Route::post('/accounts/store', [AccountController::class, 'store'])->name('account.store');
+
         // Route::post('/accounts/store', [AccountController::class, 'store'])->name('account.store');
         // Route::put('/accounts/update/{user}', [AccountController::class, 'update'])->name('account.update');
         // Route::delete('/accounts/destroy/{user}', [AccountController::class, 'destroy'])->name('accounts.destroy');

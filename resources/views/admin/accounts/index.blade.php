@@ -2,10 +2,10 @@
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Users</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-plus fa-sm text-white-50"></i> Add User</a>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm " data-toggle="modal" data-target="#createModal"><i
+             class="fas fa-plus fa-sm text-white-50"></i> Add User Admin</a>
     </div>
-
+    <x-user.create :></x-user.create>
     <div class="container-fluid">
         {{-- {{dd($Qtype)}} --}}
         <div class="card shadow mb-4">
@@ -77,13 +77,28 @@
                                     <td> {{ $account->email }}</td>
                                     <td>{{ $account->role == 1 ? 'Admin' : 'Examinee' }}</td>
                                     <td class="text-center">{{ $account->role == 2 ? $account->created_at : 'null'}}</td>
-                                    <td class="text-center">
-                                        @if ($account->active == 1)
-                                        <a href="{{route('admin.accounts.active', ['user' => $account->id])}}" class="btn btn-success">Active</a>
-                                        @else
-                                        <a href="{{route('admin.accounts.active', ['user' => $account->id])}}" class="btn btn-secondary">Inactive</a>
-                                        @endif
+                                    <td class="text-center" width="35%">
+                                        <div class="d-flex align-items-center row p-2">
+                                            @if ($account->active == 1)
+                                            <a href="{{route('admin.accounts.active', ['user' => $account->id])}}" class="col btn btn-success">Active</a>
+                                            @else
+                                            <a href="{{route('admin.accounts.active', ['user' => $account->id])}}" class="col btn btn-secondary">Inactive</a>
+                                            @endif
+                                            <button type="button" class="col btn btn-warning mx-2" data-toggle="modal"
+                                                data-target="#editModal{{ $account->id }}">
+                                                <i class="fas fa-pen"></i>
+                                                Edit
+                                            </button>
+                                            <button type="button" class="col btn btn-danger mx-2" data-toggle="modal"
+                                                data-target="#deleteModal{{ $account->id }}">
+                                                <i class="fas fa-trash"></i>
+                                                Delete
+                                            </button>
+                                            
+                                        </div>
+                                        
                                     </td>
+                                    {{-- <x-user.modal :account=$account /> --}}
 
                                     {{-- <td style="max-width: 15%"><span class="limit-line">{{ $thesis->authors }}</span>
                                 </td>

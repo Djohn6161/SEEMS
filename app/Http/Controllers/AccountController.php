@@ -37,6 +37,18 @@ class AccountController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'name' => 'required|max:50',
+            'active' => 'required',
+            'password' => 'required|confirmed|min:8',
+        ]);
+        $validatedData['password'] = bcrypt($validatedData['password']);
+        $validatedData['role'] = 1;
+        // dd($validatedData);
+        User::create($validatedData);
+        return redirect()->back()->with('message', 'User Added Successfully.');
+
     }
 
     /**
