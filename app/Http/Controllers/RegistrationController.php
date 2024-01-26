@@ -112,4 +112,14 @@ class RegistrationController extends Controller
             
             return back()->with('message', 'Registration Deleted Successfully!');
     }
+    public function print(){
+        $exams = Examination::all();
+        $registrations = Registration::all();
+        return view('admin.registration.print',[
+            'exams' => $exams,
+            'active' => 'printRegistration',
+            'registrations' => $registrations,
+            'courses' => Course::all(),
+        ]);
+    }
 }

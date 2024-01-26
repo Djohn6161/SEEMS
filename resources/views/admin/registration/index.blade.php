@@ -2,9 +2,14 @@
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Registration</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal"
-    data-target="#createModal"><i
-            class="fas fa-plus fa-sm text-white-50"></i> Add Registration</a>
+    <div class="d-sm-inline-block">
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal"
+        data-target="#createModal"><i
+                class="fas fa-plus fa-sm text-white"></i> Add Registration</a>
+        <a href="{{route('admin.registration.print')}}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" ><i
+                class="fas fa-print fa-sm text-white"></i> Print Registrations</a>
+    </div>
+    
 </div>
 <x-registration.create :courses=$courses></x-registration.create>
 
@@ -14,7 +19,7 @@
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <h6 class="m-0 font-weight-bold text-primary">DATABASE</h6>
             <div class="d-flex justify-content-lg-center">
-                <button type="button" id="featuredButton" style="display: none" class="btn mx-2 btn-success "
+                {{-- <button type="button" id="featuredButton" style="display: none" class="btn mx-2 btn-success "
                     data-toggle="modal" data-target="#featuredModal">
                     <i class="fas fa-star"></i>
                     Select Featured
@@ -23,7 +28,7 @@
                     data-toggle="modal" data-target="#deleteThesisModal">
                     <i class="fas fa-trash"></i>
                     Delete Selected
-                </button>
+                </button> --}}
                 <button type="button" id="filterButton" class="btn mx-2 btn-primary"
                     data-toggle="modal" data-target="#filterThesisModal">
                     <i class="fas fa-filter"></i>
@@ -38,8 +43,9 @@
                         <tr>
                             <th class="text-center">
                                 <div class="custom-control custom-control-lg custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkAll">
-                                    <label class="custom-control-label" for="checkAll">Check All ID</label>
+                                    {{-- <input type="checkbox" class="custom-control-input" id="checkAll">
+                                    <label class="custom-control-label" for="checkAll">Check All ID</label> --}}
+                                    ID
                                 </div>
                             </th>
                             <th class="text-center">Email</th>
@@ -75,11 +81,12 @@
                                     <div class="custom-control custom-control-lg custom-checkbox">
 
 
-                                        <input type="checkbox" class="custom-control-input"
+                                        {{-- <input type="checkbox" class="custom-control-input"
                                             id="thesis[{{ $registration->id }}]" name="thesis[]"
                                             value="{{ $registration->id }}">
                                         <label class="custom-control-label" for="thesis[{{ $registration->id }}]">
-                                            {{ $registration->id }}</label>
+                                            </label> --}}
+                                            {{ $registration->id }}
                                     </div>
 
                                 </td>

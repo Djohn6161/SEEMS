@@ -66,9 +66,11 @@ Route::group(['middleware' => ['auth', 'checkrole:1', 'prevent-back']], function
         // Route::delete('/accounts/destroy/{user}', [AccountController::class, 'destroy'])->name('accounts.destroy');
 
         Route::get('/registration/index', [RegistrationController::class, 'index'])->name('registration.index'); 
+        Route::get('/registration/print', [RegistrationController::class, 'print'])->name('registration.print'); 
         Route::post('/registration/store', [RegistrationController::class, 'store'])->name('registration.store'); 
         Route::put('/registration/update/{registration}', [RegistrationController::class, 'update'])->name('registration.update');
         Route::delete('/registration/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('registration.destroy');
+        
         
         Route::get('/courses/index', [CourseController::class, 'index'])->name('course.index');
         Route::post('/courses/store', [CourseController::class, 'store'])->name('course.store');

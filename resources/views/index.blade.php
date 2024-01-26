@@ -114,7 +114,7 @@
             </div>
         </div>
     </section>
-    <section class="about-area3 fix my-5">
+    <section class="about-area3 my-5">
         <div class="mx-3">
             <div class="container-flex px- px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">

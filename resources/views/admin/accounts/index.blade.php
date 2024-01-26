@@ -12,7 +12,7 @@
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
                 <h6 class="m-0 font-weight-bold text-primary">DATABASE</h6>
                 <div class="d-flex justify-content-lg-center">
-                    <button type="button" id="featuredButton" style="display: none" class="btn mx-2 btn-success "
+                    {{-- <button type="button" id="featuredButton" style="display: none" class="btn mx-2 btn-success "
                         data-toggle="modal" data-target="#featuredModal">
                         <i class="fas fa-star"></i>
                         Select Featured
@@ -21,7 +21,7 @@
                         data-toggle="modal" data-target="#deleteThesisModal">
                         <i class="fas fa-trash"></i>
                         Delete Selected
-                    </button>
+                    </button> --}}
                     <button type="button" id="filterButton" class="btn mx-2 btn-primary" data-toggle="modal"
                         data-target="#filterThesisModal">
                         <i class="fas fa-filter"></i>
@@ -36,8 +36,9 @@
                             <tr>
                                 <th class="text-center">
                                     <div class="custom-control custom-control-lg custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="checkAll">
-                                        <label class="custom-control-label" for="checkAll">Check All ID</label>
+                                        {{-- <input type="checkbox" class="custom-control-input" id="checkAll">
+                                        <label class="custom-control-label" for="checkAll">Check All </label> --}}
+                                        ID
                                     </div>
                                 </th>
                                 <th class="text-center">Name</th>
@@ -62,16 +63,16 @@
                             @foreach ($accounts as $account)
                                 <tr class="border border-primary" data-id="{{ $account->id }}">
                                     <td class='text-center'>
-                                        <div class="custom-control custom-control-lg custom-checkbox">
+                                        {{-- <div class="custom-control custom-control-lg custom-checkbox">
 
 
                                             <input type="checkbox" class="custom-control-input"
                                                 id="thesis[{{ $account->id }}]" name="thesis[]"
                                                 value="{{ $account->id }}">
                                             <label class="custom-control-label" for="thesis[{{ $account->id }}]">
-                                            {{ $account->id }}</label>
-                                        </div>
-
+                                            </label>
+                                        </div> --}}
+                                        {{ $account->id }}
                                     </td>
                                     <td> {{ $account->name }} </td>
                                     <td> {{ $account->email }}</td>

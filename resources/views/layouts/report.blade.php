@@ -23,6 +23,7 @@
         @vite(['resources/css/app.css'])
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <!-- Bootstrap core JavaScript-->
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
@@ -42,13 +43,13 @@
 
 <body id="page-top">
     <div id="wrapper">
-        @include('partials._sidebar')
+        {{-- @include('partials._sidebar') --}}
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
             <div id="content">
                 <x-flash-message></x-flash-message>
-                @include('partials._topbar')
+                {{-- @include('partials._topbar') --}}
                 <div class="container-fluid">
                     @yield('content')
                 </div>
@@ -69,7 +70,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    {{-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -86,18 +87,15 @@
                     </button>
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
-                        {{-- @method('DELETE') --}}
                         <button type="submit" class="btn btn-danger">
                             Logout
                         </button>
                     </form>
-                    {{-- <a class="btn btn-primary" href="{{route('logout')}}">Logout</a> --}}
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <!-- Bootstrap core JavaScript-->
     
     <script>
         $(document).ready(function() {
