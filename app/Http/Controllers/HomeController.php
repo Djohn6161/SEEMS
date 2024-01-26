@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Score;
 use App\Models\Attempt;
 use App\Models\Examination;
-use App\Models\Score;
+use App\Models\Registration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -42,11 +44,18 @@ class HomeController extends Controller
     }
 
     public function adminIndex(){
-        
+        $averageScore = DB::table('scores')
+        ->select(DB::raw('AVG(Score) as Average'))
+        ->first()->Average;
+
+        // dd($averageScore);
         $exams = Examination::all();
+        $total_examinee = count(Registration::all());
         return view('admin.index',[
             'exams' => $exams,
-            'active' => 'dashboard'
+            'active' => 'dashboard',
+            'total_examinee' => $total_examinee,
+            'average_score' => $averageScore,
         ]);
     }
     public function examineeIndex(){

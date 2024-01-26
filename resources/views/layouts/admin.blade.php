@@ -52,6 +52,7 @@
             width: 10%;
         }
     </style>
+    <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
 </head>
 
 <body id="page-top">
@@ -117,16 +118,7 @@
 
     <!-- Bootstrap core JavaScript-->
 
-    <script>
-        $(document).ready(function() {
-            $('form').submit(function(e) {
-                // disable the submit button 
-                $('button[type="submit"]').attr('disabled', true);
-                // submit the form
-                return true;
-            });
-        });
-    </script>
+    
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
@@ -137,10 +129,20 @@
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
     <!-- Page level plugins -->
-    <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
+    
     <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(e) {
+                // disable the submit button 
+                $('button[type="submit"]').attr('disabled', true);
+                // submit the form
+                return true;
+            });
+        });
+    </script>
 </body>
 
 </html>
