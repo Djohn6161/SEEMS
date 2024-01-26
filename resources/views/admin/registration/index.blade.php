@@ -16,25 +16,9 @@
 
 <div class="container-fluid">
     <div class="card shadow mb-4">
-        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <div class="card-header py-3 ">
             <h6 class="m-0 font-weight-bold text-primary">DATABASE</h6>
-            <div class="d-flex justify-content-lg-center">
-                {{-- <button type="button" id="featuredButton" style="display: none" class="btn mx-2 btn-success "
-                    data-toggle="modal" data-target="#featuredModal">
-                    <i class="fas fa-star"></i>
-                    Select Featured
-                </button>
-                <button type="button" id="deleteButton" style="display: none" class="btn mx-2 btn-danger"
-                    data-toggle="modal" data-target="#deleteThesisModal">
-                    <i class="fas fa-trash"></i>
-                    Delete Selected
-                </button> --}}
-                <button type="button" id="filterButton" class="btn mx-2 btn-primary"
-                    data-toggle="modal" data-target="#filterThesisModal">
-                    <i class="fas fa-filter"></i>
-                    Filter
-                </button>
-            </div>
+            
         </div>
         <div class="card-body">
             <div class="table-responsive">
