@@ -50,6 +50,43 @@ class RegistrationController extends Controller
         return redirect()->back()->with('message', 'Registered Successfully');
 
     }
+    public function storeExaminee(Request $request){
+        // dd($request);
+        $validatedData = $request->validate([
+            'email' => 'required|unique:users,email',
+            'first_name' => 'required|max:50',
+            'middle_name' => 'nullable|max:50',
+            'last_name' => 'required|max:50',
+            'extension' => 'nullable|max:5',
+            'date_of_birth' => 'required|date',
+            'mobile_number' => 'required|digits:11',
+            'province' => 'required|max:255',
+            'municipality' => 'required|max:255',
+            'barangay' => 'required|max:255',
+            'psa_file' => 'required|mimes:png,jpeg,jpg',
+            'courses_id' => 'required',
+        ]);
+        // dd($validatedData['psa_file']);
+        $randomPassword = rand(100000, 999999);
+        $validatedData['password'] = $randomPassword;
+        
+        // dd($validatedData['email']);
+
+        $user = new User();
+        $user->name = $validatedData['first_name'] . " " . $validatedData['last_name'];
+        $user->email = $validatedData['email'];
+        $user->role = 2;
+        $user->password = Hash::make($validatedData['password']);
+        $user->save();
+        $validatedData['users_id'] = $user->id;
+        if ($request->hasFile('psa_file')) {
+            $validatedData['psa_file'] = $request->file('psa_file')->store('PSA', 'public');
+        }
+        $user = Registration::create($validatedData);
+
+        return view('congratulations')->with('message', 'Registered Successfully');
+
+    }
     public function index(){
         $exams = Examination::all();
         $registrations = Registration::all();
