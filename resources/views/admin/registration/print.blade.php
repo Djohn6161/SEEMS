@@ -4,7 +4,7 @@
     <h1 class="h3 mb-0 text-gray-800">Registration - Accounts</h1>
     <button onclick="download(this)"
                     id="downbtn"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm p-2"><i
-                        class="fas fa-download fa-sm"></i> Download Report</button>
+                        class="fas fa-print fa-sm"></i> Print Report</button>
 </div>
 
 

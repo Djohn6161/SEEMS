@@ -42,6 +42,7 @@
                             <th class="text-center">Examination</th>
                             <th class="text-center">Examiner</th>
                             <th class="text-center">Score</th>
+                            <th class="text-center">Total Items</th>
                             <th class="text-center">Action</th>
                             {{-- <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="">
@@ -76,6 +77,7 @@
                                 <td> {{ $score->examination->name }}  </td>
                                 <td> {{ $score->user->name }}</td>
                                 <td class="text-center">{{ $score->Score }}</td>
+                                <td class="text-center">{{ $score->total_items }}</td>
                                 <td width="15%" class='py-1 text-center'>
                                         <a href="{{ route('admin.scores.review',['score'=>$score->id])}}" class="btn btn-primary mx-2">Review</a>
                                 </td>

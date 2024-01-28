@@ -47,15 +47,32 @@ class HomeController extends Controller
         $averageScore = DB::table('scores')
         ->select(DB::raw('AVG(Score) as Average'))
         ->first()->Average;
-
-        // dd($averageScore);
         $exams = Examination::all();
         $total_examinee = count(Registration::all());
+        $total_takers = Score::all()->count();
+        $scores = Score::all();
+    //     $results = Score::select('users_id', \DB::raw('MAX(Score) as max_score'), 'total_items')
+    // ->groupBy('users_id')
+    // ->havingRaw('max_score > total_items / 2')
+    // ->get();
+
+        // dd($results);
+        $total_passers =0;
+        foreach($scores as $score){
+            // dd( $score->total_items * .5);
+            if($score->Score >= $score->total_items * .5){
+                $total_passers++;
+            }
+        }
+        // dd(($total_passers / $total_takers) * 100);
+        
+        
         return view('admin.index',[
             'exams' => $exams,
             'active' => 'dashboard',
             'total_examinee' => $total_examinee,
             'average_score' => $averageScore,
+            'total_passed' => ($total_passers / $total_takers) * 100,
         ]);
     }
     public function examineeIndex(){

@@ -22,11 +22,11 @@
                         <i class="fas fa-trash"></i>
                         Delete Selected
                     </button> --}}
-                    <button type="button" id="filterButton" class="btn mx-2 btn-primary" data-toggle="modal"
+                    {{-- <button type="button" id="filterButton" class="btn mx-2 btn-primary" data-toggle="modal"
                         data-target="#filterThesisModal">
                         <i class="fas fa-filter"></i>
                         Filter
-                    </button>
+                    </button> --}}
                 </div>
             </div>
             <div class="card-body">

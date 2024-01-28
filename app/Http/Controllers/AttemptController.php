@@ -45,6 +45,8 @@ class AttemptController extends Controller
         $scoring->users_id = auth()->user()->id;
         $scoring->examinations_id = $examination->id;
         $scoring->score = $score;
+        $scoring->total_items = count($examination->question);
+        // dd($scoring->total_items);
         
         $scoring->save();
                 // dd($results);
