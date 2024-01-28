@@ -57,7 +57,7 @@ class HomeController extends Controller
     // ->get();
 
         // dd($results);
-        $total_passers =0;
+        $total_passers = 0;
         foreach($scores as $score){
             // dd( $score->total_items * .5);
             if($score->Score >= $score->total_items * .5){
@@ -65,14 +65,18 @@ class HomeController extends Controller
             }
         }
         // dd(($total_passers / $total_takers) * 100);
-        
+        if ($total_passers != 0) {
+            $total_passers = ($total_passers / $total_takers) * 100;
+        }else{
+            $total_passers = 100;
+        }
         
         return view('admin.index',[
             'exams' => $exams,
             'active' => 'dashboard',
             'total_examinee' => $total_examinee,
             'average_score' => $averageScore,
-            'total_passed' => ($total_passers / $total_takers) * 100,
+            'total_passed' => $total_passers,
         ]);
     }
     public function examineeIndex(){

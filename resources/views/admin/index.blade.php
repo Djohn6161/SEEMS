@@ -60,7 +60,7 @@
                             <div class="col">
                                 <div class="progress progress-sm mr-2">
                                     <div class="progress-bar bg-info" role="progressbar"
-                                        style="width: 50%" aria-valuenow="{{number_format($total_passed, 2) ?? 0}}" aria-valuemin="0"
+                                        style="width: {{number_format($total_passed, 2) ?? 0}}%" aria-valuenow="{{number_format($total_passed, 2) ?? 0}}" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
                             </div>
@@ -83,12 +83,12 @@
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{(number_format($total_passed, 2) - 100) * -1 ?? 0}}%</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{(number_format($total_passed, 2) - 100) * -1 === 0 ?: 0}}%</div>
                             </div>
                             <div class="col">
                                 <div class="progress progress-sm mr-2">
                                     <div class="progress-bar bg-danger" role="progressbar"
-                                        style="width: 50%" aria-valuenow="{{(number_format($total_passed, 2) - 100) * -1 ?? 0}}" aria-valuemin="0"
+                                        style="width: {{(number_format($total_passed, 2) - 100) * -1 === 0 ?: 0}}%" aria-valuenow="{{(number_format($total_passed, 2) - 100) * -1 === 0 ?: 0}}" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
                             </div>
