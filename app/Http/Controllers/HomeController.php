@@ -51,6 +51,13 @@ class HomeController extends Controller
         $total_examinee = count(Registration::all());
         $total_takers = Score::all()->count();
         $scores = Score::all();
+        $examinees = Registration::select(DB::raw('MONTHNAME(created_at) as Month'), DB::raw('count(*) as examinee_count'))
+        ->groupBy(DB::raw('MONTHNAME(created_at)'))
+        ->orderBy(DB::raw('MONTH(created_at)'), 'asc')
+        ->get();
+        $ExamineMuni = Registration::select(DB::raw('Count(*) as Examine'), 'municipality')
+        ->groupBy("municipality")->get();
+        // dd($ExamineMuni);
     //     $results = Score::select('users_id', \DB::raw('MAX(Score) as max_score'), 'total_items')
     // ->groupBy('users_id')
     // ->havingRaw('max_score > total_items / 2')
@@ -70,13 +77,17 @@ class HomeController extends Controller
         }else{
             $total_passers = 100;
         }
-        
+        $colors = ['#007BFF', '#28A745', '#DC3545', '#FFC107', '#17A2B8', '#343A40', '#6C757D', '#007BFF', '#28A745', '#DC3545', '#FFC107', '#17A2B8', '#343A40', '#6C757D', '#007BFF', '#28A745', '#DC3545', '#FFC107', '#17A2B8', '#343A40', '#6C757D'];
+
         return view('admin.index',[
             'exams' => $exams,
             'active' => 'dashboard',
             'total_examinee' => $total_examinee,
             'average_score' => $averageScore,
             'total_passed' => $total_passers,
+            'examPerYear' => $examinees,
+            'examPerMuni' => $ExamineMuni,
+            'colors' => $colors,
         ]);
     }
     public function examineeIndex(){

@@ -39,6 +39,30 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('111'),
             'role' => '2'
         ]);
+        $examinee2 = User::create([
+            'active' => true,
+            'name' => 'Sample Examinee2',
+            'email' => 'Examinee2@example.com',
+            'password' => Hash::make('111'),
+            'created_at' => '2024-03-28 23:00:53',
+            'role' => '2'
+        ]);
+        $examinee3 = User::create([
+            'active' => true,
+            'name' => 'Sample Examinee3',
+            'email' => 'Examinee3@example.com',
+            'password' => Hash::make('111'),
+            'created_at' => '2024-02-28 23:00:53',
+            'role' => '2'
+        ]);
+        $examinee4 = User::create([
+            'active' => true,
+            'name' => 'Sample Examinee4',
+            'email' => 'Examinee4@example.com',
+            'password' => Hash::make('111'),
+            'created_at' => '2024-04-28 23:00:53',
+            'role' => '2'
+        ]);
         
 
         $bsit = Course::create([
@@ -57,6 +81,48 @@ class DatabaseSeeder extends Seeder
             "province" => "Camarines Sur",
             "municipality" => "Baao",
             "barangay" => "Bagumbayan",
+        ]);
+        Registration::create([
+            "courses_id" => $bsit->id,
+            "users_id" => $examinee2->id,
+            "email" => $examinee2->email,
+            "first_name" => "Sample",
+            "last_name" => "Examinee",
+            "date_of_birth" => "2001-01-01",
+            "mobile_number" => "09123456789",
+            "password" => "111",
+            "province" => "Camarines Sur",
+            "municipality" => "Bato",
+            "barangay" => "Bagumbayan",
+            'created_at' => '2024-03-28 23:00:53',
+        ]);
+        Registration::create([
+            "courses_id" => $bsit->id,
+            "users_id" => $examinee3->id,
+            "email" => $examinee3->email,
+            "first_name" => "Sample",
+            "last_name" => "Examinee",
+            "date_of_birth" => "2001-01-01",
+            "mobile_number" => "09123456789",
+            "password" => "111",
+            "province" => "Camarines Sur",
+            "municipality" => "Nabua",
+            "barangay" => "Bagumbayan",
+            'created_at' => '2024-02-28 23:00:53',
+        ]);
+        Registration::create([
+            "courses_id" => $bsit->id,
+            "users_id" => $examinee4->id,
+            "email" => $examinee4->email,
+            "first_name" => "Sample",
+            "last_name" => "Examinee",
+            "date_of_birth" => "2001-01-01",
+            "mobile_number" => "09123456789",
+            "password" => "111",
+            "province" => "Camarines Sur",
+            "municipality" => "Buhi",
+            "barangay" => "Bagumbayan",
+            'created_at' => '2024-04-28 23:00:53',
         ]);
         Course::create([
             'name' => 'Bachelor of Engineering Technology Major in Automotive',
