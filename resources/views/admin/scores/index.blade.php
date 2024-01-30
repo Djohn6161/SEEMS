@@ -42,7 +42,7 @@
                                 ID
                             </th>
                             <th class="text-center">Examination</th>
-                            <th class="text-center">Examiner</th>
+                            <th class="text-center">Examinee</th>
                             <th class="text-center">Score</th>
                             <th class="text-center">Total Items</th>
                             <th class="text-center">Action</th>
