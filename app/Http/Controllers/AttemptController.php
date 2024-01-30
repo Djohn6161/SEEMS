@@ -19,7 +19,7 @@ class AttemptController extends Controller
         
         $exams = Examination::all();
         // get all the questions in this examination
-        $questions = $examination->Question;
+        $questions = $examination->Question->shuffle();
         // get all the choices available in this questions
         $questionIds = $questions->pluck('id');
         $choices = Choices::whereIn('questions_id', $questionIds)->get();
