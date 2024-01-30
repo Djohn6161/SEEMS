@@ -19,6 +19,7 @@ return new class extends Migration
             // $table->foreignId('choices_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->text('answer')->nullable();
             $table->integer('attempt')->nullable();
+            $table->integer('score')->default(0);
             $table->foreignId('users_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

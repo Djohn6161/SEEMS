@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Score;
+use App\Models\Result;
 use App\Models\Choices;
 use App\Models\Question;
 use App\Models\QuestionType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ScoreController extends Controller
 {
@@ -51,5 +53,20 @@ class ScoreController extends Controller
         //     'active' => 'exam',
         //     'type' => $type,
         // ]);
+    }
+    public function update(Request $request, Score $score){
+        
+        foreach($score->Results as $result){
+            $request;
+            $res = Result::find($result->id);
+            $res->score = $request['results'][$res->id];
+            // dd($res);
+            $res->save();
+        }
+        $TotalScores = Result::select(DB::raw('SUM(score) as total'))->where('scores_id', $score->id)->first();
+        // dd($TotalScores->total);
+        $score->Score = $TotalScores->total;
+        $score->save();
+        return redirect('/admin/scores')->with('message', 'Successfully updated');
     }
 }

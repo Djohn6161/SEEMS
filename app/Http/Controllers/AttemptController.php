@@ -61,6 +61,15 @@ class AttemptController extends Controller
                     'answer' => $request->get('choice')[$question],
                     'attempt' => $attempt,
                 ]);
+            }else{
+                Result::create([
+                    'users_id' => auth()->id(),
+                    'scores_id' => $scoring->id,
+                    'questions_id' => $question,
+                    'examinations_id' => $examination->id,
+                    'answer' => 0,
+                    'attempt' => $attempt,
+                ]);
             }
         }
         $results = DB::table('results')
@@ -70,13 +79,17 @@ class AttemptController extends Controller
                 ->where('users_id', auth()->id())
                 ->where('examinations.id', $examination->id)
                 ->where('attempt', $attempt)
-                ->select('results.answer as ans', 'questions.answer as corAns')
+                ->select('results.answer as ans', 'questions.answer as corAns', 'results.id')
                 ->get();
 
             // dd($results);
         foreach ($results as $result)
         if ($result->ans == $result->corAns){
             $score++;
+            $updRes = Result::find($result->id);
+            $updRes->score = 1;
+            $updRes->save();
+
         }
         $scoring->score = $score;
         

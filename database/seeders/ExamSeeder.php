@@ -31,7 +31,7 @@ class ExamSeeder extends Seeder
         QuestionType::factory()->create([
             'name' => 'True Or False',
         ]);
-        QuestionType::factory()->create([
+        $essay = QuestionType::factory()->create([
             'name' => 'Essay',
         ]);
         $exam = Examination::factory()->create([
@@ -39,6 +39,11 @@ class ExamSeeder extends Seeder
             'start_dateTime' => date('Y-m-d H:i:s'),
             'end_dateTime' => $nextWeekDateTime,
             'numberOfAttempts' => '1'
+        ]);
+        Question::factory()->create([
+            'type_id' => $essay->id,
+            'examinations_id' => $exam->id,
+            'Question' => 'Why choose this school?',
         ]);
         $question = Question::factory()->create([
             'type_id' => $type->id,
