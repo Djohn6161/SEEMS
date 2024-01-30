@@ -31,7 +31,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-striped" id="dataTableScore" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th class="text-center">

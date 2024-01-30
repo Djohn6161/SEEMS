@@ -14,8 +14,8 @@ class ScoreController extends Controller
 {
     //
     public function index(){
-        $score = Score::all();
-        
+        $score = Score::all()->sortByDesc('Score');
+        // dd($score);
         return view('admin.scores.index',[
             'scores' => $score,
             'active' => 'scores',
@@ -70,7 +70,7 @@ class ScoreController extends Controller
         return redirect('/admin/scores')->with('message', 'Successfully updated');
     }
     public function print(){
-        $score = Score::all();
+        $score = Score::all()->sortByDesc('Score');;
         
         return view('admin.scores.print',[
             'scores' => $score,
