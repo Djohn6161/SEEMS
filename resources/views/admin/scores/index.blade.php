@@ -4,6 +4,8 @@
     <h1 class="h3 mb-0 text-gray-800">Scores</h1>
     {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
             class="fas fa-plus fa-sm text-white-50"></i> </a> --}}
+            <a href="{{route('admin.scores.print')}}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" ><i
+                class="fas fa-print fa-sm text-white"></i> Print Scores</a>
 </div>
 <div class="container-fluid">
     <div class="card shadow mb-4">

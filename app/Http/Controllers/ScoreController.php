@@ -69,4 +69,12 @@ class ScoreController extends Controller
         $score->save();
         return redirect('/admin/scores')->with('message', 'Successfully updated');
     }
+    public function print(){
+        $score = Score::all();
+        
+        return view('admin.scores.print',[
+            'scores' => $score,
+            'active' => 'scores prints',
+        ]);
+    }
 }
