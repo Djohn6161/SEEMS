@@ -31,6 +31,7 @@
                             <th class="text-center">Examinee</th>
                             <th class="text-center">Score</th>
                             <th class="text-center">Total Items</th>
+                            <th class="text-center">Status</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -67,6 +68,7 @@
                                 <td> {{ $score->user->name }}</td>
                                 <td class="text-center">{{ $score->Score }}</td>
                                 <td class="text-center">{{ $score->total_items }}</td>
+                                <td class="text-center font-weight-bold"> {{ $score->status ? "Passed": "Failed"}}</td>
                         @endforeach
 
                     </tbody>
