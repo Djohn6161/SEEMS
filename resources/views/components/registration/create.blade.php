@@ -10,6 +10,28 @@
             <div class="modal-body">
                 <form id="createRegistration" method="POST" action="{{ route('admin.registration.store') }}" enctype="multipart/form-data">
                     @csrf
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="card d-flex align-items-center justify-content-center p-3" style="width: 18rem;">
+                            <p class="text-venter">2x2 PICTURE</p>
+                            <img src="{{asset('img/undraw_profile.svg')}}" alt="" width="150px"/> 
+                            
+                            <div class="card-body pb-0">
+                                <div class="form-group mb-4">
+                                    <div class="form-group mb-0">
+                                    @if(!empty($errors->create->first('picture')))
+                                        <span class="text-danger alert " role="alert">{{ $errors->create->first('picture') }}</span>
+                                    @endif
+                                    </div>
+                                    <div class="form-group">
+                                        
+                                        <input type="file" class="form-control-file border" id="picture" name="picture" style="" accept=".jpg, .jpeg, .png" required>
+                                        {{-- <label for="psa_file" class="custom-file-label" style="">Choose a image File</label> --}}
+                                      </div>
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                    
                     
                     <div class="form-group mb-4">
                         <label for="email" class="text-dark">Email Address</label>

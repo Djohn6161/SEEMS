@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('province')->nullable(false);
             $table->string('barangay')->nullable(false);
             $table->string('psa_file')->nullable();
+            $table->string('picture')->nullable();
             $table->timestamps();
         });
     }

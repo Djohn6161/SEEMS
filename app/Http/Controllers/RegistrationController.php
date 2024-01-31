@@ -14,7 +14,6 @@ class RegistrationController extends Controller
 {
     //
     public function store(Request $request){
-        // dd($request);
         $validatedData = $request->validate([
             'email' => 'required|unique:users,email',
             'first_name' => 'required|max:50',
@@ -27,6 +26,7 @@ class RegistrationController extends Controller
             'municipality' => 'required|max:255',
             'barangay' => 'required|max:255',
             'psa_file' => 'required|mimes:png,jpeg,jpg',
+            'picture' => 'required|mimes:png,jpeg,jpg',
             'courses_id' => 'required',
         ]);
         // dd($validatedData['psa_file']);
@@ -44,6 +44,9 @@ class RegistrationController extends Controller
         $validatedData['users_id'] = $user->id;
         if ($request->hasFile('psa_file')) {
             $validatedData['psa_file'] = $request->file('psa_file')->store('PSA', 'public');
+        }
+        if ($request->hasFile('picture')) {
+            $validatedData['picture'] = $request->file('picture')->store('picture2X2', 'public');
         }
         $user = Registration::create($validatedData);
 
@@ -64,6 +67,7 @@ class RegistrationController extends Controller
             'municipality' => 'required|max:255',
             'barangay' => 'required|max:255',
             'psa_file' => 'required|mimes:png,jpeg,jpg',
+            'picture' => 'required|mimes:png,jpeg,jpg',
             'courses_id' => 'required',
         ]);
         // dd($validatedData['psa_file']);
@@ -81,6 +85,9 @@ class RegistrationController extends Controller
         $validatedData['users_id'] = $user->id;
         if ($request->hasFile('psa_file')) {
             $validatedData['psa_file'] = $request->file('psa_file')->store('PSA', 'public');
+        }
+        if ($request->hasFile('picture')) {
+            $validatedData['picture'] = $request->file('picture')->store('picture2X2', 'public');
         }
         $user = Registration::create($validatedData);
 
@@ -110,7 +117,8 @@ class RegistrationController extends Controller
             'province' => 'required|max:255',
             'municipality' => 'required|max:255',
             'barangay' => 'required|max:255',
-            'psa_file' => 'required|mimes:png,jpeg,jpg',
+            'psa_file' => 'mimes:png,jpeg,jpg',
+            'picture' => 'mimes:png,jpeg,jpg',
             'courses_id' => 'required',
         ]);
         $user = User::find($registration->users_id);
@@ -128,6 +136,17 @@ class RegistrationController extends Controller
                 $formFields['psa_file'] = $request->file('psa_file')->store('PSA', 'public');
             }
         }
+        if ($request->has('picture')) {
+            if ($registration->picture !== null) {
+                if (Storage::disk('public')->exists($registration->picture)) {
+                    // dd("Thesis is found: " . $registration->picture);
+                    Storage::disk('public')->delete($registration->picture);
+                }
+            }
+            if ($request->hasFile('picture')) {
+                $formFields['picture'] = $request->file('picture')->store('PSA', 'public');
+            }
+        }
         $registration->update($formFields);
         // dd($program);
         // $status = $registration->email . ' Updated Successfully!';
@@ -141,6 +160,12 @@ class RegistrationController extends Controller
                 if (Storage::disk('public')->exists($registration->psa_file)) {
                     // dd("Thesis is found: " . $thesis->file);
                     Storage::disk('public')->delete($registration->psa_file);
+                }
+            }
+            if ($registration->picture !== null) {
+                if (Storage::disk('public')->exists($registration->picture)) {
+                    // dd("Thesis is found: " . $thesis->file);
+                    Storage::disk('public')->delete($registration->picture);
                 }
             }
             $registration->delete();

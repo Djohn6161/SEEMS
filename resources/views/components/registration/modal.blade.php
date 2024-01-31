@@ -13,6 +13,32 @@
                     action="{{ route('admin.registration.update', ['registration' => $registration->id]) }}">
                     @csrf
                     @method('PUT')
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="card d-flex align-items-center justify-content-center p-3" style="width: 18rem;">
+                            <p class="text-venter">2x2 PICTURE</p>
+                            @if ($registration->psa_file!==null) 
+                                <img src="{{asset('storage/' . $registration->picture)}}" alt="" width="150px"/> 
+                            @else
+                                <img src="{{asset('img/undraw_profile.svg')}}" alt="" width="150px"/> 
+                            @endif
+                            
+                            
+                            <div class="card-body pb-0">
+                                <div class="form-group mb-4">
+                                    <div class="form-group mb-0">
+                                        @error('picture')
+                                        <span class="text-danger alert " role="alert">{{ $message }}</span>
+                                    @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        
+                                        <input type="file" class="form-control-file border" id="picture" name="picture" style="" accept=".jpg, .jpeg, .png" >
+                                        {{-- <label for="psa_file" class="custom-file-label" style="">Choose a image File</label> --}}
+                                      </div>
+                                </div>
+                            </div>
+                          </div>
+                    </div>
                     <div class="form-group mb-4">
                         <label for="email[{{ $registration->id }}]" class="text-dark">Email</label>
                         @error('email')
@@ -93,7 +119,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <input type="file" class="form-control-file border" id="psa_file" name="psa_file" style="" accept=".jpg, .jpeg, .png" required>
+                            <input type="file" class="form-control-file border" id="psa_file" name="psa_file" style="" accept=".jpg, .jpeg, .png" >
                             {{-- <label for="psa_file" class="custom-file-label" style="">Choose a image File</label> --}}
                           </div>
                     </div>

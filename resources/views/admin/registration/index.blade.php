@@ -32,6 +32,7 @@
                                     ID
                                 </div>
                             </th>
+                            <th class="text-center">Picture</th>
                             <th class="text-center">Email</th>
                             <th class="text-center">First Name</th>
                             <th class="text-center">Middle Name</th>
@@ -73,6 +74,12 @@
                                             {{ $registration->id }}
                                     </div>
 
+                                </td>
+                                <td> @if ($registration->psa_file!==null) 
+                                    <img src="{{asset('storage/' . $registration->picture)}}" alt="" width="150px"/> 
+                                    @else
+                                    <img src="{{asset('img/undraw_profile.svg')}}" alt="" width="150px"/> 
+                                    @endif
                                 </td>
                                 <td> {{ $registration->email }}  </td>
                                 <td> {{ $registration->first_name }}</td>

@@ -21,47 +21,6 @@
             </div>
         </div>
     </section>
-    <!-- ? services-area -->
-    {{-- <div class="services-area">
-        <div class="container">
-            <div class="row justify-content-sm-center">
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-services mb-30">
-                        <div class="features-icon">
-                            <img src="assets/img/icon/icon1.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <h3>60+ UX courses</h3>
-                            <p>The automated process all your website tasks.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-services mb-30">
-                        <div class="features-icon">
-                            <img src="assets/img/icon/icon2.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <h3>Expert instructors</h3>
-                            <p>The automated process all your website tasks.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="single-services mb-30">
-                        <div class="features-icon">
-                            <img src="assets/img/icon/icon3.svg" alt="">
-                        </div>
-                        <div class="features-caption">
-                            <h3>Life time access</h3>
-                            <p>The automated process all your website tasks.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!--? About Area-3 Start -->
     <section class="about-area3 fix " style="margin-top: 20px">
         <div class="support-wrapper align-items-center">
             {{-- <div class="right-content3">
@@ -124,7 +83,16 @@
                         <form action="{{ route('registration') }}" method="POST" enctype="multipart/form-data">
                             {!! csrf_field() !!}
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="form-group mb-0">
+                                        <label class="form-label  mb-2">2X2 Formal Picture</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control-file border" id="picture" name="picture" style="font-size: 2.5rem" accept=".jpg, .jpeg, .png" required>
+                                        {{-- <label for="psa_file" class="custom-file-label" for="psa_file"  style="font-size: 2.2rem">Choose a image File</label> --}}
+                                      </div>
+                                </div>
+                                <div class="col-md-8">
                                     <div class="form-group">
                                         <label for="email" class="form-label">Email Address</label>
                                         <input id="email" type="email"
