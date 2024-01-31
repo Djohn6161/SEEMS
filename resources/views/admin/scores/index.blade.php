@@ -45,6 +45,7 @@
                             <th class="text-center">Examinee</th>
                             <th class="text-center">Score</th>
                             <th class="text-center">Total Items</th>
+                            <th class="text-center">Status</th>
                             <th class="text-center">Action</th>
                             {{-- <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="">
@@ -80,6 +81,19 @@
                                 <td> {{ $score->user->name }}</td>
                                 <td class="text-center">{{ $score->Score }}</td>
                                 <td class="text-center">{{ $score->total_items }}</td>
+                                <td class="text-center">
+                                    @if ($score->status)
+                                        <a href="{{ route('admin.scores.status', ['score' => $score->id]) }}"
+                                            class="rounded bg-success text-decoration-none text-light p-1 d-sm-inline-block w-100">
+                                            {{-- <i class="fas fa-star"></i> --}}Passed
+                                        </a>
+                                    @else
+                                        <a href="{{ route('admin.scores.status', ['score' => $score->id]) }}"
+                                            class="rounded bg-danger text-light p-1 d-sm-inline-block w-100 text-decoration-none">
+                                            {{-- <i class="far fa-star"></i> --}} Failed
+                                        </a>
+                                    @endif
+                                </td>
                                 <td width="15%" class='py-1 text-center'>
                                         <a href="{{ route('admin.scores.review',['score'=>$score->id])}}" class="btn btn-primary mx-2">Review</a>
                                 </td>

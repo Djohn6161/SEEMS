@@ -77,6 +77,7 @@ class AttemptController extends Controller
                 ->join('questions', 'results.questions_id', '=', 'questions.id')
                 ->join('examinations', 'results.examinations_id', '=', 'examinations.id')
                 ->where('users_id', auth()->id())
+                ->where('results.scores_id', $scoring->id)
                 ->where('examinations.id', $examination->id)
                 ->where('attempt', $attempt)
                 ->select('results.answer as ans', 'questions.answer as corAns', 'results.id')
@@ -88,10 +89,14 @@ class AttemptController extends Controller
             $score++;
             $updRes = Result::find($result->id);
             $updRes->score = 1;
+            
             $updRes->save();
 
         }
         $scoring->score = $score;
+        if($scoring->score >= $scoring->total_items * .5){
+            $scoring->status = true;
+        }
         
         $scoring->save();
         // dd($score);

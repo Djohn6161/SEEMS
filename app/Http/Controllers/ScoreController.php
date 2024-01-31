@@ -77,4 +77,9 @@ class ScoreController extends Controller
             'active' => 'scores prints',
         ]);
     }
+    public function status(Score $score){
+        $score->status = !$score->status;
+        $score->save();
+        return back()->with('message', ' Status Updated Successfully!');
+    }
 }

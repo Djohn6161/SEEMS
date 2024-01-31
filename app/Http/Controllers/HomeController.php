@@ -64,18 +64,24 @@ class HomeController extends Controller
     // ->get();
 
         // dd($results);
-        $total_passers = 0;
-        foreach($scores as $score){
-            // dd( $score->total_items * .5);
-            if($score->Score >= $score->total_items * .5){
-                $total_passers++;
-            }
-        }
+        $total_passers = Score::where('status', '=', '1')->get()->count();
+        $total_fail = Score::where('status', '=', '0')->get()->count();
+        // foreach($scores as $score){
+        //     // dd( $score->total_items * .5);
+        //     if($score->Score >= $score->total_items * .5){
+        //         $total_passers++;
+        //     }
+        // }
         // dd(($total_passers / $total_takers) * 100);
         if ($total_passers != 0) {
             $total_passers = ($total_passers / $total_takers) * 100;
         }else{
-            $total_passers = 100;
+            $total_passers = 0;
+        }
+        if ($total_fail != 0) {
+            $total_fail = ($total_fail / $total_takers) * 100;
+        }else{
+            $total_fail = 0;
         }
         $colors = ['#007BFF', '#28A745', '#DC3545', '#FFC107', '#17A2B8', '#343A40', '#6C757D', '#007BFF', '#28A745', '#DC3545', '#FFC107', '#17A2B8', '#343A40', '#6C757D', '#007BFF', '#28A745', '#DC3545', '#FFC107', '#17A2B8', '#343A40', '#6C757D'];
 
@@ -85,6 +91,7 @@ class HomeController extends Controller
             'total_examinee' => $total_examinee,
             'average_score' => $averageScore,
             'total_passed' => $total_passers,
+            'total_fail' => $total_fail,
             'examPerYear' => $examinees,
             'examPerMuni' => $ExamineMuni,
             'colors' => $colors,

@@ -61,7 +61,8 @@ Route::group(['middleware' => ['auth', 'checkrole:1', 'prevent-back']], function
         Route::get('/scores/review/{score}', [ScoreController::class, 'review'])->name('scores.review'); 
         Route::put('/scores/update/{score}', [ScoreController::class, 'update'])->name('scores.update');
         Route::get('/scores/print', [ScoreController::class, 'print'])->name('scores.print'); 
-
+        Route::get('/scores/status{score}', [ScoreController::class, 'status'])->name('scores.status'); 
+        
         Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index'); 
         Route::get('/accounts/activate/{user}', [AccountController::class, 'activate'])->name('accounts.active');
         Route::post('/accounts/store', [AccountController::class, 'store'])->name('account.store');

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('examinations_id')->constrained('examinations')->onUpdate('cascade')->onDelete('cascade');
             $table->double('Score');
             $table->integer('total_items');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
