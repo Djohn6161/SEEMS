@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DateTime;
+use App\Models\User;
 use App\Models\Score;
 use App\Models\Attempt;
 use App\Models\Examination;
@@ -52,10 +53,13 @@ class HomeController extends Controller
         $total_examinee = count(Registration::all());
         $total_takers = Score::all()->count();
         $scores = Score::all();
-        $examinees = Registration::select(DB::raw('MONTHNAME(created_at) as Month'), DB::raw('count(*) as examinee_count'))
-        ->groupBy(DB::raw('MONTHNAME(created_at)'))
-        ->orderBy(DB::raw('MONTH(created_at)'), 'asc')
+        $examinees = User::select(DB::raw('examinations.name as Month'), DB::raw('count(*) as examinee_count'))
+        ->join('scores', 'users.id', '=', 'scores.users_id')
+        ->join('examinations', 'examinations.id', '=', 'scores.examinations_id')
+        ->groupBy(DB::raw('examinations.name'))
+        ->orderBy(DB::raw('examinations.name'), 'asc')
         ->get();
+        // dd($examinees);
         $ExamineMuni = Registration::select(DB::raw('Count(*) as Examine'), 'municipality')
         ->groupBy("municipality")->get();
         // dd($ExamineMuni);
