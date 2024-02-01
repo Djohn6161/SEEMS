@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
+use DateInterval;
 use App\Models\Score;
 use App\Models\Result;
 use App\Models\Attempt;
@@ -24,7 +26,14 @@ class AttemptController extends Controller
         $questionIds = $questions->pluck('id');
         $choices = Choices::whereIn('questions_id', $questionIds)->get();
         $type = QuestionType::all();
-        // dd($attempt);
+        $currentDateTime = new DateTime();
+        $duration = $examination->duration;
+        list($hours, $minutes, $seconds) = explode(':', $duration);
+        $totalDurationSeconds = $hours * 3600 + $minutes * 60 + $seconds;
+        $deadline = clone $currentDateTime;
+        $deadline->add(new DateInterval('PT' . $totalDurationSeconds . 'S'));
+        $deadlineFormatted = $deadline->format('Y-m-d H:i:s');
+        // dd($deadlineFormatted);
         // dd($examination);
         return view('examinee.takeExamination',[
             'exams' => $exams,
@@ -34,6 +43,7 @@ class AttemptController extends Controller
             'active' => 'exam',
             'type' => $type,
             'attempt' => $attempt,
+            'deadline' => $deadlineFormatted
         ]);
     }
     public function submit(Examination $examination, $attempt, Request $request){

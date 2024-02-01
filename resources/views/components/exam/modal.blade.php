@@ -36,9 +36,9 @@
                         @error('duration')
                             <span class="text-danger alert " role="alert">{{ $message }}</span>
                         @enderror
-                        <input type="time" class="form-control text-dark" style="font-size: 14px"
-                            name="duration" id="duration[{{ $data->id }}]" min="01:00" max="08:00"
-                            placeholder="Examination1" value="{{ $data->duration }}" required>
+                        <input type="text" class="form-control text-dark" style="font-size: 14px"
+                            name="duration" id="duration[{{ $data->id }}]" 
+                            placeholder="HH:MM:SS" value="{{ $data->duration }}" required>
                     </div>
                     <div class="form-group mb-4">
                         <label for="start_dateTime[{{ $data->id }}]" class="text-dark">Start Date and Time</label>

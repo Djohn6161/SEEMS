@@ -14,6 +14,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                         <thead>
+                            {{-- {{dd($currentTime)}} --}}
                             <tr>
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Time Duration</th>
@@ -46,7 +47,7 @@
                                 <td>{{$item->end_dateTime}}</td>
                                 <td class="text-center">{{count($item->Question)}}</td>
                                 <td class="text-center">
-                                    @if ($item->numberOfAttempts - count($attempts->where('examinations_id', $item->id)->where('users_id', auth()->user()->id)) > 0)
+                                    @if ($item->numberOfAttempts - count($attempts->where('examinations_id', $item->id)->where('users_id', auth()->user()->id)) > 0 && $currentTime >= new DateTime($item->start_dateTime) && $currentTime <= new DateTime($item->end_dateTime))
                                     <a href="{{route('examinee.examination.attempt', ['examination' => $item->id, 'attempt' => $attempt])}}" class="btn btn-primary">
                                         {{count($attempts->where('examinations_id', $item->id)->where('users_id', auth()->user()->id)) == 0 ? 'Take' : 'Re attempt'}}
                                     </a>

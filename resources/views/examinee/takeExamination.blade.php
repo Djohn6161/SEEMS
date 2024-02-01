@@ -2,12 +2,12 @@
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800 text-capitalize">{{ $examination_now->name }}</h1>
-
+        <div id="remaining-time" class="text-dark font-weight-bold p-3" style="font-size: 2rem"></div>
     </div>
     <div class="container-fluid">
+        <form method="POST" action="{{route('examinee.examination.submit', ['examination' => $examination_now->id, 'attempt' => $attempt])}}" id="attemptExamination">
 
         @unless (count($questions) == 0)
-            <form method="POST" action="{{route('examinee.examination.submit', ['examination' => $examination_now->id, 'attempt' => $attempt])}}" id="attemptExamination">
                 @csrf
                 @foreach ($type as $question_type)
                     @unless (count($questions->where('type_id', $question_type->id)) == 0)
@@ -74,12 +74,61 @@
                 <div class=" alert alert-secondary text-center font-size-20 pt-3 text-uppercase">No questions found</div>
             @endunless
             <div class="d-flex align-items-center justify-content-center mt-3">
-                <button class="btn btn-primary w-100" type=submit>Submit</button>
+                <button class="btn btn-primary w-100" type="button" onclick="SubmitExam()">Submit</button>
             </div>
         </form>
 
 
     </div>
+    <!-- Your HTML content -->
+
+<!-- Add this script at the end of your Blade view -->
+<script>
+    // Check if the initial deadline is stored in sessionStorage
+    function SubmitExam(){
+        sessionStorage.removeItem('initialDeadline');
+        console.log('SessionStorage cleared.');
+        // clearSessionStorage();
+        var form = document.getElementById("attemptExamination");
+        // console.log(form);
+        form.submit();
+    }
+    var initialDeadline = sessionStorage.getItem('initialDeadline');
+
+    // If it's not stored, set the initial deadline and store it in sessionStorage
+    if (!initialDeadline) {
+        initialDeadline = "{{ $deadline }}";
+        sessionStorage.setItem('initialDeadline', initialDeadline);
+    }
+
+    // Set the deadline from sessionStorage
+    var deadline = new Date(initialDeadline).getTime();
+
+    // Update the countdown every 1 second
+    var x = setInterval(function() {
+        // Get the current time
+        var now = new Date().getTime();
+
+        // Calculate the remaining time in milliseconds
+        var distance = deadline - now;
+
+        // Calculate remaining hours, minutes, and seconds
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the remaining time
+        document.getElementById("remaining-time").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+        // If the countdown is over, display a message or take appropriate action
+        if (distance <= 0) {
+            clearInterval(x);
+            document.getElementById("remaining-time").innerHTML = "EXPIRED";
+            SubmitExam();
+            // Add your code for expired time behavior here
+        }
+    }, 1000);
+</script>
 
 
 

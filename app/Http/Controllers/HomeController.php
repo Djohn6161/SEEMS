@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use App\Models\Score;
 use App\Models\Attempt;
 use App\Models\Examination;
@@ -105,6 +106,7 @@ class HomeController extends Controller
             'active' => 'exams',
             'exams' => $exams,
             'attempts' => $attempts,
+            'currentTime' => new DateTime(),
         ]);
     }
 }

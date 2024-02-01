@@ -29,21 +29,21 @@ class DatabaseSeeder extends Seeder
             'active' => true,
             'name' => 'Mariel Guevara',
             'email' => 'mariel@example.com',
-            'password' => Hash::make('111'),
+            'password' => Hash::make('1111'),
             'role' => '1'
         ]);
         $examinee = User::create([
             'active' => true,
             'name' => 'Sample Examinee',
             'email' => 'Examinee@example.com',
-            'password' => Hash::make('111'),
+            'password' => Hash::make('1111'),
             'role' => '2'
         ]);
         $examinee2 = User::create([
             'active' => true,
             'name' => 'Sample Examinee2',
             'email' => 'Examinee2@example.com',
-            'password' => Hash::make('111'),
+            'password' => Hash::make('1111'),
             'created_at' => '2024-03-28 23:00:53',
             'role' => '2'
         ]);
@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
             'active' => true,
             'name' => 'Sample Examinee3',
             'email' => 'Examinee3@example.com',
-            'password' => Hash::make('111'),
+            'password' => Hash::make('1111'),
             'created_at' => '2024-02-28 23:00:53',
             'role' => '2'
         ]);
@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
             'active' => true,
             'name' => 'Sample Examinee4',
             'email' => 'Examinee4@example.com',
-            'password' => Hash::make('111'),
+            'password' => Hash::make('1111'),
             'created_at' => '2024-04-28 23:00:53',
             'role' => '2'
         ]);
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
             "last_name" => "Examinee",
             "date_of_birth" => "2001-01-01",
             "mobile_number" => "09123456789",
-            "password" => "111",
+            "password" => "1111",
             "province" => "Camarines Sur",
             "municipality" => "Baao",
             "barangay" => "Bagumbayan",
@@ -90,7 +90,7 @@ class DatabaseSeeder extends Seeder
             "last_name" => "Examinee",
             "date_of_birth" => "2001-01-01",
             "mobile_number" => "09123456789",
-            "password" => "111",
+            "password" => "1111",
             "province" => "Camarines Sur",
             "municipality" => "Bato",
             "barangay" => "Bagumbayan",
@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
             "last_name" => "Examinee",
             "date_of_birth" => "2001-01-01",
             "mobile_number" => "09123456789",
-            "password" => "111",
+            "password" => "1111",
             "province" => "Camarines Sur",
             "municipality" => "Nabua",
             "barangay" => "Bagumbayan",
@@ -118,7 +118,7 @@ class DatabaseSeeder extends Seeder
             "last_name" => "Examinee",
             "date_of_birth" => "2001-01-01",
             "mobile_number" => "09123456789",
-            "password" => "111",
+            "password" => "1111",
             "province" => "Camarines Sur",
             "municipality" => "Buhi",
             "barangay" => "Bagumbayan",

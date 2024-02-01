@@ -27,16 +27,16 @@
                         @endif
                         <input type="number" class="form-control text-dark" style="font-size: 14px"
                             name="numberOfAttempts" min="1"
-                            placeholder="Examination1" value="{{ old('numberOfAttempts') }}" required>
+                            placeholder="" value="{{ old('numberOfAttempts') }}" required>
                     </div>
                     <div class="form-group mb-4">
                         <label for="duration" class="text-dark ">Time Duration</label>
                         @if(!empty($errors->create->first('duration')))
                             <span class="text-danger alert " role="alert">{{ $errors->create->first('duration') }}</span>
                         @endif
-                        <input type="time" class="form-control text-dark without_ampm" style="font-size: 14px"
-                            name="duration" min="01:00" max="08:00"
-                            placeholder="Examination1" value="{{ old('duration') ?? '01:00:00' }}" required>
+                        <input type="text" class="form-control text-dark without_ampm" style="font-size: 14px"
+                            name="duration"
+                            placeholder="HH:MM:SS" value="{{ old('duration') ?? '01:00:00' }}" required>
                     </div>
                     <div class="form-group mb-4">
                         <label for="start_dateTime" class="text-dark">Start Date and Time</label>

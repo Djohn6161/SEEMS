@@ -23,7 +23,7 @@ class ExamSeeder extends Seeder
         $nextWeekTimestamp = strtotime('+7 days', $currentTimestamp);
 
         // Format the timestamp as a date and time
-        $nextWeekDateTime = date('Y-m-d H:i:s', $nextWeekTimestamp);
+        $nextWeekDateTime = date('Y-m-d H:i', $nextWeekTimestamp);
 
         $type = QuestionType::factory()->create([
             'name' => 'Multiple Choices',
@@ -36,7 +36,7 @@ class ExamSeeder extends Seeder
         ]);
         $exam = Examination::factory()->create([
             'name' => 'CIT Department Examination',
-            'start_dateTime' => date('Y-m-d H:i:s'),
+            'start_dateTime' => date('Y-m-d H:i'),
             'end_dateTime' => $nextWeekDateTime,
             'numberOfAttempts' => '1'
         ]);
