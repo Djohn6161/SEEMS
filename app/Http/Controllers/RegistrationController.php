@@ -27,6 +27,7 @@ class RegistrationController extends Controller
             'barangay' => 'required|max:255',
             'psa_file' => 'required|mimes:png,jpeg,jpg',
             'picture' => 'required|mimes:png,jpeg,jpg',
+            'gender' => 'required',
             'courses_id' => 'required',
         ]);
         // dd($validatedData['psa_file']);
@@ -68,6 +69,7 @@ class RegistrationController extends Controller
             'barangay' => 'required|max:255',
             'psa_file' => 'required|mimes:png,jpeg,jpg',
             'picture' => 'required|mimes:png,jpeg,jpg',
+            'gender' => 'required',
             'courses_id' => 'required',
         ]);
         // dd($validatedData['psa_file']);
@@ -120,6 +122,7 @@ class RegistrationController extends Controller
             'psa_file' => 'mimes:png,jpeg,jpg',
             'picture' => 'mimes:png,jpeg,jpg',
             'courses_id' => 'required',
+            'gender' => 'required',
         ]);
         $user = User::find($registration->users_id);
         $user->email = $formFields['email'];

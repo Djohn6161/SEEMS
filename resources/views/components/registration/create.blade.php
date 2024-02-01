@@ -78,6 +78,29 @@
                             placeholder="Ex: Jr. Sr. (leave it blank if none)" value="{{ old('extension') }}"
                             >
                     </div>
+                    <div class="form-group " style="">
+                        <label for="gender"  class="form-label">Gender</label>
+                        <br>
+                        <div class="col-sm-9 d-inline-flex justify-content-start align-items-center">
+                                <div class="d-inline-flex justify-content-start align-items-center">
+                                    <label class="form-check-label mx-3">
+                                        <input type="radio" class="form-check-input " name="gender" value="1" 
+                                            {{ old('gender') == 1 ? 'checked' : '' }}> <span class="">Male</span>
+                                    </label>
+                                </div>
+
+                            <div class="d-inline-flex justify-content-start align-items-center">
+                                <label class="form-check-label mx-3">
+                                    <input type="radio" class="form-check-input" name="gender" value="0" 
+                                    {{ old('gender') == 0 ? 'checked' : '' }}> <span class="">Female</span>
+                                </label>
+                            </div>
+
+                            @if(!empty($errors->create->first('gender')))
+                                <span class="text-danger alert p-0 TeditError" role="alert">{{ $message }}</span>
+                            @endif
+                        </div>
+                      </div>
                     <div class="form-group mb-4">
                         <label for="date_of_birth" class="text-dark">Birthday</label>
                         @if(!empty($errors->create->first('date_of_birth')))

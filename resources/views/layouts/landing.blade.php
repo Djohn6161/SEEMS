@@ -115,7 +115,7 @@
 
         <!-- Header End -->
     </header>
-    <main >
+    <main class="mb-5">
         <x-flash-message></x-flash-message>
         @yield('content')
     </main>

@@ -1,5 +1,5 @@
 <footer>
-    <div class="footer-wrappper footer-bg">
+    <div class="footer-wrappper footer-bg mt-5">
        
        <!-- footer-bottom area -->
        <div class="footer-bottom-area">

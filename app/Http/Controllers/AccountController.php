@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Examination;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
@@ -87,5 +89,23 @@ class AccountController extends Controller
         $user->active = !$user->active;
         $user->save();
         return back()->with('message', $user->name . ' Updated Successfully!');
+    }
+    public function changePass(Request $request){
+        $formfields = $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|min:8|confirmed',
+        ]);
+        // dd($formfields);
+        $user = Auth::user();
+
+        if (Hash::check($request->current_password, $user->password)) {
+            $user->update([
+                'password' => Hash::make($request->password),
+            ]);
+
+            return redirect()->back()->with('message', 'Password changed successfully.');
+        } else {
+            return redirect()->back()->withErrors(['current_password' => 'Incorrect current password.']);
+        }
     }
 }

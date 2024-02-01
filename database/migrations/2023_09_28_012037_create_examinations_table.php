@@ -18,6 +18,7 @@ return new class extends Migration
             $table->dateTime('end_dateTime');
             $table->time('duration')->default('01:00:00');
             $table->integer('numberOfAttempts');
+            $table->boolean('Announce')->default(false);
             $table->timestamps();
         });
     }

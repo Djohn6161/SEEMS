@@ -42,7 +42,7 @@ Route::group(['middleware' => ['prevent-back']], function () {
 Route::group(['middleware' => ['auth', 'checkrole:1', 'prevent-back']], function () {
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [HomeController::class, 'adminindex'])->name('index'); 
-
+        Route::put('/changePass', [AccountController::class, 'changePass'])->name('changePass');
         Route::get('/examination/index', [ExaminationController::class, 'index'])->name('exams.index');
         
         Route::post('/examination/question/create/{examination}', [QuestionController::class, 'create'])->name('exams.question.create'); 
@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1', 'prevent-back']], function
         Route::post('/examination/choice/store/{question}', [ChoicesController::class, 'store'])->name('exams.choice.store');
         
         Route::post('/examination/store', [ExaminationController::class, 'store'])->name('exam.store');
+        Route::get('/examination/announce/{examination}', [ExaminationController::class, 'announce'])->name('exam.announce'); 
         Route::put('/examination/update/{examination}', [ExaminationController::class, 'update'])->name('exam.update');
         Route::delete('/examination/destroy/{examination}', [ExaminationController::class,'destroy'])->name('exam.destroy');
         Route::get('/examination/{examination}', [ExaminationController::class, 'show'])->name('exam.show'); 

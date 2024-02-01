@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
-            ExamSeeder::class
+            ExamSeeder::class,
         ]);
         User::create([
             'active' => true,
@@ -81,6 +81,7 @@ class DatabaseSeeder extends Seeder
             "province" => "Camarines Sur",
             "municipality" => "Baao",
             "barangay" => "Bagumbayan",
+            'gender' => 1,
         ]);
         Registration::create([
             "courses_id" => $bsit->id,
@@ -95,6 +96,7 @@ class DatabaseSeeder extends Seeder
             "municipality" => "Bato",
             "barangay" => "Bagumbayan",
             'created_at' => '2024-03-28 23:00:53',
+            'gender' => 0,
         ]);
         Registration::create([
             "courses_id" => $bsit->id,
@@ -109,6 +111,7 @@ class DatabaseSeeder extends Seeder
             "municipality" => "Nabua",
             "barangay" => "Bagumbayan",
             'created_at' => '2024-02-28 23:00:53',
+            'gender' => 1,
         ]);
         Registration::create([
             "courses_id" => $bsit->id,
@@ -123,6 +126,7 @@ class DatabaseSeeder extends Seeder
             "municipality" => "Buhi",
             "barangay" => "Bagumbayan",
             'created_at' => '2024-04-28 23:00:53',
+            'gender' => 1,
         ]);
         Course::create([
             'name' => 'Bachelor of Engineering Technology Major in Automotive',

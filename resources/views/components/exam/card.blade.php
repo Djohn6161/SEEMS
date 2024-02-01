@@ -48,6 +48,15 @@
 
         </div>
         <div class="card-footer d-flex justify-content-end align-items-center">
+            @if ($exam->Announce == 0)
+            <a href="{{route('admin.exam.announce', ['examination' => $exam->id])}}" class="btn btn-secondary mx-1">
+                <i class="fas fa-times fa-sm "></i> Stop Score Announcement
+            </a>
+            @else
+            <a href="{{route('admin.exam.announce', ['examination' => $exam->id])}}" class="btn btn-success mx-1">
+                <i class="fas fa-bullhorn fa-sm "></i> Score Announcement
+            </a>
+            @endif
             <button data-toggle="modal" data-target="#updateModal{{ $exam->id }}" class="btn btn-warning mx-1">
                 <i class="fas fa-pen fa-sm "></i> Edit
             </button>

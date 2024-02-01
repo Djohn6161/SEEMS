@@ -73,7 +73,7 @@
             </div>
         </div>
     </section>
-    <section class="about-area3 my-5">
+    <section class="about-area3 my-5 fix">
         <div class="mx-3">
             <div class="container-flex px- px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -92,7 +92,7 @@
                                         {{-- <label for="psa_file" class="custom-file-label" for="psa_file"  style="font-size: 2.2rem">Choose a image File</label> --}}
                                       </div>
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="email" class="form-label">Email Address</label>
                                         <input id="email" type="email"
@@ -105,6 +105,17 @@
                                             </span>
                                         @enderror
                                     </div>
+                                </div>
+                                <div class="col-md-4 ">
+                                    <div class="form-group " style="height:10px">
+                                        <label for="course"  class="form-label">Course Preferred</label>
+                                        <select size="1" class="form-control w-100 " id="course" name="courses_id" style="font-size: 2.5rem;">
+                                          <option style="font-size: 2.5rem">Choose course</option>
+                                          @foreach ($courses as $course)
+                                            <option @if (old('courses_id') == $course->id) class="text-light font-weight-bold bg-primary" selected @endif style="font-size: 2.5rem" value="{{$course->id}}">{{$course->name . " " . $course->acrocode}}</option>
+                                          @endforeach
+                                        </select>
+                                      </div>
                                 </div>
                             </div>
 
@@ -186,17 +197,32 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group " style="height:10px">
-                                        <label for="course"  class="form-label">Course Preferred</label>
-                                        <select size="1" class="form-control w-100 " id="course" name="courses_id" style="font-size: 2.5rem;">
-                                          <option style="font-size: 2.5rem">Choose course</option>
-                                          @foreach ($courses as $course)
-                                            <option @if (old('courses_id') == $course->id) class="text-light font-weight-bold bg-primary" selected @endif style="font-size: 2.5rem" value="{{$course->id}}">{{$course->name . " " . $course->acrocode}}</option>
-                                          @endforeach
-                                        </select>
+                                <div class="col-md-6 mb-5">
+                                    <div class="form-group mb-5" style="height:10px; font-size: 2.5rem;">
+                                        <label for="gender"  class="form-label">Gender</label>
+                                        <br>
+                                        <div class="col-sm-9 d-inline-flex justify-content-start align-items-center">
+                                                <div class="d-inline-flex justify-content-start align-items-center">
+                                                    <label class="form-check-label mx-3">
+                                                        <input type="radio" class="form-check-input mr-3 mt-3" name="gender" value="1" style="transform: scale(2)"
+                                                            {{ old('gender') == 1 ? 'checked' : '' }}> <span class="ml-3">Male</span>
+                                                    </label>
+                                                </div>
+                
+                                            <div class="d-inline-flex justify-content-start align-items-center">
+                                                <label class="form-check-label mx-3">
+                                                    <input type="radio" class="form-check-input ml-3 mt-3" name="gender" value="0" style="transform: scale(2)"
+                                                    {{ old('gender') == 0 ? 'checked' : '' }}> <span class="ml-5">Female</span>
+                                                </label>
+                                            </div>
+                
+                                            @error('gender')
+                                                <span class="text-danger alert p-0 TeditError" role="alert">{{ $message }}</span>
+                                            @enderror
+                                        </div>
                                       </div>
                                 </div>
+                                
                                 <div class="col-md-6">
                                     <div class="form-group mb-0">
                                         <label class="form-label  mb-2">PSA File</label>

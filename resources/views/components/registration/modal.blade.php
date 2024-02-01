@@ -84,6 +84,29 @@
                             id="extension[{{ $registration->id }}]" name="extension" placeholder=""
                             value="{{ $registration->extension }}" >
                     </div>
+                    <div class="form-group " style="">
+                        <label for="gender"  class="form-label">Gender</label>
+                        <br>
+                        <div class="col-sm-9 d-inline-flex justify-content-start align-items-center">
+                                <div class="d-inline-flex justify-content-start align-items-center">
+                                    <label class="form-check-label mx-3">
+                                        <input type="radio" class="form-check-input " name="gender" value="1" 
+                                            {{ $registration->gender == 1 ? 'checked' : '' }}> <span class="">Male</span>
+                                    </label>
+                                </div>
+
+                            <div class="d-inline-flex justify-content-start align-items-center">
+                                <label class="form-check-label mx-3">
+                                    <input type="radio" class="form-check-input" name="gender" value="0" 
+                                    {{ $registration->gender == 0 ? 'checked' : '' }}> <span class="">Female</span>
+                                </label>
+                            </div>
+
+                            @error('gender')
+                                <span class="text-danger alert p-0 TeditError" role="alert">{{ $message }}</span>
+                            @enderror
+                        </div>
+                      </div>
                     <div class="form-group mb-4">
                         <label for="date_of_birth[{{ $registration->id }}]" class="text-dark">Birthday</label>
                         @error('date_of_birth')

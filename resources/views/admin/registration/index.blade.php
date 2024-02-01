@@ -38,6 +38,7 @@
                             <th class="text-center">Middle Name</th>
                             <th class="text-center">Last Name</th>
                             <th class="text-center">Extension</th>
+                            <th class="text-center">Gender</th>
                             <th class="text-center">Date Of Birth</th>
                             <th class="text-center">Mobile Number</th>
                             <th class="text-center">Address</th>
@@ -86,6 +87,7 @@
                                 <td >{{ $registration->middle_name }}</td>
                                 <td>{{ $registration->last_name }}</td>
                                 <td>{{ $registration->extension }}</td>
+                                <td>{{ $registration->gender ? "Male" : "Female" }}</td>
                                 <td>{{ $registration->date_of_birth }}</td>
                                 <td>{{ $registration->mobile_number }}</td>
                                 <td>{{ $registration->barangay . ", " . $registration->municipality . ", " . $registration->province }}</td>

@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 @section('content')
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="alert alert-primary w-100 text-center">Please wait for further announcement from the guidance office for the result of your examination.</h1>
+</div>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Examinations</h1>
     </div>
@@ -11,6 +14,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">DATABASE</h6>
             </div>
             <div class="card-body">
+                
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                         <thead>

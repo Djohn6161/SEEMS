@@ -115,7 +115,69 @@
             </div>
         </div>
     </div>
+    @if (auth()->user()->role == 1)
+    <div class="modal fade" id="changePassModal" tabindex="-1" role="dialog"
+    aria-labelledby="ChangePassModalLabel" aria-hidden="true
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold text-primary" id="exampleModalLabel">Change Your
+                    Password</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="changePass" method="POST" action="{{ route('admin.changePass') }}" class="inline">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group mb-4">
+                        <label for="current_password" class="text-dark">Current Password</label>
+                        @error('current_password')
+                            <span class="text-danger alert TeditError" role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="password" id="current_password" name="current_password"
+                            class="form-control" autofocus style="font-size: 14px" value="" required>
+                        {{-- <i class="fa-regular fa-eye"></i> --}}
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="form-group mb-4">
+                        <label for="password" class="text-dark">New Password</label>
+                        @error('password')
+                            <span class="text-danger alert TeditError" role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="password" id="password" name="password" class="form-control"
+                            style="font-size: 14px" autofocus value="" required>
 
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="password_confirmation" class="text-dark">Confirm Password</label>
+                        @error('password_confirmation')
+                            <span class="text-danger alert TeditError" role="alert">{{ $message }}</span>
+                        @enderror
+                        <input type="password" id="password_confirmation" name="password_confirmation"
+                            class="form-control" autofocus style="font-size: 14px" value="" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                    Cancel
+                </button>
+
+
+                {{-- @method('DELETE') --}}
+                <button form="changePass" type="submit" class="btn btn-primary">
+                    Confirm
+                </button>
+                {{-- <a class="btn btn-primary" href="{{route('logout')}}">Logout</a> --}}
+            </div>
+        </div>
+    </div>
+</div>
+    @endif
+    
     <!-- Bootstrap core JavaScript-->
 
     

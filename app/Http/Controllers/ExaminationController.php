@@ -71,5 +71,11 @@ class ExaminationController extends Controller
             
         return back()->with('message', 'Examination Deleted Successfully!');
     }
+    public function announce(Examination $examination){
+            $examination->Announce = !$examination->Announce;
+            $examination->save();
+            return back()->with('message', ' Examination Updated Successfully!');
+        
+    }
     
 }
