@@ -31,7 +31,7 @@ class RegistrationController extends Controller
             'courses_id' => 'required',
         ]);
         // dd($validatedData['psa_file']);
-        $randomPassword = rand(100000, 999999);
+        $randomPassword = rand(1000, 9999);
         $validatedData['password'] = $randomPassword;
         
         // dd($validatedData['email']);
